@@ -1,0 +1,10 @@
+{
+  "tsconfig": "./config/compodoc/tsconfig.compodoc.json",
+  "name": "regist-poc",
+  "theme": "laravel",
+  "hideGenerator": true,
+  "unitTestCoverage": "./coverage/coverage-summary.json",
+  "customFavicon": "./src/favicon.ico",
+  "customLogo": "./src/assets/logo-atmira.png",
+  "port": 8080
+}
