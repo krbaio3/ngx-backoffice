@@ -66,15 +66,17 @@ La recomendación es tener todos instalados en sus últimas versiones LTS.
 
 ## Notas para Desarrolladores
 
-Es importante entender que debido a que esta base está preparada para el uso de MicroFrontends, se haga la instalación mediante `yarn`. Esto es debido a que `npm` no reconoce, a fecha de escribir este `README.md`, el atributo `resolutions` que se encuentra en el `package.json`.
+## Introduction
 
-```json
-  "resolutions": {
-    "webpack": "^5.0.0"
-  },
-```
+This PetShop is based in 'Hexagonal Architecture' and the structure is based in PODS, from Framework Web Ember.
+This `App` is divided in:
 
-Al usar webpack 5, no se nos refresca el navegador  con cada cambio, aunque la construcción si se realiza correctamente. Para usar Angular 11 con webpack 4, simplemente, instale y ejecute todos los comandos con `npm`.
+- `common`: Common components **not linked** to the domain.
+- `common-app`: Common components **linked** to the domain.
+- `core`: cross component.
+- `layouts`: estructuras de paginas.
+- `pods`: group components to the domain.
+- `scenes`: pages.
 
 ## Instalación
 

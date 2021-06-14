@@ -41,20 +41,19 @@
     "test:watch": "ng test --watch",
     "prepare": "husky install"
   },
-  "resolutions": {
-    "webpack": "^5.0.0"
-  },
   "dependencies": {
     "@angular/animations": "11.2.14",
     "@angular/cdk": "11.2.13",
     "@angular/common": "11.2.14",
     "@angular/compiler": "11.2.14",
     "@angular/core": "11.2.14",
+    "@angular/flex-layout": "^12.0.0-beta.34",
     "@angular/forms": "11.2.14",
     "@angular/material": "11.2.13",
     "@angular/platform-browser": "11.2.14",
     "@angular/platform-browser-dynamic": "11.2.14",
     "@angular/router": "11.2.14",
+    "ngx-scrollbar": "^7.5.6",
     "rxjs": "6.6.7",
     "tslib": "2.2.0",
     "zone.js": "0.11.4"
