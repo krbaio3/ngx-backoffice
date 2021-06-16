@@ -35,10 +35,9 @@
     "release": "standard-version",
     "serve": "ng serve",
     "start": "ng serve -o",
-    "postinstall": "npm audit fix",
-    "test": "ng test",
-    "test:coverage": "ng test --coverage",
-    "test:watch": "ng test --watch",
+    "test": "ng test -i",
+    "test:coverage": "ng test --detect-open-handles --coverage",
+    "test:watch": "ng test --detect-open-handles --watch",
     "prepare": "husky install"
   },
   "dependencies": {
@@ -47,7 +46,7 @@
     "@angular/common": "11.2.14",
     "@angular/compiler": "11.2.14",
     "@angular/core": "11.2.14",
-    "@angular/flex-layout": "^12.0.0-beta.34",
+    "@angular/flex-layout": "^11.0.0-beta.33",
     "@angular/forms": "11.2.14",
     "@angular/material": "11.2.13",
     "@angular/platform-browser": "11.2.14",
@@ -59,7 +58,7 @@
     "zone.js": "0.11.4"
   },
   "devDependencies": {
-    "@angular-builders/jest": "11.2.0",
+    "@angular-builders/jest": "12.1.0",
     "@angular-devkit/build-angular": "0.1102.13",
     "@angular-eslint/builder": "4.3.0",
     "@angular-eslint/eslint-plugin": "4.3.0",
@@ -95,9 +94,10 @@
     "husky": "6.0.0",
     "jasmine-reporters": "^2.4.0",
     "jasmine-spec-reporter": "^7.0.0",
-    "jest": "26.6.3",
+    "jest": "27.0.4",
     "jest-html-reporters": "2.1.6",
     "lint-staged": "11.0.0",
+    "node-notifier": "^10.0.0",
     "npm-run-all": "4.1.5",
     "prettier": "2.3.0",
     "prettier-eslint": "12.0.0",
