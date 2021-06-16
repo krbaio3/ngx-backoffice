@@ -1,5 +1,5 @@
 /* eslint-disable @angular-eslint/component-selector */
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'cdk-sidebar',
@@ -9,7 +9,9 @@ import { Component, OnInit, Input } from '@angular/core';
 export class SidebarComponent implements OnInit {
   constructor() {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    console.log('entra');
+  }
 
   today: number = Date.now();
   // public bufferValue;

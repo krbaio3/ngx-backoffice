@@ -1,16 +1,20 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
+import { FlexLayoutModule } from '@angular/flex-layout';
 import { FullscreenComponent } from './fullscreen.component';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
 
 describe('FullscreenComponent', () => {
   let component: FullscreenComponent;
   let fixture: ComponentFixture<FullscreenComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ FullscreenComponent ]
+      declarations: [FullscreenComponent],
+      imports: [FlexLayoutModule, MatIconModule, MatButtonModule]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

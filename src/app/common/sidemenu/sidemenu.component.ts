@@ -13,5 +13,7 @@ export class SidemenuComponent implements OnInit {
 
   constructor() {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    console.log('entra');
+  }
 }

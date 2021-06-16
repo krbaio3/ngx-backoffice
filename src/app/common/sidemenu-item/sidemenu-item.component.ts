@@ -7,13 +7,15 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./sidemenu-item.component.scss'],
 })
 export class SidemenuItemComponent implements OnInit {
-  @Input() menu;
-  @Input() iconOnly: boolean;
+  @Input() menu: any;
+  @Input() iconOnly: boolean | undefined;
   @Input() secondaryMenu = false;
 
   constructor() {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    console.log('entra');
+  }
 
   openLink() {
     this.menu.open = this.menu.open;

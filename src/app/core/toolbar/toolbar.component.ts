@@ -19,10 +19,10 @@ import { catchError, mergeMap } from 'rxjs/operators';
         *ngIf="matDrawerShow"
       >
         <!-- Cambiar por el logo de empresa  -->
-        <i class="material-icons app-toolbar-menu">menu </i>
+        <i class="material-icons app-toolbar-menu">menu</i>
       </button>
       <button mat-icon-button (click)="sidenav.toggle()" *ngIf="!matDrawerShow">
-        <i class="material-icons app-toolbar-menu">menu </i>
+        <i class="material-icons app-toolbar-menu">menu</i>
       </button>
 
       <span class="spacer"></span>
@@ -39,9 +39,9 @@ import { catchError, mergeMap } from 'rxjs/operators';
 
       <cdk-fullscreen></cdk-fullscreen>
 
-      <cdk-toolbar-notification
-        [notifications]="toolbarHelpers.notifications"
-      ></cdk-toolbar-notification>
+      <!--      <cdk-toolbar-notification-->
+      <!--        [notifications]="toolbarHelpers.notifications"-->
+      <!--      ></cdk-toolbar-notification>-->
 
       <cdk-user-menu [currentUser]="currentUser"></cdk-user-menu>
 
@@ -102,12 +102,12 @@ export class ToolbarComponent implements OnInit, OnDestroy {
       .getToolbarUser()
       .pipe(
         catchError((error) => {
-          console.error(`Error: ${error}`);
+          // console.error(`Error: ${error}`);
           return of({});
         }),
       )
       .subscribe((user) => {
-        console.log(user as CurrentUser);
+        // console.log(user as CurrentUser);
         this.currentUser = user as CurrentUser;
         // this.id = (user as CurrentUser).id;
       });
@@ -118,7 +118,7 @@ export class ToolbarComponent implements OnInit, OnDestroy {
       .getNotifications(id)
       .pipe(
         catchError((error) => {
-          console.error(`Error: ${error}`);
+          // console.error(`Error: ${error}`);
           return of([]);
         }),
       )

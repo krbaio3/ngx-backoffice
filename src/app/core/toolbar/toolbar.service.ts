@@ -1,14 +1,17 @@
-import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import {
-  currentUser,
   CurrentUser,
   Notification,
+  currentUser,
   notification,
 } from './toolbar.helpers';
 import { Observable, of } from 'rxjs';
 
-@Injectable()
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+
+@Injectable({
+  providedIn: 'root',
+})
 export class ToolbarService {
   constructor(public $http: HttpClient) {}
 
