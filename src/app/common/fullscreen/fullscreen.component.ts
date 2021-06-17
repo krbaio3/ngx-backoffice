@@ -2,20 +2,35 @@
 import { DOCUMENT } from '@angular/common';
 import { Component, Inject } from '@angular/core';
 
+type ElementFullScreen = {
+  requestFullscreen: Function;
+  mozRequestFullScreen: Function;
+  msRequestFullscreen: Function;
+  webkitRequestFullscreen: Function;
+  mozCancelFullScreen: Function;
+  webkitExitFullscreen: Function;
+  msExitFullscreen: Function;
+};
+
 @Component({
   selector: 'cdk-fullscreen',
   template: ` <button
     mat-icon-button
+    aria-label="fullscreen-button"
     [fxHide]="true"
     [fxHide.gt-xs]="false"
     (click)="toggleFullscreen()"
   >
-    <mat-icon *ngIf="!isFullscreen">fullscreen</mat-icon>
-    <mat-icon *ngIf="isFullscreen">fullscreen_exit</mat-icon>
+    <mat-icon aria-label="fullscreen_icon_run" *ngIf="!isFullscreen"
+      >fullscreen</mat-icon
+    >
+    <mat-icon aria-label="fullscreen_icon_exit" *ngIf="isFullscreen"
+      >fullscreen_exit</mat-icon
+    >
   </button>`,
 })
 export class FullscreenComponent {
-  public element: any;
+  public element: ElementFullScreen;
   isFullscreen: boolean = false;
   constructor(@Inject(DOCUMENT) private document: any) {
     this.element = document.documentElement;

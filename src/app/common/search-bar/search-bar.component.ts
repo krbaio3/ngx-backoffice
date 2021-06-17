@@ -6,12 +6,14 @@ import { Component, Input } from '@angular/core';
   template: ` <mat-form-field
     class="search"
     style="max-height: 66px"
+    data-testid="mat-form-search-class"
     [ngClass]="{ 'search-open': open == true }"
   >
     <input
       matInput
-      placeholder="Search"
+      [placeholder]="placeholder"
       autocomplete="off"
+      aria-label="buscador"
       (focus)="bigMenu = true"
       (focusout)="bigMenu = false"
     />
@@ -21,4 +23,5 @@ import { Component, Input } from '@angular/core';
 export class SearchBarComponent {
   public bigMenu: any;
   @Input() open: any;
+  @Input() placeholder: string = 'Search';
 }

@@ -1,4 +1,5 @@
 import 'jest-preset-angular';
+import '@testing-library/jest-dom';
 
 /* global mocks for jsdom */
 const mock = () => {

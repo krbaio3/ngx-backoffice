@@ -7,6 +7,9 @@ import {
 import { ToolbarService } from './toolbar.service';
 import { forkJoin, Observable, of, Subscription } from 'rxjs';
 import { catchError, mergeMap } from 'rxjs/operators';
+import { MatIconRegistry } from '@angular/material/icon';
+import { DomSanitizer } from '@angular/platform-browser';
+import { MatRipple } from '@angular/material/core';
 
 @Component({
   selector: 'atm-toolbar',
@@ -17,10 +20,14 @@ import { catchError, mergeMap } from 'rxjs/operators';
         mat-icon-button
         (click)="sidenav.toggle(); drawer.toggle()"
         *ngIf="matDrawerShow"
+        style="height: 32px; width: 100px"
       >
-        <!-- Cambiar por el logo de empresa  -->
-        <i class="material-icons app-toolbar-menu">menu</i>
+        <mat-icon
+          svgIcon="business_logo"
+          style="height: 32px; width: 100px"
+        ></mat-icon>
       </button>
+
       <button mat-icon-button (click)="sidenav.toggle()" *ngIf="!matDrawerShow">
         <i class="material-icons app-toolbar-menu">menu</i>
       </button>
@@ -39,9 +46,9 @@ import { catchError, mergeMap } from 'rxjs/operators';
 
       <cdk-fullscreen></cdk-fullscreen>
 
-      <!--      <cdk-toolbar-notification-->
-      <!--        [notifications]="toolbarHelpers.notifications"-->
-      <!--      ></cdk-toolbar-notification>-->
+      <cdk-toolbar-notification
+        [notifications]="toolbarHelpers.notifications"
+      ></cdk-toolbar-notification>
 
       <cdk-user-menu [currentUser]="currentUser"></cdk-user-menu>
 
@@ -79,7 +86,7 @@ export class ToolbarComponent implements OnInit, OnDestroy {
   @Input() sidenav: any;
   @Input() sidebar: any;
   @Input() drawer: any;
-  @Input() matDrawerShow: any;
+  @Input() matDrawerShow: boolean = false;
 
   searchOpen: boolean = false;
   toolbarHelpers: NotificationBar = ToolbarHelpers;
@@ -90,7 +97,18 @@ export class ToolbarComponent implements OnInit, OnDestroy {
   private subscription1$: Subscription = new Subscription();
   private subscription2$: Subscription = new Subscription();
 
-  constructor(private toolbarSrv: ToolbarService) {}
+  constructor(
+    private toolbarSrv: ToolbarService,
+    private matIconRegistry: MatIconRegistry,
+    private domSanitizer: DomSanitizer,
+  ) {
+    this.matIconRegistry.addSvgIcon(
+      `business_logo`,
+      this.domSanitizer.bypassSecurityTrustResourceUrl(
+        '../assets/logo-atmira.svg',
+      ),
+    );
+  }
 
   ngOnInit() {
     this.callToGetUser();
