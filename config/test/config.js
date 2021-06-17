@@ -1,5 +1,7 @@
 const { resolve } = require('path');
 
+const { globals } = require('jest-preset-angular/jest-preset.js');
+
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const { name, version } = require('../../package.json');
 
@@ -30,16 +32,8 @@ module.exports.coverageThreshold = {
   },
 };
 
-module.exports.globals = {
-  // globals: {
-  //   'ts-jest': {
-  //     tsconfig: '<rootDir>/tsconfig.spec.json',
-  //     stringifyContentPathRegex: '\\.html$',
-  //     useESM: true,
-  //   },
-  // },
-};
+module.exports.globals = globals;
 
 const root = resolve(__dirname, '../../');
 
-module.exports.projects = [`${root}/config/test/jest/jest.config.js`];
+module.exports.projects = [`${root}/config/test/jest.config.js`];

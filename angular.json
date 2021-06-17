@@ -92,9 +92,11 @@
           "options": {
             "configPath": "./config/test/jest.config.js",
             "tsConfig": "./config/test/tsconfig.spec.json",
+            "polyfills": "src/polyfills.ts",
             "no-cache": true,
             "verbose": true,
             "watch": false,
+            "globalMocks": ["getComputedStyle", "doctype", "styleTransform", "matchMedia"],
             "assets": ["src/favicon.ico", "src/assets"],
             "styles": [
               "./node_modules/@angular/material/prebuilt-themes/purple-green.css",

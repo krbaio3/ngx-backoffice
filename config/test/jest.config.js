@@ -6,9 +6,9 @@ const {
 } = require('./config');
 
 module.exports = {
-  name: displayName,
+  // name: displayName,
   // Automatically clear mock calls and instances between every test
-  clearMocks: true,
+  clearMocks: false,
 
   // Indicates whether the coverage information should be collected while executing the test
   collectCoverage: false,
@@ -28,7 +28,7 @@ module.exports = {
   // An object that configures minimum threshold enforcement for coverage results
   coverageThreshold,
 
-  displayName,
+  // displayName,
 
   // A path to a custom dependency extractor
   // dependencyExtractor: undefined,
@@ -60,7 +60,9 @@ module.exports = {
   modulePaths: ['<rootDir>/src'],
 
   // A map from regular expressions to module names or to arrays of module names that allow to stub out resources with a single module
-  // moduleNameMapper: {},
+  moduleNameMapper: {
+    '@core/(.*)': '<rootDir>/src/app/core/$1',
+  },
 
   // An array of regexp pattern strings, matched against all module paths before considered 'visible' to the module loader
   modulePathIgnorePatterns: ['<rootDir>/dist/'],
@@ -78,7 +80,7 @@ module.exports = {
   // projects: undefined,
 
   // Use this configuration option to add custom reporters to Jest
-  reporters,
+  // reporters,
 
   // Automatically reset mock state between every test
   resetMocks: false,
@@ -153,10 +155,7 @@ module.exports = {
   // },
 
   // An array of regexp pattern strings that are matched against all source file paths, matched files will skip transformation
-  // transformIgnorePatterns: [
-  //   "/node_modules/",
-  //   "\\.pnp\\.[^\\/]+$"
-  // ],
+  transformIgnorePatterns: ['node_modules/(?!(jest-test|@ngrx))'],
 
   // An array of regexp pattern strings that are matched against all modules before the module loader will automatically return a mock for them
   // unmockedModulePathPatterns: undefined,
