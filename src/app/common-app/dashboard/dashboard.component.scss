@@ -20,7 +20,7 @@
   }
   .router-outlet {
     position: relative;
-    padding: 0px 5px;
+    padding: 0 5px;
   }
   .spacer {
     width: 100%;
@@ -32,4 +32,14 @@
     color: white;
     margin-top: 8px;
   }
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 64px;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }

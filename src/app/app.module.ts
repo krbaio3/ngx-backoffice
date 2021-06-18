@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CoreModule } from './core/core.module';
 import { DashboardModule } from './common-app/dashboard/dashboard.module';
+import { SidenavModule } from './common-app/sidenav/sidenav.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -14,6 +15,7 @@ import { DashboardModule } from './common-app/dashboard/dashboard.module';
     BrowserAnimationsModule,
     CoreModule,
     DashboardModule,
+    SidenavModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

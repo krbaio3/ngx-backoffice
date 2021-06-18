@@ -13,6 +13,7 @@ import { UserMenuComponent } from './user-menu/user-menu.component';
 import { MatListModule } from '@angular/material/list';
 import { ScrollingModule } from '@angular/cdk/scrolling';
 import { NgScrollbarModule } from 'ngx-scrollbar';
+import { UserAvatarComponent } from './user-avatar/user-avatar.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { NgScrollbarModule } from 'ngx-scrollbar';
     FullscreenComponent,
     ToolbarNotificationComponent,
     UserMenuComponent,
+    UserAvatarComponent,
   ],
   imports: [
     CommonModule,
@@ -38,6 +40,7 @@ import { NgScrollbarModule } from 'ngx-scrollbar';
     FullscreenComponent,
     ToolbarNotificationComponent,
     UserMenuComponent,
+    UserAvatarComponent,
   ],
 })
 export class CommonExtensionModule {}
