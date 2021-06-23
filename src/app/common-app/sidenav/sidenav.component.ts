@@ -15,21 +15,29 @@ import { MediaObserver } from '@angular/flex-layout';
       class="sidenav__container"
       autosize
       [ngStyle]="{ top: fixedTopGap + 'px' }"
+      role="region"
     >
       <mat-sidenav
         #sidenav
         mode="side"
         opened
-        class="example-sidenav"
+        class="sidenav__sidenav"
         [fixedInViewport]="true"
         [fixedTopGap]="fixedTopGap"
+        [ngStyle.xs]="{ width: '80px' }"
+        [ngStyle.gt-xs]="{ width: '270px' }"
+        role="directory"
       >
-        <cdk-user-avatar></cdk-user-avatar>
+        <ng-scrollbar>
+          <cdk-user-avatar></cdk-user-avatar>
+          <cdk-side-menu [iconOnly]="iconOnly"></cdk-side-menu>
+        </ng-scrollbar>
       </mat-sidenav>
 
-      <mat-sidenav-content style="background-color: black">
+      <mat-sidenav-content style="background-color: black" role="main">
         <p>Works!</p>
         <p><button mat-button (click)="handleClickToggle()">Toggle</button></p>
+        <router-outlet></router-outlet>
       </mat-sidenav-content>
     </mat-sidenav-container>
   `,
@@ -39,17 +47,14 @@ export class SidenavComponent implements AfterViewInit, OnInit {
   @ViewChild('sidenav')
   public sidenav: any;
 
-  // public openCloseFlag: Observable<boolean>;
+  public iconOnly: boolean;
 
-  @Input()
-  public openNav: boolean = false;
+  public fixedTopGap: number;
 
-  public fixedTopGap = 56;
-
-  constructor(
-    public sidenavSrv: SidenavService,
-    private media: MediaObserver,
-  ) {}
+  constructor(public sidenavSrv: SidenavService, private media: MediaObserver) {
+    this.iconOnly = true;
+    this.fixedTopGap = 56;
+  }
 
   public handleClickToggle() {
     this.sidenav.toggle();
@@ -69,25 +74,18 @@ export class SidenavComponent implements AfterViewInit, OnInit {
   }
 
   public toggleView() {
-    // if (this.media.isActive('gt-md')) {
-    //   console.log('gt-md');
-    // } else if (this.media.isActive('gt-xs')) {
-    //   console.log('gt-xs');
-    // } else if (this.media.isActive('lt-sm')) {
-    //   console.log('lt-sm');
-    // }
     if (this.media.isActive('gt-md')) {
       console.log('gt-md');
       this.fixedTopGap = 64;
-      console.log(this.fixedTopGap);
+      this.iconOnly = false;
     } else if (this.media.isActive('gt-xs')) {
       console.log('gt-xs');
       this.fixedTopGap = 64;
-      console.log(this.fixedTopGap);
+      this.iconOnly = false;
     } else if (this.media.isActive('lt-sm')) {
       console.log('lt-sm');
       this.fixedTopGap = 56;
-      console.log(this.fixedTopGap);
+      this.iconOnly = true;
     }
   }
 }

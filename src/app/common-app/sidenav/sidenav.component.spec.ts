@@ -6,6 +6,9 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatButtonModule } from '@angular/material/button';
 import { CommonExtensionModule } from '../../common/common-extension.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { NgScrollbarModule } from 'ngx-scrollbar';
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('SidenavComponent', () => {
   let component: SidenavComponent;
@@ -14,10 +17,16 @@ describe('SidenavComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ SidenavComponent ],
-      imports: [CommonModule,
+      imports: [
+        CommonModule,
         MatSidenavModule,
         MatButtonModule,
-        CommonExtensionModule,BrowserAnimationsModule]
+        CommonExtensionModule,
+        FlexLayoutModule,
+        BrowserAnimationsModule,
+        NgScrollbarModule,
+        RouterTestingModule
+      ]
     })
     .compileComponents();
   });

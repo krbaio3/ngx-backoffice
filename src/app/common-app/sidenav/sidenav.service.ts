@@ -19,14 +19,6 @@ export class SidenavService {
     this._sidenav = value;
   }
 
-  // get flag(): Observable<boolean> {
-  //   return this.flag$;
-  // }
-  //
-  // set flag(value: Observable<boolean>): void {
-  //   this.flag$ = value;
-  // }
-
   private _flag$: Observable<boolean> = new Observable<boolean>();
 
   public sideNavToggleSubject: BehaviorSubject<any> = new BehaviorSubject<any>(
@@ -39,5 +31,9 @@ export class SidenavService {
 
   public close() {
     return this._sidenav.close();
+  }
+
+  public open() {
+    return this._sidenav.open();
   }
 }

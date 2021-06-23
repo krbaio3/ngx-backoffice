@@ -153,8 +153,10 @@ export class ToolbarComponent implements OnInit, OnDestroy {
   public async toggleView() {
     if (this.media.isActive('gt-md')) {
       console.log('ToolbarComponent gt-md');
+      await this.sidenavSrv.open();
     } else if (this.media.isActive('gt-xs')) {
       console.log('ToolbarComponent gt-xs');
+      await this.sidenavSrv.open();
     } else if (this.media.isActive('lt-sm')) {
       console.log('ToolbarComponent lt-sm');
       await this.sidenavSrv.close();

@@ -8,6 +8,7 @@ import { CommonModule } from '@angular/common';
 import { CoreModule } from '../../core/core.module';
 import { SidenavModule } from '../sidenav/sidenav.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('DashboardComponent', () => {
   let component: DashboardComponent;
@@ -25,7 +26,8 @@ describe('DashboardComponent', () => {
         MatSidenavModule,
         MatIconModule,
         FlexLayoutModule,
-        BrowserAnimationsModule
+        BrowserAnimationsModule,
+        RouterTestingModule,
       ]
     })
     .compileComponents();

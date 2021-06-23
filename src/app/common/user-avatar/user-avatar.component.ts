@@ -5,7 +5,7 @@ import { currentUserInit } from './user-avatar.model';
 
 @Component({
   selector: 'cdk-user-avatar',
-  template: ` <div class="user_avatar__container">
+  template: ` <div class="user_avatar__container" fxLayoutAlign="center">
     <span fxLayout="row" fxLayoutAlign="center center">
       <img
         class="avatar"
