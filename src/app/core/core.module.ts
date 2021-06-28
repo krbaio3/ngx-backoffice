@@ -9,9 +9,10 @@ import { RouterModule } from '@angular/router';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { CommonExtensionModule } from '../common/common-extension.module';
 import { HttpClientModule } from '@angular/common/http';
+import { UserInfoComponent } from './user-info/user-info.component';
 
 @NgModule({
-  declarations: [ToolbarComponent],
+  declarations: [ToolbarComponent, UserInfoComponent],
   imports: [
     CommonModule,
     MatIconModule,

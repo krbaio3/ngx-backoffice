@@ -1,26 +1,30 @@
 import { Component, Input, OnChanges, OnInit } from '@angular/core';
 import { MediaObserver } from '@angular/flex-layout';
 import { RouterOutlet } from '@angular/router';
+import { SidenavService } from '../sidenav/sidenav.service';
 
 @Component({
   selector: 'atm-home-scene',
-  template: `<atm-toolbar
+  template: `
+    <atm-toolbar
       [matDrawerShow]="matDrawerShow"
       style="z-index: 500"
     ></atm-toolbar>
-
+    <atm-sidenav> </atm-sidenav>
     <!-- <atm-toolbar
     [sidenav]="sidenav"
     [drawer]="drawer"
     [sidebar]="sidenav2"
     [matDrawerShow]="matDrawerShow"
     style="z-index: 500"
-  ></atm-toolbar>--> `,
+  ></atm-toolbar>-->
+  `,
   styleUrls: ['dashboard.component.scss'],
 })
 export class DashboardComponent implements OnInit, OnChanges {
   @Input() isVisible: boolean = true;
   visibility = 'shown';
+  isOpen: boolean = false;
 
   sideNavOpened: boolean = true;
   matDrawerOpened: boolean = false;
@@ -31,7 +35,10 @@ export class DashboardComponent implements OnInit, OnChanges {
     this.visibility = this.isVisible ? 'shown' : 'hidden';
   }
 
-  constructor(private media: MediaObserver) {}
+  constructor(
+    private media: MediaObserver,
+    private sidenavSrv: SidenavService,
+  ) {}
 
   ngOnInit() {
     this.media.asObservable().subscribe(() => {
@@ -59,6 +66,7 @@ export class DashboardComponent implements OnInit, OnChanges {
       this.sideNavOpened = false;
       this.matDrawerOpened = false;
       this.matDrawerShow = false;
+      // this.sidenavSrv.toggle();
     }
   }
 }

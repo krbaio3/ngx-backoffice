@@ -13,6 +13,14 @@ import { UserMenuComponent } from './user-menu/user-menu.component';
 import { MatListModule } from '@angular/material/list';
 import { ScrollingModule } from '@angular/cdk/scrolling';
 import { NgScrollbarModule } from 'ngx-scrollbar';
+import { UserAvatarComponent } from './user-avatar/user-avatar.component';
+import { SideMenuComponent } from './side-menu/side-menu.component';
+import { SideMenuItemComponent } from './side-menu-item/side-menu-item.component';
+import { RouterModule } from '@angular/router';
+import { MatChipsModule } from '@angular/material/chips';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { SideMenuOnlyItemComponent } from './side-menu-item/side-menu-only-item.component';
+import { SideMenuAccordionItemComponent } from './side-menu-item/side-menu-accordion-item.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +28,11 @@ import { NgScrollbarModule } from 'ngx-scrollbar';
     FullscreenComponent,
     ToolbarNotificationComponent,
     UserMenuComponent,
+    UserAvatarComponent,
+    SideMenuComponent,
+    SideMenuItemComponent,
+    SideMenuOnlyItemComponent,
+    SideMenuAccordionItemComponent,
   ],
   imports: [
     CommonModule,
@@ -32,12 +45,20 @@ import { NgScrollbarModule } from 'ngx-scrollbar';
     MatListModule,
     ScrollingModule,
     NgScrollbarModule,
+    RouterModule,
+    MatChipsModule,
+    MatExpansionModule,
   ],
   exports: [
     SearchBarComponent,
     FullscreenComponent,
     ToolbarNotificationComponent,
     UserMenuComponent,
+    UserAvatarComponent,
+    SideMenuComponent,
+    SideMenuItemComponent,
+    SideMenuOnlyItemComponent,
+    SideMenuAccordionItemComponent,
   ],
 })
 export class CommonExtensionModule {}

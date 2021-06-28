@@ -74,8 +74,8 @@ $prefix: 'toolbar-notification';
     }
   }
   .content {
-    overflow: hidden;
-    max-height: 256px;
+    overflow: auto;
+    max-height: 195px;
 
     .notification {
       min-height: 64px;
@@ -144,6 +144,9 @@ $prefix: 'toolbar-notification';
     }
   }
 
+  .no {
+    color: #111111;
+  }
   .footer {
     min-height: 42px;
     border-top: 1px solid #eee;
