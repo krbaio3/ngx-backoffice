@@ -7,20 +7,23 @@ import { MenuElement } from '../side-menu/menu-element';
   template: `
     <mat-accordion class="side_menu_item__container">
       <mat-list>
-        <mat-list-item *ngIf="menu.name === ''">
+        <mat-list-item *ngIf="menu.name === ''" role="listitem">
           <span
             [ngStyle.xs]="{ textOverflow: 'ellipsis', overflow: 'hidden' }"
+            data-testid="menu-title"
             >{{ menu.title }}</span
           >
         </mat-list-item>
         <mat-divider *ngIf="menu.name === ''"></mat-divider>
         <cdk-side-menu-accordion-item
+          role="region"
           *ngIf="menu.sub && menu.name !== ''"
           [menu]="menu"
           [iconOnly]="iconOnly"
           class="side_menu_accordion_item__container"
         ></cdk-side-menu-accordion-item>
         <cdk-side-menu-only-item
+          role="listitem"
           *ngIf="!menu.sub && menu.name !== ''"
           [menu]="menu"
           [iconOnly]="iconOnly"
@@ -34,8 +37,6 @@ import { MenuElement } from '../side-menu/menu-element';
 export class SideMenuItemComponent implements OnInit {
   @Input() menu!: MenuElement;
   @Input() iconOnly: boolean = false;
-  @Input() secondaryMenu = false;
-  public name!: any;
 
   constructor() {}
 
@@ -46,9 +47,5 @@ export class SideMenuItemComponent implements OnInit {
   openLink() {
     console.log(this.menu.open);
     this.menu.open = !this.menu.open;
-  }
-
-  checkForChildMenu() {
-    return !!(this.menu && this.menu?.sub);
   }
 }

@@ -41,6 +41,7 @@ export class FullscreenComponent {
 
     this.isFullscreen = !this.isFullscreen;
   }
+  /* istanbul ignore file */
   private openFullscreen() {
     if (this.element.requestFullscreen) {
       this.element.requestFullscreen();
@@ -56,6 +57,7 @@ export class FullscreenComponent {
     }
   }
   /* Close fullscreen */
+  /* istanbul ignore file */
   private closeFullscreen() {
     if (this.document.exitFullscreen) {
       this.document.exitFullscreen();

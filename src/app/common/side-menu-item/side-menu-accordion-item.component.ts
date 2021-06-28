@@ -12,11 +12,12 @@ import { MenuElement } from '../side-menu/menu-element';
     >
       <mat-expansion-panel-header>
         <mat-panel-title style="align-items: start;">
-          <mat-icon>{{ menu.icon }}</mat-icon>
+          <mat-icon [attr.aria-label]="menu.name">{{ menu.icon }}</mat-icon>
           <span
             class="mat-subheading-2"
             style="flex-grow: 8; margin: 0; padding-left: 16px;"
             *ngIf="!iconOnly"
+            data-testid="menu.name"
             >{{ menu.name }}
           </span>
           <mat-chip-list *ngIf="menu.chip && !iconOnly">
@@ -30,8 +31,11 @@ import { MenuElement } from '../side-menu/menu-element';
           [routerLink]="[sub.link]"
           fxLayout.xs="row"
           fxLayoutAlign.xs="center"
+          role="link"
         >
-          <mat-icon matListIcon>{{ sub.icon }} </mat-icon>
+          <mat-icon matListIcon [attr.aria-label]="sub.name"
+            >{{ sub.icon }}
+          </mat-icon>
           <h3 matLine *ngIf="!iconOnly">{{ sub.name }} </h3>
         </mat-list-item>
       </mat-nav-list>
@@ -42,7 +46,6 @@ import { MenuElement } from '../side-menu/menu-element';
 export class SideMenuAccordionItemComponent implements OnInit {
   @Input() menu!: MenuElement;
   @Input() iconOnly: boolean = false;
-  panelOpenState: boolean = false;
 
   constructor() {}
 

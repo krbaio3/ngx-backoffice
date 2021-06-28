@@ -7,6 +7,7 @@ import {
 } from '@angular/core';
 import { SidenavService } from './sidenav.service';
 import { MediaObserver } from '@angular/flex-layout';
+import { MatSidenav } from '@angular/material/sidenav';
 
 @Component({
   selector: 'atm-sidenav',
@@ -45,7 +46,7 @@ import { MediaObserver } from '@angular/flex-layout';
 })
 export class SidenavComponent implements AfterViewInit, OnInit {
   @ViewChild('sidenav')
-  public sidenav: any;
+  public sidenav!: MatSidenav;
 
   public iconOnly: boolean;
 
@@ -56,8 +57,8 @@ export class SidenavComponent implements AfterViewInit, OnInit {
     this.fixedTopGap = 56;
   }
 
-  public handleClickToggle() {
-    this.sidenav.toggle();
+  public async handleClickToggle() {
+    await this.sidenav.toggle();
   }
 
   ngAfterViewInit() {

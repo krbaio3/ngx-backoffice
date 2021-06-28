@@ -29,6 +29,14 @@ import { MediaChange, MediaObserver } from '@angular/flex-layout';
         ></mat-icon>
       </button>
 
+      <button
+        mat-icon-button
+        (click)="handlerButtonSidenav()"
+        *ngIf="!matDrawerShow"
+      >
+        <mat-icon>menu</mat-icon>
+      </button>
+
       <span class="spacer"></span>
 
       <button

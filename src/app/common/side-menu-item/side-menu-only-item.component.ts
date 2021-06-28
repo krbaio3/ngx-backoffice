@@ -5,11 +5,21 @@ import { Component, Input, ViewEncapsulation } from '@angular/core';
   selector: 'cdk-side-menu-only-item',
   template: `
     <mat-nav-list fxLayout.xs="row">
-      <a mat-list-item fxLayoutAlign.xs="center">
-        <mat-icon mat-list-icon>{{ menu.icon }}</mat-icon>
-        <span *ngIf="!iconOnly" [ngStyle.gt-xs]="{ paddingLeft: '16px' }">{{
-          menu.name
-        }}</span>
+      <a
+        mat-list-item
+        fxLayoutAlign.xs="center"
+        role="link"
+        routerLink="/docs/{{ menu.name.trim().toLowerCase() }}"
+      >
+        <mat-icon mat-list-icon [attr.aria-label]="menu.name">{{
+          menu.icon
+        }}</mat-icon>
+        <span
+          *ngIf="!iconOnly"
+          [ngStyle.gt-xs]="{ paddingLeft: '16px' }"
+          data-testid="menu-name"
+          >{{ menu.name }}</span
+        >
       </a>
     </mat-nav-list>
   `,
