@@ -1,6 +1,6 @@
 {
   "tsconfig": "./config/compodoc/tsconfig.compodoc.json",
-  "name": "regist-poc",
+  "name": "registr-poc",
   "theme": "laravel",
   "hideGenerator": true,
   "unitTestCoverage": "./coverage/coverage-summary.json",

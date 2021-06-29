@@ -20,16 +20,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'regist-poc'`, () => {
+  it(`should have as title 'registr-poc'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('regist-poc');
+    expect(app.title).toEqual('registr-poc');
   });
 
   // it('should render title', () => {
   //   const fixture = TestBed.createComponent(AppComponent);
   //   fixture.detectChanges();
   //   const compiled = fixture.nativeElement;
-  //   expect(compiled.querySelector('.content span').textContent).toContain('regist-poc app is running!');
+  //   expect(compiled.querySelector('.content span').textContent).toContain('registr-poc app is running!');
   // });
 });

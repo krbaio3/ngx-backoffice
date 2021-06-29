@@ -1,10 +1,10 @@
 import { Component, Input, OnChanges, OnInit } from '@angular/core';
 import { MediaObserver } from '@angular/flex-layout';
 import { RouterOutlet } from '@angular/router';
-import { SidenavService } from '../sidenav/sidenav.service';
+import { SidenavService } from '../common-app/sidenav/sidenav.service';
 
 @Component({
-  selector: 'atm-home-scene',
+  selector: 'atm-dashboard',
   template: `
     <atm-toolbar
       [matDrawerShow]="matDrawerShow"

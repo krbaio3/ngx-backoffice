@@ -9,10 +9,17 @@ import { RouterModule } from '@angular/router';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { CommonExtensionModule } from '../common/common-extension.module';
 import { HttpClientModule } from '@angular/common/http';
-import { UserInfoComponent } from './user-info/user-info.component';
+import { GuidesComponent } from './guides/guides.component';
+import { SummaryComponent } from './summary/summary.component';
+import { UserInformationComponent } from './user-information/user-information.component';
 
 @NgModule({
-  declarations: [ToolbarComponent, UserInfoComponent],
+  declarations: [
+    ToolbarComponent,
+    GuidesComponent,
+    SummaryComponent,
+    UserInformationComponent,
+  ],
   imports: [
     CommonModule,
     MatIconModule,
@@ -24,6 +31,11 @@ import { UserInfoComponent } from './user-info/user-info.component';
     CommonExtensionModule,
     HttpClientModule,
   ],
-  exports: [ToolbarComponent],
+  exports: [
+    ToolbarComponent,
+    GuidesComponent,
+    SummaryComponent,
+    UserInformationComponent,
+  ],
 })
 export class CoreModule {}

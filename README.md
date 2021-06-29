@@ -1,10 +1,10 @@
-# regist-poc
+# registr-poc
 
 ## Indice
 
 <!-- TOC -->
 
-- [regist-poc](#-name-)
+- [registr-poc](#-name-)
   - [Indice](#indice)
   - [Introducción](#introducción)
   - [Requisitos](#requisitos)
@@ -195,7 +195,7 @@ La definición del fichero que existe en nuestro proyecto base es el siguiente:
 
 ```json
 {
-  "name": "regist-poc",
+  "name": "registr-poc",
   "version": "0.1.0",
   "description": "Frontend Scaffolding BCC",
   "license": "MIT",
@@ -203,7 +203,7 @@ La definición del fichero que existe en nuestro proyecto base es el siguiente:
     "dist"
   ],
   "scripts": {
-    "analyzed": "webpack-bundle-analyzer dist/regist-poc/stats.json",
+    "analyzed": "webpack-bundle-analyzer dist/registr-poc/stats.json",
     "prebuild": "rimraf dist",
     "build": "ng build --prod",
     "build:dev": "ng build",
@@ -511,7 +511,7 @@ Para ello, se han configurado los siguientes `scrips` dentro del *package.json*:
 
 ```json
 {
-  "analyzed": "webpack-bundle-analyzer dist/regist-poc/stats.json",
+  "analyzed": "webpack-bundle-analyzer dist/registr-poc/stats.json",
   "build:stats": "ng build --prod --stats-json",
   "bundleAnalyzed": "run-s build:stats analyzed"
 }
@@ -789,12 +789,12 @@ Jasmine started
 
   1 base-project App
     ✗ should display welcome message (0.447 sec)
-      - Expected 'regist-poc app is running!' to equal 'regist-pocd app is running!'.
+      - Expected 'registr-poc app is running!' to equal 'registr-poc app is running!'.
 
-      /GitLab/regist-poc/e2e/src/app.e2e-spec.ts:14:39
+      /GitLab/registr-poc/e2e/src/app.e2e-spec.ts:14:39
         it('should display welcome message', async () => {
           await page.navigateTo();
-          expect(await page.getTitleText()).toEqual('regist-pocd app is running!');
+          expect(await page.getTitleText()).toEqual('registr-poc app is running!');
                                             ~
         });
 
@@ -968,7 +968,7 @@ Se ha modificado el `angular.json` de la aplicación, de tal manera que queda de
   },
   "newProjectRoot": "projects",
   "projects": {
-    "regist-poc": {
+    "registr-poc": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -985,7 +985,7 @@ Se ha modificado el `angular.json` de la aplicación, de tal manera que queda de
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/regist-poc",
+            "outputPath": "dist/registr-poc",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -1035,19 +1035,19 @@ Se ha modificado el `angular.json` de la aplicación, de tal manera que queda de
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "regist-poc:build",
+            "browserTarget": "registr-poc:build",
             "port": 4200
           },
           "configurations": {
             "production": {
-              "browserTarget": "regist-poc:build:production"
+              "browserTarget": "registr-poc:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "regist-poc:build"
+            "browserTarget": "registr-poc:build"
           }
         },
         "test": {
@@ -1083,18 +1083,18 @@ Se ha modificado el `angular.json` de la aplicación, de tal manera que queda de
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "config/e2e/protractor.conf.js",
-            "devServerTarget": "regist-poc:serve"
+            "devServerTarget": "registr-poc:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "regist-poc:serve:production"
+              "devServerTarget": "registr-poc:serve:production"
             }
           }
         }
       }
     }
   },
-  "defaultProject": "regist-poc"
+  "defaultProject": "registr-poc"
 }
 ```
 

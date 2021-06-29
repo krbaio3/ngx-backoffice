@@ -11,7 +11,7 @@ import { MenuElement } from '../side-menu/menu-element';
       (closed)="menu.open = false"
     >
       <mat-expansion-panel-header>
-        <mat-panel-title style="align-items: start;">
+        <mat-panel-title fxLayout="row" fxLayoutAlign="center center">
           <mat-icon [attr.aria-label]="menu.name">{{ menu.icon }}</mat-icon>
           <span
             class="mat-subheading-2"

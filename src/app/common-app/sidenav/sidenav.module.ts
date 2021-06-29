@@ -7,7 +7,19 @@ import { CommonExtensionModule } from '../../common/common-extension.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { NgScrollbarModule } from 'ngx-scrollbar';
-import { RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
+import { GuidesComponent } from '../../core/guides/guides.component';
+import { CoreModule } from '../../core/core.module';
+// import { DashboardRoutes } from '../../dashboard/dashboard-routing.module';
+
+const routes: Routes = [
+  {
+    path: 'docs',
+    children: [
+      { path: 'guides', component: GuidesComponent, outlet: 'sidebar' },
+    ],
+  },
+];
 
 @NgModule({
   declarations: [SidenavComponent],
@@ -20,7 +32,13 @@ import { RouterModule } from '@angular/router';
     MatExpansionModule,
     NgScrollbarModule,
     RouterModule,
+    // RouterModule.forChild(routes),
+    CoreModule,
+    // DashboardRoutes,
   ],
-  exports: [SidenavComponent],
+  exports: [
+    SidenavComponent,
+    // DashboardRoutes
+  ],
 })
 export class SidenavModule {}

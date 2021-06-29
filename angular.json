@@ -8,7 +8,7 @@
   },
   "newProjectRoot": "projects",
   "projects": {
-    "regist-poc": {
+    "registr-poc": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -25,7 +25,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/regist-poc",
+            "outputPath": "dist/registr-poc",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -72,19 +72,19 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "regist-poc:build",
+            "browserTarget": "registr-poc:build",
             "port": 4200
           },
           "configurations": {
             "production": {
-              "browserTarget": "regist-poc:build:production"
+              "browserTarget": "registr-poc:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "regist-poc:build"
+            "browserTarget": "registr-poc:build"
           }
         },
         "test": {
@@ -96,7 +96,12 @@
             "no-cache": true,
             "verbose": true,
             "watch": false,
-            "globalMocks": ["getComputedStyle", "doctype", "styleTransform", "matchMedia"],
+            "globalMocks": [
+              "getComputedStyle",
+              "doctype",
+              "styleTransform",
+              "matchMedia"
+            ],
             "assets": ["src/favicon.ico", "src/assets"],
             "styles": [
               "./node_modules/@angular/material/prebuilt-themes/purple-green.css",
@@ -117,16 +122,16 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "config/e2e/protractor.conf.js",
-            "devServerTarget": "regist-poc:serve"
+            "devServerTarget": "registr-poc:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "regist-poc:serve:production"
+              "devServerTarget": "registr-poc:serve:production"
             }
           }
         }
       }
     }
   },
-  "defaultProject": "regist-poc"
+  "defaultProject": "registr-poc"
 }

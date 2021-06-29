@@ -5,8 +5,8 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { CommonModule } from '@angular/common';
-import { CoreModule } from '../../core/core.module';
-import { SidenavModule } from '../sidenav/sidenav.module';
+import { CoreModule } from '../core/core.module';
+import { SidenavModule } from '../common-app/sidenav/sidenav.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterTestingModule } from '@angular/router/testing';
 

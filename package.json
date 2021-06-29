@@ -1,5 +1,5 @@
 {
-  "name": "regist-poc",
+  "name": "registr-poc",
   "version": "0.1.0",
   "description": "Poc for RegisTR",
   "license": "MIT",
@@ -7,7 +7,7 @@
     "dist"
   ],
   "scripts": {
-    "analyzed": "webpack-bundle-analyzer dist/regist-poc/stats.json",
+    "analyzed": "webpack-bundle-analyzer dist/registr-poc/stats.json",
     "prebuild": "rimraf dist",
     "build": "ng build --prod",
     "build:dev": "ng build",

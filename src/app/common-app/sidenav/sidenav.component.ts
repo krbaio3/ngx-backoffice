@@ -12,6 +12,10 @@ import { MatSidenav } from '@angular/material/sidenav';
 @Component({
   selector: 'atm-sidenav',
   template: `
+    <!--    <atm-toolbar-->
+    <!--      [matDrawerShow]="matDrawerShow"-->
+    <!--      style="z-index: 500"-->
+    <!--    ></atm-toolbar>-->
     <mat-sidenav-container
       class="sidenav__container"
       autosize
@@ -35,7 +39,11 @@ import { MatSidenav } from '@angular/material/sidenav';
         </ng-scrollbar>
       </mat-sidenav>
 
-      <mat-sidenav-content style="background-color: black" role="main">
+      <mat-sidenav-content
+        [ngStyle]="{ paddingLeft: '5px' }"
+        style="background-color: black"
+        role="main"
+      >
         <p>Works!</p>
         <p><button mat-button (click)="handleClickToggle()">Toggle</button></p>
         <router-outlet></router-outlet>
@@ -47,6 +55,9 @@ import { MatSidenav } from '@angular/material/sidenav';
 export class SidenavComponent implements AfterViewInit, OnInit {
   @ViewChild('sidenav')
   public sidenav!: MatSidenav;
+
+  // @Input()
+  // public matDrawerShow: boolean = true;
 
   public iconOnly: boolean;
 
