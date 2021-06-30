@@ -7,24 +7,24 @@ const routes: Routes = [
   {
     path: 'docs',
     loadChildren: () =>
-      import('./core/sidenav/sidenav.module').then((m) => m.SidenavModule),
+      import('./pods/documentation/documentation-routing.module').then(
+        (m) => m.DocumentationRoutingModule,
+      ),
   },
-  // {
-  //   path: '',
-  //   component: DashboardComponent,
-  //   children: [
-  //     {
-  //       path: 'docs',
-  //       component: DocumentationComponent,
-  //       children: [
-  //         { path: 'guides', component: GuidesComponent },
-  //         // { path: 'componentB', component: BComponent },
-  //         // { path: 'componentC', component: CComponent },
-  //       ],
-  //     },
-  //   ],
-  // },
-  // ...dashboardRoutes,
+  {
+    path: 'main',
+    loadChildren: () =>
+      import('./pods/main/main-routing.module').then(
+        (m) => m.MainRoutingModule,
+      ),
+  },
+  {
+    path: 'account',
+    loadChildren: () =>
+      import('./pods/account/account-routing.module').then(
+        (m) => m.AccountRoutingModule,
+      ),
+  },
 ];
 
 @NgModule({

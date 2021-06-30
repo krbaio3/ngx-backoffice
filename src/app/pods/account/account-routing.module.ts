@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { GuidesComponent } from '../../common-app/guides/guides.component';
+import { UserInformationComponent } from '../../common-app';
 
 const routes: Routes = [
   {
     path: '',
-    children: [{ path: 'guides', component: GuidesComponent }],
+    children: [{ path: 'user', component: UserInformationComponent }],
   },
 ];
 
@@ -13,4 +13,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class SidenavRoutingModule {}
+export class AccountRoutingModule {}

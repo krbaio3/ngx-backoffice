@@ -12,7 +12,7 @@ import { NgScrollbarModule } from 'ngx-scrollbar';
 /* Custom Modules/Components */
 import { SidenavComponent } from './sidenav.component';
 import { CommonExtensionModule } from '../../common';
-import { SidenavRoutingModule } from './sidenav-routing.module';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [SidenavComponent],
@@ -24,7 +24,7 @@ import { SidenavRoutingModule } from './sidenav-routing.module';
     FlexLayoutModule,
     MatExpansionModule,
     NgScrollbarModule,
-    SidenavRoutingModule,
+    RouterModule,
   ],
   exports: [SidenavComponent],
 })
