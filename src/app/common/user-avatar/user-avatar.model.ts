@@ -1,4 +1,9 @@
-import { CurrentUser } from '../../core/toolbar/toolbar.helpers';
+export type CurrentUser = {
+  photoURL: string;
+  name: string;
+  lastName: string;
+  id: string;
+};
 
 export const currentUserInit: CurrentUser = {
   id: '',

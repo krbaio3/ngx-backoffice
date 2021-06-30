@@ -1,16 +1,16 @@
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
-import {
-  CurrentUser,
-  NotificationBar,
-  ToolbarHelpers,
-} from './toolbar.helpers';
+import { Notify } from './toolbar.helpers';
 import { ToolbarService } from './toolbar.service';
 import { of, Subscription } from 'rxjs';
 import { catchError, distinctUntilChanged, tap } from 'rxjs/operators';
 import { MatIconRegistry } from '@angular/material/icon';
 import { DomSanitizer } from '@angular/platform-browser';
-import { SidenavService } from '../../common-app/sidenav/sidenav.service';
+import { SidenavService } from '../sidenav/sidenav.service';
 import { MediaChange, MediaObserver } from '@angular/flex-layout';
+import {
+  CurrentUser,
+  currentUserInit,
+} from '../../common/user-avatar/user-avatar.model';
 
 @Component({
   selector: 'atm-toolbar',
@@ -52,7 +52,7 @@ import { MediaChange, MediaObserver } from '@angular/flex-layout';
       <cdk-fullscreen></cdk-fullscreen>
 
       <cdk-toolbar-notification
-        [notifications]="toolbarHelpers.notifications"
+        [notifications]="notification"
       ></cdk-toolbar-notification>
 
       <cdk-user-menu [currentUser]="currentUser"></cdk-user-menu>
@@ -77,10 +77,9 @@ export class ToolbarComponent implements OnInit, OnDestroy {
   @Input() matDrawerShow: boolean = false;
 
   searchOpen: boolean = false;
-  toolbarHelpers: NotificationBar = ToolbarHelpers;
 
-  currentUser: CurrentUser = { id: '', name: '', lastName: '', photoURL: '' };
-  notification: Notification[] = [];
+  currentUser: CurrentUser = currentUserInit;
+  notification: Notify[] = [];
 
   private subscription1$: Subscription = new Subscription();
   private subscription2$: Subscription = new Subscription();
@@ -144,7 +143,7 @@ export class ToolbarComponent implements OnInit, OnDestroy {
         }),
       )
       .subscribe(
-        (notification) => (this.notification = notification as Notification[]),
+        (notification) => (this.notification = notification as Notify[]),
       );
   }
 

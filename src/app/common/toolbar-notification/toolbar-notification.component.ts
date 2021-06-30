@@ -7,7 +7,7 @@ import {
   ElementRef,
 } from '@angular/core';
 import { ToolbarNotificationModel } from './toolbar-notification.model';
-import { notification } from '../../core/toolbar/toolbar.helpers';
+import { Notify } from '../../core/toolbar/toolbar.helpers';
 
 @Component({
   selector: 'cdk-toolbar-notification',
@@ -114,7 +114,7 @@ import { notification } from '../../core/toolbar/toolbar.helpers';
 export class ToolbarNotificationComponent {
   cssPrefix = 'toolbar-notification';
   isOpen: boolean = false;
-  @Input() notifications: ToolbarNotificationModel[] = [];
+  @Input() notifications: Notify[] = [];
 
   // @HostListener('document:click', ['$event', '$event.target'])
   // onClick(event: MouseEvent, targetElement: HTMLElement) {

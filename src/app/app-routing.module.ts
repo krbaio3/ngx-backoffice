@@ -1,12 +1,14 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { GuidesComponent } from './core/guides/guides.component';
-import { DocumentationComponent } from './documentation/documentation.component';
-import { dashboardRoutes } from './dashboard/dashboard.routes';
+import { environment } from '../environments/environment';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: '/' },
+  {
+    path: 'docs',
+    loadChildren: () =>
+      import('./core/sidenav/sidenav.module').then((m) => m.SidenavModule),
+  },
   // {
   //   path: '',
   //   component: DashboardComponent,
@@ -22,11 +24,13 @@ const routes: Routes = [
   //     },
   //   ],
   // },
-  ...dashboardRoutes,
+  // ...dashboardRoutes,
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [
+    RouterModule.forRoot(routes, { enableTracing: !environment.production }),
+  ],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}

@@ -20,16 +20,14 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'registr-poc'`, () => {
+  it(`should call to toggleView method in onInit'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('registr-poc');
-  });
+    const spyToogle = jest.spyOn(app, 'toggleView')
 
-  // it('should render title', () => {
-  //   const fixture = TestBed.createComponent(AppComponent);
-  //   fixture.detectChanges();
-  //   const compiled = fixture.nativeElement;
-  //   expect(compiled.querySelector('.content span').textContent).toContain('registr-poc app is running!');
-  // });
+    app.ngOnInit();
+
+    expect(spyToogle).toHaveBeenCalledTimes(1)
+    expect(app.matDrawerShow).toBeTruthy()
+  });
 });

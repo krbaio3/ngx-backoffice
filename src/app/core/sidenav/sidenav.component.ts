@@ -8,14 +8,12 @@ import {
 import { SidenavService } from './sidenav.service';
 import { MediaObserver } from '@angular/flex-layout';
 import { MatSidenav } from '@angular/material/sidenav';
+import { MenuElement } from '../../common/side-menu/menu-element';
+import { CurrentUser } from '../../common/user-avatar/user-avatar.model';
 
 @Component({
   selector: 'atm-sidenav',
   template: `
-    <!--    <atm-toolbar-->
-    <!--      [matDrawerShow]="matDrawerShow"-->
-    <!--      style="z-index: 500"-->
-    <!--    ></atm-toolbar>-->
     <mat-sidenav-container
       class="sidenav__container"
       autosize
@@ -34,8 +32,11 @@ import { MatSidenav } from '@angular/material/sidenav';
         role="directory"
       >
         <ng-scrollbar>
-          <cdk-user-avatar></cdk-user-avatar>
-          <cdk-side-menu [iconOnly]="iconOnly"></cdk-side-menu>
+          <cdk-user-avatar [currentUser]="currentUser"></cdk-user-avatar>
+          <cdk-side-menu
+            [menuItems]="sidenavMenuItems"
+            [iconOnly]="iconOnly"
+          ></cdk-side-menu>
         </ng-scrollbar>
       </mat-sidenav>
 
@@ -56,8 +57,11 @@ export class SidenavComponent implements AfterViewInit, OnInit {
   @ViewChild('sidenav')
   public sidenav!: MatSidenav;
 
-  // @Input()
-  // public matDrawerShow: boolean = true;
+  @Input()
+  public sidenavMenuItems!: MenuElement[];
+
+  @Input()
+  public currentUser!: CurrentUser;
 
   public iconOnly: boolean;
 

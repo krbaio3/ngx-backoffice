@@ -1,6 +1,6 @@
 import { Routes } from '@angular/router';
 import { MainComponent } from './main.component';
-import { SummaryComponent } from '../core/summary/summary.component';
+import { SummaryComponent } from '../../common-app/summary/summary.component';
 
 export const mainRoutes: Routes = [
   {
@@ -14,6 +14,7 @@ export const mainRoutes: Routes = [
           {
             path: 'summary',
             component: SummaryComponent,
+            outlet: 'sidenav',
           },
         ],
       },
