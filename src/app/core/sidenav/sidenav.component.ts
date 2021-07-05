@@ -8,8 +8,8 @@ import {
 import { SidenavService } from './sidenav.service';
 import { MediaObserver } from '@angular/flex-layout';
 import { MatSidenav } from '@angular/material/sidenav';
-import { MenuElement } from '../../common/side-menu/menu-element';
 import { CurrentUser } from '../../common/user-avatar/user-avatar.model';
+import { SidenavModel } from '../../common/side-menu/sidenav.model';
 
 @Component({
   selector: 'atm-sidenav',
@@ -46,7 +46,9 @@ import { CurrentUser } from '../../common/user-avatar/user-avatar.model';
         role="main"
       >
         <p>Works!</p>
-        <p><button mat-button (click)="handleClickToggle()">Toggle</button></p>
+        <p>
+          <button mat-button (click)="handleClickToggle()">Toggle</button>
+        </p>
         <router-outlet></router-outlet>
       </mat-sidenav-content>
     </mat-sidenav-container>
@@ -58,7 +60,7 @@ export class SidenavComponent implements AfterViewInit, OnInit {
   public sidenav!: MatSidenav;
 
   @Input()
-  public sidenavMenuItems!: MenuElement[];
+  public sidenavMenuItems!: SidenavModel[];
 
   @Input()
   public currentUser!: CurrentUser;

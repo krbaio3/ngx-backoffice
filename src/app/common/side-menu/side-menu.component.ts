@@ -1,7 +1,6 @@
 /* eslint-disable @angular-eslint/component-selector */
 import { Component, Input } from '@angular/core';
-import { MenuElement } from './menu-element';
-import { SideMenuService } from './side-menu.service';
+import { SidenavModel } from './sidenav.model';
 
 @Component({
   selector: 'cdk-side-menu',
@@ -19,18 +18,11 @@ import { SideMenuService } from './side-menu.service';
   `,
   styleUrls: ['./side-menu.component.scss'],
 })
-// implements OnInit
 export class SideMenuComponent {
   @Input()
   public iconOnly: boolean = false;
   @Input()
-  public menuItems!: MenuElement[];
+  public menuItems!: SidenavModel[];
 
-  constructor(private sideMenuSrv: SideMenuService) {}
-
-  // ngOnInit() {
-  //   this.sideMenuSrv.getSideMenu().subscribe((data: MenuElement[]) => {
-  //     this.menus = data;
-  //   });
-  // }
+  constructor() {}
 }

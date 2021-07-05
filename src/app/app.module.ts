@@ -8,11 +8,11 @@ import { MainModule } from './pods/main/main.module';
 import { AccountModule } from './pods/account/account.module';
 import { CoreModule } from './core';
 import { AppInitService } from './app-init.service';
-import { MenuElement } from './common/side-menu/menu-element';
+import { SidenavModel } from './common/side-menu/menu-element';
 import { CurrentUser } from './common/user-avatar/user-avatar.model';
 
 export function initializeSideNav(appInitService: AppInitService) {
-  return (): Promise<MenuElement[]> => {
+  return (): Promise<SidenavModel[]> => {
     return appInitService.sidenavMenuLoad();
   };
 }

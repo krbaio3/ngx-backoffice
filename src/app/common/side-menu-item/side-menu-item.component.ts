@@ -1,6 +1,6 @@
 /* eslint-disable @angular-eslint/component-selector */
 import { Component, Input, OnInit } from '@angular/core';
-import { MenuElement } from '../side-menu/menu-element';
+import { SidenavModel } from '../side-menu/sidenav.model';
 
 @Component({
   selector: 'cdk-side-menu-item',
@@ -35,7 +35,7 @@ import { MenuElement } from '../side-menu/menu-element';
   styleUrls: ['./side-menu-item.component.scss'],
 })
 export class SideMenuItemComponent implements OnInit {
-  @Input() menu!: MenuElement;
+  @Input() menu!: SidenavModel;
   @Input() iconOnly: boolean = false;
 
   constructor() {}
@@ -44,8 +44,8 @@ export class SideMenuItemComponent implements OnInit {
     console.log('entra');
   }
 
-  openLink() {
-    console.log(this.menu.open);
-    this.menu.open = !this.menu.open;
-  }
+  // openLink() {
+  //   console.log(this.menu.open);
+  //   this.menu.open = !this.menu.open;
+  // }
 }

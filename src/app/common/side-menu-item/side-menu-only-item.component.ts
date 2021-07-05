@@ -1,6 +1,6 @@
 /* eslint-disable @angular-eslint/component-selector */
 import { Component, Input, ViewEncapsulation } from '@angular/core';
-import { MenuElement } from '../side-menu/menu-element';
+import { SidenavModel } from '../side-menu/sidenav.model';
 @Component({
   encapsulation: ViewEncapsulation.None,
   selector: 'cdk-side-menu-only-item',
@@ -34,7 +34,7 @@ import { MenuElement } from '../side-menu/menu-element';
 })
 export class SideMenuOnlyItemComponent {
   @Input()
-  menu!: MenuElement;
+  menu!: SidenavModel;
   @Input()
   iconOnly: boolean = false;
 }

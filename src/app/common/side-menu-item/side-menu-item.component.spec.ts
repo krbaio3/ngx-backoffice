@@ -17,7 +17,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SideMenuAccordionItemComponent } from './side-menu-accordion-item.component';
 import { SideMenuOnlyItemComponent } from './side-menu-only-item.component';
 import { fireEvent, getByTestId, render, RenderResult } from '@testing-library/angular';
-import { menus } from '../side-menu/menu-element';
+import { menuMock } from '../side-menu/test/sidenav.mock';
 
 describe('SideMenuItemComponent Simple', () => {
   let component: RenderResult<SideMenuItemComponent>;
@@ -25,7 +25,7 @@ describe('SideMenuItemComponent Simple', () => {
   beforeEach(async () => {
     component = await render(SideMenuItemComponent, {
       componentProperties: {
-        menu: menus[0],
+        menu: menuMock[0],
         iconOnly: false,
       },
       imports: [
@@ -127,7 +127,7 @@ describe('SideMenuItemComponent Accordion', () => {
   beforeEach(async () => {
     component = await render(SideMenuItemComponent, {
       componentProperties: {
-        menu: menus[1],
+        menu: menuMock[1],
         iconOnly: false,
       },
       imports: [

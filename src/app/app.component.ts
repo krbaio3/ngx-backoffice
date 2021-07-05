@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MediaObserver } from '@angular/flex-layout';
 import { AppInitService } from './app-init.service';
-import { MenuElement } from './common/side-menu/menu-element';
+import { SidenavModel } from './common/side-menu/sidenav.model';
 import {
   currentUserInit,
   CurrentUser,
@@ -10,7 +10,10 @@ import {
 @Component({
   selector: 'atm-root',
   template: `
-    <atm-toolbar [matDrawerShow]="matDrawerShow"></atm-toolbar>
+    <atm-toolbar
+      [matDrawerShow]="matDrawerShow"
+      [currentUser]="currentUser"
+    ></atm-toolbar>
     <atm-sidenav
       [sidenavMenuItems]="menuItems"
       [currentUser]="currentUser"
@@ -20,7 +23,7 @@ import {
 })
 export class AppComponent implements OnInit {
   public matDrawerShow: boolean = true;
-  public menuItems: MenuElement[] = [];
+  public menuItems: SidenavModel[] = [];
   public currentUser: CurrentUser = currentUserInit;
 
   constructor(

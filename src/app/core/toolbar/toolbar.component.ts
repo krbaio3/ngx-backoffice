@@ -74,11 +74,13 @@ import {
   ],
 })
 export class ToolbarComponent implements OnInit, OnDestroy {
-  @Input() matDrawerShow: boolean = false;
+  @Input()
+  matDrawerShow: boolean = false;
+  @Input()
+  currentUser: CurrentUser = currentUserInit;
 
   searchOpen: boolean = false;
 
-  currentUser: CurrentUser = currentUserInit;
   notification: Notify[] = [];
 
   private subscription1$: Subscription = new Subscription();
@@ -113,24 +115,8 @@ export class ToolbarComponent implements OnInit, OnDestroy {
       .subscribe(async () => {
         await this.toggleView();
       });
-    this.callToGetUser();
+    // this.callToGetUser();
     this.callToGetNotifications(this.currentUser.id);
-  }
-
-  callToGetUser() {
-    this.subscription1$ = this.toolbarSrv
-      .getToolbarUser()
-      .pipe(
-        catchError((error) => {
-          // console.error(`Error: ${error}`);
-          return of({});
-        }),
-      )
-      .subscribe((user) => {
-        // console.log(user as CurrentUser);
-        this.currentUser = user as CurrentUser;
-        // this.id = (user as CurrentUser).id;
-      });
   }
 
   callToGetNotifications(id: string) {
@@ -138,7 +124,7 @@ export class ToolbarComponent implements OnInit, OnDestroy {
       .getNotifications(id)
       .pipe(
         catchError((error) => {
-          // console.error(`Error: ${error}`);
+          console.error(`Error: ${error}`);
           return of([]);
         }),
       )

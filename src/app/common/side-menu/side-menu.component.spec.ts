@@ -1,9 +1,8 @@
 import { waitForAsync, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { SideMenuComponent } from './side-menu.component';
-import { SideMenuService } from './side-menu.service';
 import { of } from 'rxjs';
-import { menus } from './menu-element';
+import { menuMock } from './test/sidenav.mock';
 import { SideMenuItemComponent } from '../side-menu-item/side-menu-item.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatIconModule } from '@angular/material/icon';
@@ -15,7 +14,6 @@ import { MatRippleModule } from '@angular/material/core';
 import { MatListModule } from '@angular/material/list';
 import { ScrollingModule } from '@angular/cdk/scrolling';
 import { NgScrollbarModule } from 'ngx-scrollbar';
-import { RouterModule } from '@angular/router';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { SideMenuOnlyItemComponent } from '../side-menu-item/side-menu-only-item.component';
@@ -24,14 +22,14 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DebugElement } from '@angular/core';
-import { element } from 'protractor';
+import { SidenavModel } from './sidenav.model';
 
 describe('SideMenuComponent', () => {
   let component: SideMenuComponent;
   let fixture: ComponentFixture<SideMenuComponent>;
-  let sideMenuSrv: SideMenuService;
   let debugElement: DebugElement;
   let htmlElement: HTMLElement;
+  let menuMock: SidenavModel[];
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
@@ -68,7 +66,8 @@ describe('SideMenuComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(SideMenuComponent);
     component = fixture.componentInstance;
-    sideMenuSrv = TestBed.inject(SideMenuService);
+    menuMock = menuMock;
+    component.menuItems = menuMock;
     fixture.detectChanges();
   });
 
@@ -77,15 +76,8 @@ describe('SideMenuComponent', () => {
   });
 
   test('should create menu', () => {
-    // Arrange
-    const spySideMenuSrv = jest.spyOn(sideMenuSrv, 'getSideMenu').mockReturnValue(of(menus));
-
-    // Act
-    component.ngOnInit();
-
     // Assert
-    expect(spySideMenuSrv).toHaveBeenCalled();
-    expect(component.menus).toEqual(menus);
+    expect(component.menuItems).toEqual(menuMock);
   });
   it('should show the icons only WHEN iconsOnly is true', async () => {
     // Arrange
@@ -94,10 +86,8 @@ describe('SideMenuComponent', () => {
     fixture.detectChanges();
 
     // Act
-    component.ngOnInit();
     component.iconOnly = true;
     fixture.detectChanges();
-
 
     // Assert
     expect(component.iconOnly).toBeTruthy();
