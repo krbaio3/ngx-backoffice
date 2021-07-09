@@ -5,11 +5,12 @@ import {
   OnInit,
   ViewChild,
 } from '@angular/core';
-import { SidenavService } from './sidenav.service';
-import { MediaObserver } from '@angular/flex-layout';
-import { MatSidenav } from '@angular/material/sidenav';
+
 import { CurrentUser } from '../../common/user-avatar/user-avatar.model';
+import { MatSidenav } from '@angular/material/sidenav';
+import { MediaObserver } from '@angular/flex-layout';
 import { SidenavModel } from '../../common/side-menu/sidenav.model';
+import { SidenavService } from './sidenav.service';
 
 @Component({
   selector: 'atm-sidenav',

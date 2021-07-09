@@ -1,14 +1,15 @@
-import { TestBed } from '@angular/core/testing';
+import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 
 import { AppInitService } from './app-init.service';
-import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
-import { sidenavMock } from './utils/test/sidenav.mock';
-import { userAvatarMock } from './utils/test/user-avatar.mock';
-import SpyInstance = jest.SpyInstance;
-import { SidenavModel } from './common/side-menu/sidenav.model';
 import { CurrentUser } from './common/user-avatar/user-avatar.model';
 import { HttpErrorResponse } from '@angular/common/http';
+import { SidenavModel } from './common/side-menu/sidenav.model';
+import { TestBed } from '@angular/core/testing';
 import mockConsole from 'jest-mock-console';
+import { sidenavMock } from './utils/test/sidenav.mock';
+import { userAvatarMock } from './utils/test/user-avatar.mock';
+
+import SpyInstance = jest.SpyInstance;
 
 describe('AppService', () => {
   let service: AppInitService;

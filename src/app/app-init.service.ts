@@ -1,10 +1,11 @@
-import { Injectable } from '@angular/core';
-import { SidenavModel } from './common/side-menu/sidenav.model';
-import { HttpClient } from '@angular/common/http';
 import {
   CurrentUser,
   currentUserInit,
 } from './common/user-avatar/user-avatar.model';
+
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { SidenavModel } from './common/side-menu/sidenav.model';
 
 @Injectable({
   providedIn: 'root',

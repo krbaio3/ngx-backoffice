@@ -1,16 +1,17 @@
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
-import { Notify } from './toolbar.helpers';
-import { ToolbarService } from './toolbar.service';
-import { of, Subscription } from 'rxjs';
-import { catchError, distinctUntilChanged, tap } from 'rxjs/operators';
-import { MatIconRegistry } from '@angular/material/icon';
-import { DomSanitizer } from '@angular/platform-browser';
-import { SidenavService } from '../sidenav/sidenav.service';
-import { MediaChange, MediaObserver } from '@angular/flex-layout';
 import {
   CurrentUser,
   currentUserInit,
 } from '../../common/user-avatar/user-avatar.model';
+import { MediaChange, MediaObserver } from '@angular/flex-layout';
+import { Subscription, of } from 'rxjs';
+import { catchError, distinctUntilChanged, tap } from 'rxjs/operators';
+
+import { DomSanitizer } from '@angular/platform-browser';
+import { MatIconRegistry } from '@angular/material/icon';
+import { Notify } from './toolbar.helpers';
+import { SidenavService } from '../sidenav/sidenav.service';
+import { ToolbarService } from './toolbar.service';
 
 @Component({
   selector: 'atm-toolbar',

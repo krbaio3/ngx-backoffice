@@ -1,13 +1,14 @@
 /* eslint-disable @angular-eslint/component-selector */
 import {
   Component,
-  OnInit,
-  Input,
-  HostListener,
   ElementRef,
+  HostListener,
+  Input,
+  OnInit,
 } from '@angular/core';
-import { ToolbarNotificationModel } from './toolbar-notification.model';
+
 import { Notify } from '../../core/toolbar/toolbar.helpers';
+import { ToolbarNotificationModel } from './toolbar-notification.model';
 
 @Component({
   selector: 'cdk-toolbar-notification',

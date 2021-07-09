@@ -1,9 +1,10 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { NO_ERRORS_SCHEMA } from '@angular/core';
-import { MediaObserver } from '@angular/flex-layout';
-import { AppInitService } from './app-init.service';
-import { currentUserInit } from './common/user-avatar/user-avatar.model';
+
 import { AppComponent } from './app.component';
+import { AppInitService } from './app-init.service';
+import { MediaObserver } from '@angular/flex-layout';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
+import { currentUserInit } from './common/user-avatar/user-avatar.model';
 
 describe('AppComponent', () => {
   let component: AppComponent;
