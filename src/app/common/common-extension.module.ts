@@ -26,6 +26,8 @@ import { SideMenuComponent } from './side-menu/side-menu.component';
 import { SideMenuItemComponent } from './side-menu-item/side-menu-item.component';
 import { SideMenuOnlyItemComponent } from './side-menu-item/side-menu-only-item.component';
 import { SideMenuAccordionItemComponent } from './side-menu-item/side-menu-accordion-item.component';
+import { CapitalizeSpacePipe } from './pipe/capitalize-space.pipe';
+import { TransformObjectPipe } from './pipe/transform-object.pipe';
 
 @NgModule({
   declarations: [
@@ -38,6 +40,8 @@ import { SideMenuAccordionItemComponent } from './side-menu-item/side-menu-accor
     SideMenuItemComponent,
     SideMenuOnlyItemComponent,
     SideMenuAccordionItemComponent,
+    CapitalizeSpacePipe,
+    TransformObjectPipe,
   ],
   imports: [
     CommonModule,
@@ -64,6 +68,8 @@ import { SideMenuAccordionItemComponent } from './side-menu-item/side-menu-accor
     SideMenuItemComponent,
     SideMenuOnlyItemComponent,
     SideMenuAccordionItemComponent,
+    CapitalizeSpacePipe,
+    TransformObjectPipe,
   ],
 })
 export class CommonExtensionModule {}

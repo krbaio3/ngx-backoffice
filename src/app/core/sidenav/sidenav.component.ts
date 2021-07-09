@@ -40,11 +40,7 @@ import { SidenavModel } from '../../common/side-menu/sidenav.model';
         </ng-scrollbar>
       </mat-sidenav>
 
-      <mat-sidenav-content
-        [ngStyle]="{ paddingLeft: '5px' }"
-        style="background-color: black"
-        role="main"
-      >
+      <mat-sidenav-content [ngStyle]="{ paddingLeft: '5px' }" role="main">
         <p>Works!</p>
         <p>
           <button mat-button (click)="handleClickToggle()">Toggle</button>
