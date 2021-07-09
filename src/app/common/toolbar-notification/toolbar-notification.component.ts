@@ -1,13 +1,14 @@
 /* eslint-disable @angular-eslint/component-selector */
 import {
   Component,
-  OnInit,
-  Input,
-  HostListener,
   ElementRef,
+  HostListener,
+  Input,
+  OnInit,
 } from '@angular/core';
-import { ToolbarNotificationModel } from './toolbar-notification.model';
+
 import { Notify } from '../../core/toolbar/toolbar.helpers';
+import { ToolbarNotificationModel } from './toolbar-notification.model';
 
 @Component({
   selector: 'cdk-toolbar-notification',
@@ -112,20 +113,10 @@ import { Notify } from '../../core/toolbar/toolbar.helpers';
   styleUrls: ['./toolbar-notification.component.scss'],
 })
 export class ToolbarNotificationComponent {
-  cssPrefix = 'toolbar-notification';
-  isOpen: boolean = false;
-  @Input() notifications: Notify[] = [];
-
-  // @HostListener('document:click', ['$event', '$event.target'])
-  // onClick(event: MouseEvent, targetElement: HTMLElement) {
-  //     if (!targetElement) {
-  //           return;
-  //     }
-  //     const clickedInside = this.elementRef.nativeElement.contains(targetElement);
-  //     if (!clickedInside) {
-  //          this.isOpen = false;
-  //     }
-  // }
+  @Input()
+  public notifications: Notify[] = [];
+  public cssPrefix = 'toolbar-notification';
+  public isOpen: boolean = false;
 
   calcHeight() {
     return `${this.notifications.length * 65}px`;

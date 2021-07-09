@@ -1,10 +1,11 @@
-import { Injectable } from '@angular/core';
-import { MenuElement } from './common/side-menu/menu-element';
-import { HttpClient } from '@angular/common/http';
 import {
   CurrentUser,
   currentUserInit,
 } from './common/user-avatar/user-avatar.model';
+
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { SidenavModel } from './common/side-menu/sidenav.model';
 
 @Injectable({
   providedIn: 'root',
@@ -17,29 +18,33 @@ export class AppInitService {
   set userAvatarData(value: CurrentUser) {
     this._userAvatarData = value;
   }
-  get sidenavMenu(): MenuElement[] {
+  get sidenavMenu(): SidenavModel[] {
     return [...this._sidenavMenu];
   }
 
-  set sidenavMenu(value: MenuElement[]) {
+  set sidenavMenu(value: SidenavModel[]) {
     this._sidenavMenu = value;
   }
 
-  private _sidenavMenu: MenuElement[] = [];
+  private _sidenavMenu: SidenavModel[] = [];
 
   private _userAvatarData: CurrentUser = currentUserInit;
 
   constructor(private $http: HttpClient) {}
 
-  sidenavMenuLoad(): Promise<MenuElement[]> {
+  sidenavMenuLoad(): Promise<SidenavModel[]> {
     console.log('AppInitService.sidenavMenu() called');
-    return new Promise<MenuElement[]>((resolve, reject) => {
+    return new Promise<SidenavModel[]>((resolve, reject) => {
       return this.$http
         .get('assets/json/sidenav.json')
         .toPromise()
         .then((response: any) => {
           this.sidenavMenu = response.data;
           resolve(response.data);
+        })
+        .catch((error) => {
+          console.error(error);
+          reject(error);
         });
     });
   }
@@ -51,8 +56,12 @@ export class AppInitService {
         .get('assets/json/user-avatar.json')
         .toPromise()
         .then((response: any) => {
-          this._userAvatarData = response.data;
+          this.userAvatarData = response.data;
           resolve(response.data);
+        })
+        .catch((error) => {
+          console.error(error);
+          reject(error);
         });
     });
   }

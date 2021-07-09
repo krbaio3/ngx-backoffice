@@ -1,18 +1,19 @@
 import { APP_INITIALIZER, NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { AppRoutingModule } from './app-routing.module';
+
+import { AccountModule } from './pods/account/account.module';
 import { AppComponent } from './app.component';
+import { AppInitService } from './app-init.service';
+import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BrowserModule } from '@angular/platform-browser';
+import { CoreModule } from './core';
+import { CurrentUser } from './common/user-avatar/user-avatar.model';
 import { DocumentationModule } from './pods/documentation/documentation.module';
 import { MainModule } from './pods/main/main.module';
-import { AccountModule } from './pods/account/account.module';
-import { CoreModule } from './core';
-import { AppInitService } from './app-init.service';
-import { MenuElement } from './common/side-menu/menu-element';
-import { CurrentUser } from './common/user-avatar/user-avatar.model';
+import { SidenavModel } from './common/side-menu/sidenav.model';
 
 export function initializeSideNav(appInitService: AppInitService) {
-  return (): Promise<MenuElement[]> => {
+  return (): Promise<SidenavModel[]> => {
     return appInitService.sidenavMenuLoad();
   };
 }

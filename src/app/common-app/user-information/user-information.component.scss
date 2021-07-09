@@ -1,0 +1,16 @@
+.title {
+  background-color: #000088;
+  padding: 5px 25px;
+  border: 2px solid #000088;
+  border-radius: 25px;
+  width: 100%;
+}
+.item {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+}
+
+.user_information__static-field {
+  margin: 20px;
+}

@@ -1,25 +1,6 @@
-export interface MenuElement {
-  title?: string;
-  name: string;
-  icon: string;
-  link: boolean | string;
-  open: boolean;
-  chip?: {
-    value: number;
-    color: string;
-  };
-  sub?: SubMenu[];
-}
+import { SidenavModel } from '../sidenav.model';
 
-export interface SubMenu {
-  name: string;
-  link: string;
-  icon: string;
-  chip?: boolean;
-  open: boolean;
-}
-
-export const menus: MenuElement[] = [
+export const menuMock: SidenavModel[] = [
   {
     title: 'Main',
     name: '',

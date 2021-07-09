@@ -1,33 +1,70 @@
-import { TestBed } from '@angular/core/testing';
-import { RouterTestingModule } from '@angular/router/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+
 import { AppComponent } from './app.component';
+import { AppInitService } from './app-init.service';
+import { MediaObserver } from '@angular/flex-layout';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
+import { currentUserInit } from './common/user-avatar/user-avatar.model';
 
 describe('AppComponent', () => {
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      imports: [
-        RouterTestingModule
-      ],
-      declarations: [
-        AppComponent
-      ],
-    }).compileComponents();
+  let component: AppComponent;
+  let fixture: ComponentFixture<AppComponent>;
+
+  beforeEach(() => {
+    const mediaObserverStub = () => ({
+      asObservable: () => ({ subscribe: (f: any) => f({}) }),
+      isActive: (f: string) => ({})
+    });
+    const appInitServiceStub = () => ({ sidenavMenu: {}, userAvatarData: {} });
+    TestBed.configureTestingModule({
+      schemas: [NO_ERRORS_SCHEMA],
+      declarations: [AppComponent],
+      providers: [
+        { provide: MediaObserver, useFactory: mediaObserverStub },
+        { provide: AppInitService, useFactory: appInitServiceStub }
+      ]
+    });
+    fixture = TestBed.createComponent(AppComponent);
+    component = fixture.componentInstance;
   });
 
-  it('should create the app', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app).toBeTruthy();
+  it('can load instance', () => {
+    expect(component).toBeTruthy();
   });
 
-  it(`should call to toggleView method in onInit'`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    const spyToogle = jest.spyOn(app, 'toggleView')
+  it(`matDrawerShow has default value`, () => {
+    expect(component.matDrawerShow).toEqual(true);
+  });
 
-    app.ngOnInit();
+  it(`menuItems has default value`, () => {
+    expect(component.menuItems).toEqual([]);
+  });
 
-    expect(spyToogle).toHaveBeenCalledTimes(1)
-    expect(app.matDrawerShow).toBeTruthy()
+  it(`currentUser has default value`, () => {
+    expect(component.currentUser).toEqual(currentUserInit);
+  });
+
+  describe('ngOnInit', () => {
+    it('makes expected calls', () => {
+      const mediaObserverStub: MediaObserver = fixture.debugElement.injector.get(
+        MediaObserver
+      );
+      jest.spyOn(component, 'toggleView');
+      jest.spyOn(mediaObserverStub, 'asObservable');
+      component.ngOnInit();
+      expect(component.toggleView).toHaveBeenCalled();
+      expect(mediaObserverStub.asObservable).toHaveBeenCalled();
+    });
+  });
+
+  describe('toggleView', () => {
+    it('makes expected calls', () => {
+      const mediaObserverStub: MediaObserver = fixture.debugElement.injector.get(
+        MediaObserver
+      );
+      jest.spyOn(mediaObserverStub, 'isActive');
+      component.toggleView();
+      expect(mediaObserverStub.isActive).toHaveBeenCalled();
+    });
   });
 });

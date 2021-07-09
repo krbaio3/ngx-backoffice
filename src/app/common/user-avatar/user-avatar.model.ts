@@ -7,9 +7,9 @@ export type CurrentUser = {
 
 export const currentUserInit: CurrentUser = {
   id: '',
-  name: 'John',
+  name: '',
   photoURL: '',
-  lastName: 'Doe',
+  lastName: '',
 };
 
 export const currentUserMock: CurrentUser = {

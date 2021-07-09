@@ -1,16 +1,17 @@
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
-import { Notify } from './toolbar.helpers';
-import { ToolbarService } from './toolbar.service';
-import { of, Subscription } from 'rxjs';
-import { catchError, distinctUntilChanged, tap } from 'rxjs/operators';
-import { MatIconRegistry } from '@angular/material/icon';
-import { DomSanitizer } from '@angular/platform-browser';
-import { SidenavService } from '../sidenav/sidenav.service';
-import { MediaChange, MediaObserver } from '@angular/flex-layout';
 import {
   CurrentUser,
   currentUserInit,
 } from '../../common/user-avatar/user-avatar.model';
+import { MediaChange, MediaObserver } from '@angular/flex-layout';
+import { Subscription, of } from 'rxjs';
+import { catchError, distinctUntilChanged, tap } from 'rxjs/operators';
+
+import { DomSanitizer } from '@angular/platform-browser';
+import { MatIconRegistry } from '@angular/material/icon';
+import { Notify } from './toolbar.helpers';
+import { SidenavService } from '../sidenav/sidenav.service';
+import { ToolbarService } from './toolbar.service';
 
 @Component({
   selector: 'atm-toolbar',
@@ -74,11 +75,13 @@ import {
   ],
 })
 export class ToolbarComponent implements OnInit, OnDestroy {
-  @Input() matDrawerShow: boolean = false;
+  @Input()
+  matDrawerShow: boolean = false;
+  @Input()
+  currentUser: CurrentUser = currentUserInit;
 
   searchOpen: boolean = false;
 
-  currentUser: CurrentUser = currentUserInit;
   notification: Notify[] = [];
 
   private subscription1$: Subscription = new Subscription();
@@ -113,24 +116,8 @@ export class ToolbarComponent implements OnInit, OnDestroy {
       .subscribe(async () => {
         await this.toggleView();
       });
-    this.callToGetUser();
+    // this.callToGetUser();
     this.callToGetNotifications(this.currentUser.id);
-  }
-
-  callToGetUser() {
-    this.subscription1$ = this.toolbarSrv
-      .getToolbarUser()
-      .pipe(
-        catchError((error) => {
-          // console.error(`Error: ${error}`);
-          return of({});
-        }),
-      )
-      .subscribe((user) => {
-        // console.log(user as CurrentUser);
-        this.currentUser = user as CurrentUser;
-        // this.id = (user as CurrentUser).id;
-      });
   }
 
   callToGetNotifications(id: string) {
@@ -138,7 +125,7 @@ export class ToolbarComponent implements OnInit, OnDestroy {
       .getNotifications(id)
       .pipe(
         catchError((error) => {
-          // console.error(`Error: ${error}`);
+          console.error(`Error: ${error}`);
           return of([]);
         }),
       )
