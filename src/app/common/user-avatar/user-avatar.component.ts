@@ -1,7 +1,6 @@
 /* eslint-disable @angular-eslint/component-selector */
 import { Component, Input } from '@angular/core';
-import { CurrentUser } from '../../core/toolbar/toolbar.helpers';
-import { currentUserInit } from './user-avatar.model';
+import { currentUserInit, CurrentUser } from './user-avatar.model';
 
 @Component({
   selector: 'cdk-user-avatar',
@@ -13,7 +12,9 @@ import { currentUserInit } from './user-avatar.model';
         alt="avatar"
       />
       <span class="name" fxHide fxShow.gt-xs>{{
-        currentUser.name + ' ' + currentUser.lastName || placeholder
+        currentUser.name && currentUser.lastName
+          ? currentUser.name + ' ' + currentUser.lastName
+          : placeholder
       }}</span>
     </span>
   </div>`,
@@ -25,6 +26,4 @@ export class UserAvatarComponent {
 
   @Input()
   currentUser: CurrentUser = currentUserInit;
-
-  constructor() {}
 }

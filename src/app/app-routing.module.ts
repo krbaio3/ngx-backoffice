@@ -1,32 +1,36 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { GuidesComponent } from './core/guides/guides.component';
-import { DocumentationComponent } from './documentation/documentation.component';
-import { dashboardRoutes } from './dashboard/dashboard.routes';
+import { environment } from '../environments/environment';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: '/' },
-  // {
-  //   path: '',
-  //   component: DashboardComponent,
-  //   children: [
-  //     {
-  //       path: 'docs',
-  //       component: DocumentationComponent,
-  //       children: [
-  //         { path: 'guides', component: GuidesComponent },
-  //         // { path: 'componentB', component: BComponent },
-  //         // { path: 'componentC', component: CComponent },
-  //       ],
-  //     },
-  //   ],
-  // },
-  ...dashboardRoutes,
+  {
+    path: 'docs',
+    loadChildren: () =>
+      import('./pods/documentation/documentation-routing.module').then(
+        (m) => m.DocumentationRoutingModule,
+      ),
+  },
+  {
+    path: 'main',
+    loadChildren: () =>
+      import('./pods/main/main-routing.module').then(
+        (m) => m.MainRoutingModule,
+      ),
+  },
+  {
+    path: 'account',
+    loadChildren: () =>
+      import('./pods/account/account-routing.module').then(
+        (m) => m.AccountRoutingModule,
+      ),
+  },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [
+    RouterModule.forRoot(routes, { enableTracing: !environment.production }),
+  ],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}

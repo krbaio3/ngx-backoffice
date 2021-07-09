@@ -1131,6 +1131,28 @@ El proyecto ha pasado unas pruebas DoD, la siguiente tabla las resume:
 | yarn ci:test        | Lanza test unitarios para un entorno CI                            | OK   |
 | yarn ci:compodoc    | Lanza generación de documentación con cobertura para un entorno CI | OK   |
 
+
+### Mis notas
+
+This pet store is based on a 'Hexagonal Architecture', and the structure is based on [Pods layout](https://cli.emberjs.com/release/advanced-use/project-layouts/#podslayout), from the Ember Web Framework. This `App` is divided into:
+
+- `common`: Common components **not linked** to the domain.
+- `common-app`: Common components **linked** to the domain.
+- `core`: cross component.
+- `layouts`: estructuras de paginas.
+- `pods`: group components to the domain.
+- `scenes`: pages.
+
+app.component.ts:
+- [x] debe de llamar a un servicio que recupere un array de menú elements y se le pase al componente sidenav (`cdk-side-menu`).
+- [x] debe de llamar a un servicio que recupere los datos de usuario para el componente `cdk-user-avatar`
+- [ ] debe de llamar a un servicio que recupere las notificaciones del usuario e inyectarlas al componente `cdk-toolbar-notification`
+- [x] debe de llamar a un servicio que recupere los datos de usuario para el componente `cdk-user-menu`
+- [x] crear módulo de configuración inicial (APP_INITIALIZER)
+
+app.store.ts:
+- [ ] crear aplicación redux para gestionar el estado de toda la aplicación
+
 ------
 
 [protractor.config]: ./docs/protractor.config.png "configuración de protractor"

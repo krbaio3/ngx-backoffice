@@ -1,6 +1,6 @@
 import { Routes } from '@angular/router';
 import { DocumentationComponent } from './documentation.component';
-import { GuidesComponent } from '../core/guides/guides.component';
+import { GuidesComponent } from '../../common-app/guides/guides.component';
 
 export const documentationRoutes: Routes = [
   {

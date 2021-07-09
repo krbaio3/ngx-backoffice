@@ -1,6 +1,6 @@
 import { Routes } from '@angular/router';
 import { AccountComponent } from './account.component';
-import { UserInformationComponent } from '../core/user-information/user-information.component';
+import { UserInformationComponent } from '../../common-app/user-information/user-information.component';
 
 export const accountRoutes: Routes = [
   {

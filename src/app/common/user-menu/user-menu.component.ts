@@ -1,5 +1,6 @@
 /* eslint-disable @angular-eslint/component-selector */
 import { Component, Input, HostListener, ElementRef } from '@angular/core';
+import { CurrentUser, currentUserInit } from '../user-avatar/user-avatar.model';
 
 @Component({
   selector: 'cdk-user-menu',
@@ -14,11 +15,13 @@ import { Component, Input, HostListener, ElementRef } from '@angular/core';
       <span fxLayout="row" fxLayoutAlign="start center">
         <img
           class="avatar"
-          [src]="currentUser?.photoURL || 'assets/images/avatars/noavatar.png'"
+          [src]="currentUser.photoURL || 'assets/images/avatars/noavatar.png'"
           alt="image"
         />
         <span class="name" fxHide fxShow.gt-xs>{{
-          currentUser?.name + ' ' + currentUser?.lastName || placeholder
+          currentUser.name && currentUser.lastName
+            ? currentUser.name + ' ' + currentUser.lastName
+            : placeholder
         }}</span>
         <mat-icon class="icon" fxHide fxShow.gt-xs
           >keyboard_arrow_down</mat-icon
@@ -65,15 +68,17 @@ import { Component, Input, HostListener, ElementRef } from '@angular/core';
 export class UserMenuComponent {
   isOpen: boolean = false;
 
-  placeholder = 'John Doe';
+  @Input()
+  public placeholder = 'John Doe';
 
-  @Input() currentUser: any;
+  @Input()
+  public currentUser: CurrentUser = currentUserInit;
+
   @HostListener('document:click', ['$event', '$event.target'])
   onClick(event: MouseEvent, targetElement: HTMLElement) {
     if (!targetElement) {
       return;
     }
-
     const clickedInside =
       this.elementReference.nativeElement.contains(targetElement);
     if (!clickedInside) {
