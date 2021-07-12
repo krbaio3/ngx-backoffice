@@ -17,7 +17,7 @@ import { ToolbarService } from './toolbar.service';
   selector: 'atm-toolbar',
   providers: [ToolbarService],
   template: `
-    <mat-toolbar class="mat-elevation-z4">
+    <mat-toolbar class="mat-elevation-z4" color="primary">
       <button
         mat-icon-button
         (click)="handlerButtonSidenav()"
@@ -40,14 +40,14 @@ import { ToolbarService } from './toolbar.service';
 
       <span class="spacer"></span>
 
-      <button
-        mat-icon-button
-        (click)="searchOpen = !searchOpen"
-        fxHide="true"
-        [fxHide.gt-xs]="false"
-      >
-        <i class="material-icons">search</i>
-      </button>
+      <!--      <button-->
+      <!--        mat-icon-button-->
+      <!--        (click)="searchOpen = !searchOpen"-->
+      <!--        fxHide="true"-->
+      <!--        [fxHide.gt-xs]="false"-->
+      <!--      >-->
+      <!--        <i class="material-icons">search</i>-->
+      <!--      </button>-->
       <cdk-search-bar [open]="searchOpen"></cdk-search-bar>
 
       <cdk-fullscreen></cdk-fullscreen>
@@ -144,6 +144,7 @@ export class ToolbarComponent implements OnInit, OnDestroy {
     this.sidenavSrv.toggle();
   }
 
+  /* Handler para sidenav */
   public async toggleView() {
     if (this.media.isActive('gt-md')) {
       console.log('ToolbarComponent gt-md');

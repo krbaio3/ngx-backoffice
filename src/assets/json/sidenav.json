@@ -21,27 +21,6 @@
           "icon": "analytics",
           "chip": false,
           "open": false
-        },
-        {
-          "name": "Processed Files",
-          "link": "main/reporting/processed",
-          "icon": "check",
-          "chip": false,
-          "open": false
-        },
-        {
-          "name": "Pending Files",
-          "link": "main/reporting/pending",
-          "icon": "pending",
-          "chip": false,
-          "open": false
-        },
-        {
-          "name": "Error Files",
-          "link": "main/reporting/error",
-          "icon": "report_gmailerrorred",
-          "chip": false,
-          "open": false
         }
       ]
     },
@@ -63,121 +42,54 @@
     },
     {
       "title": "Main",
-      "name": "Search R001 RTS",
-      "icon": "search",
+      "name": "Input",
+      "icon": "file_upload",
       "open": false,
       "link": false,
       "sub": [
         {
-          "name": "Contacts",
-          "link": "main/search/contacts",
-          "icon": "search",
-          "chip": false,
-          "open": false
-        },
-        {
-          "name": "Inactive Contracts",
-          "link": "main/search/inactive",
-          "icon": "search",
-          "chip": false,
-          "open": false
-        },
-        {
-          "name": "Transactions / Messages",
-          "link": "main/search/transactions",
-          "icon": "search",
-          "chip": false,
-          "open": false
-        },
-        {
-          "name": "Valuation Updates",
-          "link": "main/search/valuation",
-          "icon": "search",
-          "chip": false,
-          "open": false
-        },
-        {
-          "name": "Collateral Portfolio Codes",
-          "link": "main/search/codes",
-          "icon": "search",
-          "chip": false,
-          "open": false
-        },
-        {
-          "name": "ID Modification",
-          "link": "main/search/modification",
-          "icon": "search",
-          "chip": false,
-          "open": false
-        },
-        {
-          "name": "Portability",
-          "link": "main/search/portability",
-          "icon": "search",
-          "chip": false,
-          "open": false
-        },
-        {
-          "name": "Positions",
-          "link": "main/search/positions",
-          "icon": "search",
+          "name": "Upload Files",
+          "link": "main/input/upload",
+          "icon": "cloud_upload",
           "chip": false,
           "open": false
         }
       ]
     },
     {
-      "title": "Main",
-      "name": "Search R010 RTS",
-      "icon": "search",
-      "open": false,
-      "link": false,
-      "sub": [
-        {
-          "name": "RT10 Trades",
-          "link": "main/search/trades",
-          "icon": "search",
-          "chip": false,
-          "open": false
-        },
-        {
-          "name": "RT10 Transactions",
-          "link": "main/search/transactions",
-          "icon": "search",
-          "chip": false,
-          "open": false
-        }
-      ]
+      "title": "Advanced Queries",
+      "name": "",
+      "icon": "",
+      "link": "",
+      "open": false
     },
     {
-      "title": "Main",
-      "name": "Reports",
-      "icon": "summarize",
+      "title": "Advanced Queries",
+      "name": "Advanced Filters",
+      "icon": "picture_as_pdf",
       "open": false,
-      "link": false,
-      "sub": [
-        {
-          "name": "Daily Reports",
-          "link": "main/reports/daily",
-          "icon": "summarize",
-          "chip": false,
-          "open": false
-        },
-        {
-          "name": "Weekly Reports",
-          "link": "main/reports/weekly",
-          "icon": "summarize",
-          "chip": false,
-          "open": false
-        },
-        {
-          "name": "Monthly Reports",
-          "link": "main/reports/monthly",
-          "icon": "summarize",
-          "chip": false,
-          "open": false
-        }
-      ]
+      "link": "advanced/filters"
+    },
+    {
+      "title": "Advanced Queries",
+      "name": "Ad Hoc Reports",
+      "icon": "picture_as_pdf",
+      "open": false,
+      "link": "advanced/custom"
+    },
+    {
+      "title": "Benchmark",
+      "name": "",
+      "icon": "",
+      "link": "",
+      "open": false
+    },
+    {
+      "title": "Benchmark",
+      "name": "Rechazos",
+      "icon": "picture_as_pdf",
+      "open": false,
+      "link": "benchmark/fails"
     },
     {
       "title": "Documentation",
@@ -192,34 +104,6 @@
       "icon": "picture_as_pdf",
       "open": false,
       "link": "docs/guides"
-    },
-    {
-      "title": "Documentation",
-      "name": "Handbooks",
-      "icon": "picture_as_pdf",
-      "open": false,
-      "link": "docs/handbooks"
-    },
-    {
-      "title": "Documentation",
-      "name": "Schemas & Templates",
-      "icon": "picture_as_pdf",
-      "open": false,
-      "link": "docs/schemas"
-    },
-    {
-      "title": "Documentation",
-      "name": "Legal Framework",
-      "icon": "picture_as_pdf",
-      "open": false,
-      "link": "docs/legal"
-    },
-    {
-      "title": "Documentation",
-      "name": "Pricing",
-      "icon": "picture_as_pdf",
-      "open": false,
-      "link": "docs/pricing"
     },
     {
       "title": "Account",

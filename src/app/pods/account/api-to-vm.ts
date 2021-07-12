@@ -1,5 +1,5 @@
 import { UserAccount } from './user-account.model';
-import { UserAccountAPI } from './user-account.api.model';
+import { DataUserAccountAPI, UserAccountAPI } from './user-account.api.model';
 
 export const mapUserAccountFromApiToVM = (
   userAccountApi: UserAccountAPI,
@@ -20,10 +20,6 @@ export const mapUserAccountFromApiToVM = (
 export class Convert {
   public static toUserAccount(json: UserAccountAPI): UserAccount {
     return cast(json, r('UserAccountAPI'));
-  }
-
-  public static userAccountToJson(value: UserAccountAPI): string {
-    return JSON.stringify(uncast(value, r('UserAccountAPI')), undefined, 2);
   }
 }
 
@@ -164,10 +160,6 @@ function transform(
 
 function cast<T>(value: any, typ: any): T {
   return transform(value, typ, jsonToJSProperties);
-}
-
-function uncast<T>(value: T, typ: any): any {
-  return transform(value, typ, jsToJSONProperties);
 }
 
 function a(typ: any) {

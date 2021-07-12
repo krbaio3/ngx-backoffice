@@ -1,5 +1,6 @@
 import 'jest-preset-angular';
 import '@testing-library/jest-dom';
+import { ngMocks } from 'ng-mocks';
 
 /* global mocks for jsdom */
 const mock = () => {
@@ -30,6 +31,21 @@ Object.defineProperty(document.body.style, 'transform', {
     };
   },
 });
+
+// All methods in mock declarations and providers
+// will be automatically spied on their creation.
+// https://ng-mocks.sudo.eu/extra/auto-spy
+// ngMocks.autoSpy('jest'); // or jasmine
+
+// ngMocks.defaultMock helps to customize mocks
+// globally. Therefore, we can avoid copy-pasting
+// among tests.
+// https://ng-mocks.sudo.eu/api/ngMocks/defaultMock
+// ngMocks.defaultMock(AuthService, () => ({
+//   isLoggedIn$: EMPTY,
+//   currentUser$: EMPTY,
+// }));
+
 
 /* output shorter and more meaningful Zone error stack traces */
 // Error.stackTraceLimit = 2;

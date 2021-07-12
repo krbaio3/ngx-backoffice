@@ -11,7 +11,12 @@ import { MatListModule } from '@angular/material/list';
 import { ScrollingModule } from '@angular/cdk/scrolling';
 import { RouterModule } from '@angular/router';
 import { MatChipsModule } from '@angular/material/chips';
-import { MatExpansionModule } from '@angular/material/expansion';
+import { MatAccordion, MatExpansionModule } from '@angular/material/expansion';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatSelectModule } from '@angular/material/select';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { ReactiveFormsModule } from '@angular/forms';
 
 /* Three Party*/
 import { NgScrollbarModule } from 'ngx-scrollbar';
@@ -28,6 +33,11 @@ import { SideMenuOnlyItemComponent } from './side-menu-item/side-menu-only-item.
 import { SideMenuAccordionItemComponent } from './side-menu-item/side-menu-accordion-item.component';
 import { CapitalizeSpacePipe } from './pipe/capitalize-space.pipe';
 import { TransformObjectPipe } from './pipe/transform-object.pipe';
+import { FilterMenuComponent } from './filter-menu/filter-menu.component';
+import { MediaItemComponent } from './media-item/media-item.component';
+import { FilterMenuItemComponent } from './filter-menu/filter-menu-item/filter-menu-item.component';
+import { DatePickerRangeComponent } from './date-picker-range/date-picker-range.component';
+import { SelectComponent } from './select/select.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +52,11 @@ import { TransformObjectPipe } from './pipe/transform-object.pipe';
     SideMenuAccordionItemComponent,
     CapitalizeSpacePipe,
     TransformObjectPipe,
+    FilterMenuComponent,
+    MediaItemComponent,
+    FilterMenuItemComponent,
+    DatePickerRangeComponent,
+    SelectComponent,
   ],
   imports: [
     CommonModule,
@@ -57,6 +72,11 @@ import { TransformObjectPipe } from './pipe/transform-object.pipe';
     RouterModule,
     MatChipsModule,
     MatExpansionModule,
+    MatMenuModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    ReactiveFormsModule,
+    MatSelectModule,
   ],
   exports: [
     SearchBarComponent,
@@ -70,6 +90,11 @@ import { TransformObjectPipe } from './pipe/transform-object.pipe';
     SideMenuAccordionItemComponent,
     CapitalizeSpacePipe,
     TransformObjectPipe,
+    FilterMenuComponent,
+    MediaItemComponent,
+    FilterMenuItemComponent,
+    DatePickerRangeComponent,
+    SelectComponent,
   ],
 })
 export class CommonExtensionModule {}

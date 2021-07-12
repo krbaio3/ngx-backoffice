@@ -1,0 +1,64 @@
+{
+  "data": [
+    {
+      "chartLabel": ["Aceptados", "Rechazados", "InProgress"],
+      "dataset": {
+        "label": "Dataset 1",
+        "data": 111,
+        "backgroundColor": "Object.values(CHART_COLORS)"
+      },
+      "options": {
+        "responsive": true,
+        "plugins": {
+          "legend": {
+            "position": "top"
+          },
+          "title": {
+            "display": true,
+            "text": "Chart.js Doughnut Chart"
+          }
+        }
+      }
+    },
+    {
+      "chartLabel": ["Aceptados", "Rechazados", "InProgress"],
+      "dataset": {
+        "label": "Dataset 1",
+        "data": 222,
+        "backgroundColor": "Object.values(CHART_COLORS)"
+      },
+      "options": {
+        "responsive": true,
+        "plugins": {
+          "legend": {
+            "position": "top"
+          },
+          "title": {
+            "display": true,
+            "text": "Chart.js Doughnut Chart"
+          }
+        }
+      }
+    },
+    {
+      "chartLabel": ["Aceptados", "Rechazados", "InProgress"],
+      "dataset": {
+        "label": "Dataset 1",
+        "data": 6666,
+        "backgroundColor": "Object.values(CHART_COLORS)"
+      },
+      "options": {
+        "responsive": true,
+        "plugins": {
+          "legend": {
+            "position": "top"
+          },
+          "title": {
+            "display": true,
+            "text": "Chart.js Doughnut Chart"
+          }
+        }
+      }
+    }
+  ]
+}

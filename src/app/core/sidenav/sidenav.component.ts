@@ -41,11 +41,11 @@ import { SidenavService } from './sidenav.service';
         </ng-scrollbar>
       </mat-sidenav>
 
-      <mat-sidenav-content [ngStyle]="{ paddingLeft: '5px' }" role="main">
-        <p>Works!</p>
-        <p>
-          <button mat-button (click)="handleClickToggle()">Toggle</button>
-        </p>
+      <mat-sidenav-content [ngStyle]="{ padding: '5px' }" role="main">
+        <!--        <p>Works!</p>-->
+        <!--        <p>-->
+        <!--          <button mat-button (click)="handleClickToggle()">Toggle</button>-->
+        <!--        </p>-->
         <router-outlet></router-outlet>
       </mat-sidenav-content>
     </mat-sidenav-container>
@@ -71,9 +71,9 @@ export class SidenavComponent implements AfterViewInit, OnInit {
     this.fixedTopGap = 56;
   }
 
-  public async handleClickToggle() {
-    await this.sidenav.toggle();
-  }
+  // public async handleClickToggle() {
+  //   await this.sidenav.toggle();
+  // }
 
   ngAfterViewInit() {
     this.sidenavSrv.setSidenav(this.sidenav);

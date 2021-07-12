@@ -46,9 +46,7 @@
 
 ## Introducción
 
-Código base de una aplicación basada en Angular 11 creada con @angular/cli.
-
-Este código sirve de base para las aplicaciones generadas a partir del generador basado en Yeoman.
+Código base generado con el acelerador de proyectos @atmira/front
 
 ## Requisitos
 
@@ -60,13 +58,10 @@ Los requisitos mínimos y obligatorios para ejecutar correctamente el generador 
 
 - [Git](https://git-scm.com/)
 
-- [yarn v1.x](https://yarnpkg.com/)
 
 La recomendación es tener todos instalados en sus últimas versiones LTS.
 
 ## Notas para Desarrolladores
-
-## Introduction
 
 This PetShop is based in 'Hexagonal Architecture' and the structure is based in PODS, from Framework Web Ember.
 This `App` is divided in:
@@ -74,25 +69,23 @@ This `App` is divided in:
 - `common`: Common components **not linked** to the domain.
 - `common-app`: Common components **linked** to the domain.
 - `core`: cross component.
-- `layouts`: estructuras de paginas.
 - `pods`: group components to the domain.
-- `scenes`: pages.
+- `utils`: utils.
 
 ## Instalación
 
 Los pasos a seguir para usar este código base son los siguientes:
 
 1. Descargar el proyecto del repositorio
-//TODO: comando ``
- desde el sistema de control de versiones (`git`), y ejecutar el comando `cd back-base-library`.
-1. Descargar las dependencias y herramientas necesarias del proyecto con el comando de node package manager que usemos para instalarlas: `npm install` o `yarn install`.
-1. Ejecutar el comando de corrección de vulnerabilidades(ver [npm](https://docs.npmjs.com/cli/v7/commands/npm-audit) y [yarn](https://classic.yarnpkg.com/en/docs/cli/audit/)): `npm audit fix --force` o `yarn audit`.
-1. Ejecutar el comando `npm start` o `yarn start`.
+// TODO: comando ``
+ desde el sistema de control de versiones (`git`), y ejecutar el comando `cd XXXX`.
+1. Descargar las dependencias y herramientas necesarias del proyecto con el comando de node package manager que usemos para instalarlas: `npm install`.
+1. Ejecutar el comando de corrección de vulnerabilidades(ver [npm](https://docs.npmjs.com/cli/v7/commands/npm-audit): `npm audit fix`.
+1. Ejecutar el comando `npm start`.
 
 ### Desarrollo
 
-Aunque no es recomendable usar directamente el código de esta aplicación, ya que para ello deberíamos generar una nueva con el generador de proyectos.
-//TODO: link a generador
+
 
 ## Estructura del proyecto
 
@@ -103,11 +96,6 @@ La estructura del proyecto base es la siguiente:
 ├── angular.json
 ├── commitlint.config.js
 ├── config
-│   ├── atdd
-│   │   ├── cucumber-ci.conf.js
-│   │   ├── cucumber.conf.js
-│   │   ├── setup.ts
-│   │   └── tsconfig.atdd.json
 │   ├── compodoc
 │   │   └── tsconfig.compodoc.json
 │   ├── e2e
@@ -123,13 +111,6 @@ La estructura del proyecto base es la siguiente:
 │       ├── jest.config.js
 │       ├── setup-jest.ts
 │       └── tsconfig.spec.json
-├── cucumber
-│   ├── feature
-│   │   └── example.feature
-│   ├── integration
-│   │   └── example.po.ts
-│   └── steps
-│       └── example.step.ts
 ├── documentation
 ├── e2e
 │   └── src
@@ -231,7 +212,6 @@ La definición del fichero que existe en nuestro proyecto base es el siguiente:
     "release": "standard-version",
     "serve": "ng serve",
     "start": "ng serve -o",
-    "postinstall": "yarn audit",
     "test": "ng test",
     "test:coverage": "ng test --coverage",
     "test:watch": "ng test --watch",
@@ -365,12 +345,6 @@ Seguidamente lance la siguiente instrucción:
 npm run lint
 ```
 
-o
-
-```bash
-yarn lint
-```
-
 #### Verificación de código con Prettier
 
 Primero incluya en el archivo .prettierignore los ficheros que deberán de ser obviados por prettier.
@@ -378,12 +352,6 @@ Seguidamente lance la siguiente instrucción:
 
 ```bash
 npm run prettier
-```
-
-o
-
-```bash
-yarn prettier
 ```
 
 ### Commit and commitizen-lint
@@ -403,12 +371,6 @@ Para ejecutar todo el automatismo para los commits, se ha agregado el siguiente 
 npm run commit
 ```
 
-o
-
-```bash
-yarn commit
-```
-
 O, como alternativa, si se quiere ejecutar con el comando `git` se puede hacer:
 
 ```bash
@@ -425,22 +387,10 @@ En caso de que se quiera generar un bundle para un entorno de desarrollo usaremo
 npm run build:dev
 ```
 
-o
-
-```bash
-yarn build:dev
-```
-
 Si lo que queremos es generar el bundle que debería ser desplegado en producción, ejecutaremos el comando
 
 ```bash
 npm run build
-```
-
-o
-
-```bash
-yarn build
 ```
 
 Ambos comandos nos generarán una carpeta "dist" dentro del raíz de nuestro proyecto, en la que encontraremos la aplicación preparada para desplegar en un servidor.
@@ -452,12 +402,6 @@ Nótese de que la ejecución de estos comandos generará una aplicación con las
 Dentro de la aplicación base tenemos un script que lanzará un servidor en local para usar en tiempo de desarrollo.
 
 Para lanzar el servidor de desarrollo tenemos que ejecutar el siguiente comando, el cual nos abrirá automáticamente una pestaña dentro de nuestro navegador con nuestra aplicación ejecutándose.
-
-```bash
-yarn start
-```
-
-o
 
 ```bash
 ng serve -o
@@ -556,14 +500,6 @@ Para la ejecución de los test tenemos disponibles dos scripts distintos
 Ejecución de test unitarios:
 
 ```bash
-yarn test
-yarn test:coverage
-yarn test:watch
-```
-
-o
-
-```bash
 npm run test
 npm run test:coverage
 npm run test:watch
@@ -571,11 +507,6 @@ npm run test:watch
 
 Ejecución de test end-to-end:
 
-```bash
-yarn e2e
-```
-
-o
 
 ```bash
 npm run e2e
@@ -583,9 +514,9 @@ npm run e2e
 
 Ambas ejecuciones crearán diversas carpetas al ejecutarse y ejecutar los test correctamente, y, en el caso de ProtractorJS, nos hará una captura (`screenshot`) si los test han fallado.
 
-Los test unitarios crearán una carpeta al ejecutar el comando `yarn test` llamada "report", en la cual tendremos disponibles los reportes de cobertura de nuestros test unitarios. Por defecto, cuando se terminen de ejecutar los test se abrirá un navegador y mostrará el reporte. Para quitar este comportamiento, ir al dichero `./config/test/config.js` y poner la propiedad de `openReport` a false.
+Los test unitarios crearán una carpeta al ejecutar el comando `npm test` llamada "report", en la cual tendremos disponibles los reportes de cobertura de nuestros test unitarios. Por defecto, cuando se terminen de ejecutar los test se abrirá un navegador y mostrará el reporte. Para quitar este comportamiento, ir al dichero `./config/test/config.js` y poner la propiedad de `openReport` a false.
 
-Los test unitarios crearán, con el comando `yarn testing:coverage` una carpeta "coverage", en la cual tendremos disponibles los reportes de cobertura de nuestros test unitarios
+Los test unitarios crearán, con el comando `npm run testing:coverage` una carpeta "coverage", en la cual tendremos disponibles los reportes de cobertura de nuestros test unitarios
 
 Los test end-to-end crearán una carpeta "e2e_report", en la cual tendremos disponibles los informes sobre la ejecución de nuestros test end-to-end.
 
@@ -768,18 +699,11 @@ binary:
 Para ejecutar los test e2e en local, se ha provisto, como se ha indicado anteriormente, de un script dentro del `package.json`:
 
 ```bash
-yarn pree2e
-yarn e2e
-```
-
-o
-
-```bash
 npm run pree2e
 npm run e2e
 ```
 
-Al ejecutar el comando `yarn e2e`, directamente se ejecuta el comando previo, `pree2e` que borra la carpeta de `protractor_report` y el de actualización del webDriver necesario.
+Al ejecutar el comando `npm run e2e`, directamente se ejecuta el comando previo, `pree2e` que borra la carpeta de `protractor_report` y el de actualización del webDriver necesario.
 
 Se ha configurado la salida por consola con `jasmine-spec-reporter` para que sea lo más amigable y legible posible.
 
@@ -823,58 +747,6 @@ Executed 1 of 1 spec SUCCESS in 0.321 sec.
 ```
 
 Para la parte de CI, se ha configurado el siguiente script dentro del `package.json`:
-
-```bash
-yarn ci:e2e
-```
-
-o
-
-```bash
-npm run ci:e2e
-```
-
-Este script nos ejecuta la configuración específica para este entorno y se le indica que no debe actualizar el webDriver, que lo único que difiere es en el que se le agrega el flag `--headless` y se le especifica al sistema CI dónde se encuentra el `chromedriver` para Selenium .
-
-### Acceptation Test: CucumberJS
-
-Para la realización de los test de aceptación (ATDD), se ha configurado la herramienta de CucumberJS. La configuración de Cucumber reside en la carpeta `./config/atdd`. En ella se encuentran los ficheros de configuración para un entorno local (`cucumber.conf.js`), para un entorno de Continuos Integration, `cucumber-ci.conf.js` y de configuración de typescript `tsconfig.atdd.json`. Para la generación de reportes, se utiliza la librería de `cucumber-html-reporter`. En total, se han instalado las siguientes dependencias para el correcto funcionamiento de los test de cucumber:
-
-- chai
-- chai-as-promised
-- cucumber-html-reporter
-- protractor-cucumber-framework
-- @cucumber/cucumber
-
-Dentro de la carpeta `cucumber` encontramos las carpetas con la configuración de los test:
-
-- feature: Descripción en `Gherkin` del test
-- integration: residen las Page Object (PO)
-- steps: codificación del test en typescript
-
-Para ejecutar los test de aceptación en local, se ha provisto, como se ha indicado anteriormente, de un script dentro del `package.json`:
-
-```bash
-yarn precucumber
-yarn cucumber
-```
-
-o
-
-```bash
-npm run precucumber
-npm run cucumber
-```
-
-Al ejecutar el comando `yarn cucumber`, directamente se ejecuta el comando previo, `precucumber` que borra la carpeta de `cucumber_report` y el de actualización del webDriver necesario.
-
-Para la parte de CI, se ha configurado el siguiente script dentro del `package.json`:
-
-```bash
-yarn ci:e2e
-```
-
-o
 
 ```bash
 npm run ci:e2e
@@ -964,7 +836,7 @@ Se ha modificado el `angular.json` de la aplicación, de tal manera que queda de
   "cli": {
     "analytics": false,
     "defaultCollection": "@angular-eslint/schematics",
-    "packageManager": "yarn"
+    "packageManager": "npm"
   },
   "newProjectRoot": "projects",
   "projects": {
@@ -1102,56 +974,34 @@ Se ha modificado el `angular.json` de la aplicación, de tal manera que queda de
 
 El proyecto ha pasado unas pruebas DoD, la siguiente tabla las resume:
 
-| Prueba/script       | Action                                                             | APTO |
-|---------------------|--------------------------------------------------------------------|------|
-| yarn install        | Se instala correctamente                                           | OK   |
-| yarn audit          | Lanza el auditor de dependencias                                   | OK   |
-| yarn serve          | El proyecto se lanza                                               | OK   |
-| yarn start          | El proyecto se lanza y se abre en el navegador                     | OK   |
-| yarn build:dev      | El proyecto compila para desarrollo                                | OK   |
-| yarn build          | El proyecto compila para producción                                | OK   |
-| yarn test           | Pasa los test                                                      | OK   |
-| yarn test           | Crea reporte con jest                                              | OK   |
-| yarn test:coverage  | Crea carpeta coverage con jest                                     | OK   |
-| yarn test:watch     | Ejecuta test en modo watch                                         | OK   |
-| yarn commit         | Lanza los automatismos para el commit                              | OK   |
-| yarn precommit      | Lanza comandos previos al commit                                   | OK   |
-| yarn lint           | Pasa los linters y hace un fix                                     | OK   |
-| yarn compodoc       | Crea documentacion con compodoc                                    | OK   |
-| yarn prettier       | Pasa el lintado de prettier                                        | OK   |
-| yarn release        | Crea release                                                       |      |
-| yarn bundleAnalyzed | Genera y muestra un análisis del bundle                            | OK   |
-| yarn e2e            | Lanza pruebas e2e con protractor                                   | OK   |
-| yarn e2e            | Crea reporte con protractor                                        | OK   |
-| yarn e2e            | Cuando hay un error, genera un reporte con screenshot              | OK   |
-| yarn cucumber       | Lanza pruebas de aceptación con cucumber                           | OK   |
-| yarn cucumber       | Crea un reporte en formato html y json                             | OK   |
-| yarn ci:e2e         | Lanza pruebas e2e para un entorno CI                               | OK   |
-| yarn ci:cucumber    | Lanza pruebas de aceptación para un entorno CI                     | OK   |
-| yarn ci:test        | Lanza test unitarios para un entorno CI                            | OK   |
-| yarn ci:compodoc    | Lanza generación de documentación con cobertura para un entorno CI | OK   |
-
-
-### Mis notas
-
-This pet store is based on a 'Hexagonal Architecture', and the structure is based on [Pods layout](https://cli.emberjs.com/release/advanced-use/project-layouts/#podslayout), from the Ember Web Framework. This `App` is divided into:
-
-- `common`: Common components **not linked** to the domain.
-- `common-app`: Common components **linked** to the domain.
-- `core`: cross component.
-- `layouts`: estructuras de paginas.
-- `pods`: group components to the domain.
-- `scenes`: pages.
-
-app.component.ts:
-- [x] debe de llamar a un servicio que recupere un array de menú elements y se le pase al componente sidenav (`cdk-side-menu`).
-- [x] debe de llamar a un servicio que recupere los datos de usuario para el componente `cdk-user-avatar`
-- [ ] debe de llamar a un servicio que recupere las notificaciones del usuario e inyectarlas al componente `cdk-toolbar-notification`
-- [x] debe de llamar a un servicio que recupere los datos de usuario para el componente `cdk-user-menu`
-- [x] crear módulo de configuración inicial (APP_INITIALIZER)
-
-app.store.ts:
-- [ ] crear aplicación redux para gestionar el estado de toda la aplicación
+| Prueba/script          | Action                                                             | APTO |
+|------------------------|--------------------------------------------------------------------|------|
+| npm run install        | Se instala correctamente                                           | OK   |
+| npm run audit          | Lanza el auditor de dependencias                                   | OK   |
+| npm run serve          | El proyecto se lanza                                               | OK   |
+| npm run start          | El proyecto se lanza y se abre en el navegador                     | OK   |
+| npm run build:dev      | El proyecto compila para desarrollo                                | OK   |
+| npm run build          | El proyecto compila para producción                                | OK   |
+| npm run test           | Pasa los test                                                      | OK   |
+| npm run test           | Crea reporte con jest                                              | OK   |
+| npm run test:coverage  | Crea carpeta coverage con jest                                     | OK   |
+| npm run test:watch     | Ejecuta test en modo watch                                         | OK   |
+| npm run commit         | Lanza los automatismos para el commit                              | OK   |
+| npm run precommit      | Lanza comandos previos al commit                                   | OK   |
+| npm run lint           | Pasa los linters y hace un fix                                     | OK   |
+| npm run compodoc       | Crea documentacion con compodoc                                    | OK   |
+| npm run prettier       | Pasa el lintado de prettier                                        | OK   |
+| npm run release        | Crea release                                                       |      |
+| npm run bundleAnalyzed | Genera y muestra un análisis del bundle                            | OK   |
+| npm run e2e            | Lanza pruebas e2e con protractor                                   | OK   |
+| npm run e2e            | Crea reporte con protractor                                        | OK   |
+| npm run e2e            | Cuando hay un error, genera un reporte con screenshot              | OK   |
+| npm run cucumber       | Lanza pruebas de aceptación con cucumber                           | OK   |
+| npm run cucumber       | Crea un reporte en formato html y json                             | OK   |
+| npm run ci:e2e         | Lanza pruebas e2e para un entorno CI                               | OK   |
+| npm run ci:cucumber    | Lanza pruebas de aceptación para un entorno CI                     | OK   |
+| npm run ci:test        | Lanza test unitarios para un entorno CI                            | OK   |
+| npm run ci:compodoc    | Lanza generación de documentación con cobertura para un entorno CI | OK   |
 
 ------
 

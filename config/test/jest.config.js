@@ -17,7 +17,7 @@ module.exports = {
   coverageDirectory: 'coverage',
 
   // An array of regexp pattern strings used to skip coverage collection
-  coveragePathIgnorePatterns: ['/node_modules/'],
+  coveragePathIgnorePatterns: ['/node_modules/', '<rootDir>/src/app/utils/'],
 
   // Indicates which provider should be used to instrument code for coverage
   coverageProvider: 'v8',
@@ -132,6 +132,7 @@ module.exports = {
     '<rootDir>/node_modules/',
     '<rootDir>/dist/',
     '<rootDir>/cypress/',
+    '<rootDir>/src/app/utils/',
   ],
 
   // The regexp pattern or array of patterns that Jest uses to detect test files

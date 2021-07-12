@@ -4,10 +4,10 @@ import { createEmptyUserAccount, UserAccount } from './user-account.model';
 
 @Component({
   selector: 'atm-account',
-  template: ` <h1>User Information</h1>
-    <mat-card>
-      <atm-user-information [userInfo]="userInfo"></atm-user-information>
-    </mat-card>`,
+  template: ` <mat-card>
+    <h1>User Information</h1>
+    <atm-user-information [userInfo]="userInfo"></atm-user-information>
+  </mat-card>`,
   styles: [],
 })
 export class AccountComponent implements OnInit {

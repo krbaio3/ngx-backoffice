@@ -12,9 +12,9 @@ import { AppInitService } from '../../app-init.service';
 export class ToolbarService {
   constructor(public $http: HttpClient, private appInitSrv: AppInitService) {}
 
-  getToolbarUser(): Observable<CurrentUser> {
-    return of<CurrentUser>(this.appInitSrv.userAvatarData);
-  }
+  // getToolbarUser(): Observable<CurrentUser> {
+  //   return of<CurrentUser>(this.appInitSrv.userAvatarData);
+  // }
 
   /**
    * Devuelve las notificaciones para el usuario pasado

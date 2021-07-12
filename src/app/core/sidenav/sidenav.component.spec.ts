@@ -180,15 +180,15 @@ describe('Visual Component sidenav', () => {
     // Assert
     expect(component).toBeTruthy();
   });
-  test('should hide the sidenav WHEN click toggle button', async () => {
-    // Arrange
-    const { getByText, fixture } = component;
-    const spyToggle = jest.spyOn(fixture.componentInstance.sidenav, 'toggle');
-    const spyHandleClick = jest.spyOn(fixture.componentInstance, 'handleClickToggle');
-    // Act
-    fireEvent.click(getByText('Toggle'));
-    // Assert
-    expect(spyHandleClick).toHaveBeenCalled();
-    expect(spyToggle).toHaveBeenCalled();
-  });
+  // xtest('should hide the sidenav WHEN click toggle button', async () => {
+  //   // Arrange
+  //   const { getByText, fixture } = component;
+  //   const spyToggle = jest.spyOn(fixture.componentInstance.sidenav, 'toggle');
+  //   const spyHandleClick = jest.spyOn(fixture.componentInstance, 'handleClickToggle');
+  //   // Act
+  //   fireEvent.click(getByText('Toggle'));
+  //   // Assert
+  //   expect(spyHandleClick).toHaveBeenCalled();
+  //   expect(spyToggle).toHaveBeenCalled();
+  // });
 });
