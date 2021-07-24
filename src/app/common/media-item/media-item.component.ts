@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { createEmptyMediaStyle, MediaStylesModel } from './media.model';
+import { MediaStylesModel, createEmptyMediaStyle } from './media.model';
+
 import merge from 'lodash.merge';
 
 @Component({
@@ -64,7 +65,6 @@ export class MediaItemComponent implements OnInit {
   public style: MediaStylesModel = createEmptyMediaStyle();
 
   ngOnInit(): void {
-    console.log('MediaMenuComponent');
     this.style = merge(createEmptyMediaStyle(), { ...this.style });
   }
 }

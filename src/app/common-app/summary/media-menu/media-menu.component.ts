@@ -1,4 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
+
 import { MediaStylesModel } from '../../../common';
 
 @Component({
@@ -13,13 +14,9 @@ import { MediaStylesModel } from '../../../common';
   </div>`,
   styles: [],
 })
-export class MediaMenuComponent implements OnInit {
+export class MediaMenuComponent {
   @Input()
   public mediaStyles: MediaStylesModel[] = [];
 
   constructor() {}
-
-  ngOnInit(): void {
-    console.log('MediaMenuComponent');
-  }
 }

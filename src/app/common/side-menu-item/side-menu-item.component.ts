@@ -1,5 +1,6 @@
 /* eslint-disable @angular-eslint/component-selector */
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
+
 import { SidenavModel } from '../side-menu/sidenav.model';
 
 @Component({
@@ -34,15 +35,11 @@ import { SidenavModel } from '../side-menu/sidenav.model';
   `,
   styleUrls: ['./side-menu-item.component.scss'],
 })
-export class SideMenuItemComponent implements OnInit {
+export class SideMenuItemComponent {
   @Input() menu!: SidenavModel;
   @Input() iconOnly: boolean = false;
 
   constructor() {}
-
-  ngOnInit() {
-    console.log('entra');
-  }
 
   // openLink() {
   //   console.log(this.menu.open);

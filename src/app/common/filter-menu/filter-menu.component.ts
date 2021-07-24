@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+
 import { Message } from './filter-menu.model';
 
 @Component({
@@ -28,7 +29,7 @@ import { Message } from './filter-menu.model';
           <cdk-filter-menu-item
             class="mt-4"
             fxLayout="row"
-            fxLayoutAlign="space-around center"
+            fxLayoutAlign="space-around baseline"
             title="Por rango de fechas:"
             (emitTogglePanel)="togglePanel()"
           >

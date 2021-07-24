@@ -5,12 +5,7 @@ import { MainComponent } from './main.component';
 const routes: Routes = [
   {
     path: 'reporting',
-    children: [
-      { path: 'summary', component: MainComponent },
-      { path: 'processed', component: MainComponent },
-      { path: 'pending', component: MainComponent },
-      { path: 'error', component: MainComponent },
-    ],
+    children: [{ path: 'summary', component: MainComponent }],
   },
   {
     path: 'output',
@@ -19,29 +14,6 @@ const routes: Routes = [
   {
     path: 'input',
     children: [{ path: 'upload', component: MainComponent }],
-  },
-  {
-    path: 'search',
-    children: [
-      { path: 'contacts', component: MainComponent },
-      { path: 'inactive', component: MainComponent },
-      { path: 'transactions', component: MainComponent },
-      { path: 'valuation', component: MainComponent },
-      { path: 'codes', component: MainComponent },
-      { path: 'modification', component: MainComponent },
-      { path: 'portability', component: MainComponent },
-      { path: 'positions', component: MainComponent },
-      { path: 'trades', component: MainComponent },
-      // { path: 'transactions', component: SummaryComponent },
-    ],
-  },
-  {
-    path: 'reports',
-    children: [
-      { path: 'daily', component: MainComponent },
-      { path: 'weekly', component: MainComponent },
-      { path: 'monthly', component: MainComponent },
-    ],
   },
 ];
 

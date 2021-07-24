@@ -1,13 +1,12 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { FilterMenuComponent } from './filter-menu.component';
-import { MatExpansionModule } from '@angular/material/expansion';
 import { DatePickerRangeComponent } from '../date-picker-range/date-picker-range.component';
+import { FilterMenuComponent } from './filter-menu.component';
 import { FilterMenuItemComponent } from './filter-menu-item/filter-menu-item.component';
-import { SelectComponent } from '../select/select.component';
-import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatExpansionModule } from '@angular/material/expansion';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { SelectComponent } from '../select/select.component';
 
 describe('FilterMenuComponent', () => {
   let component: FilterMenuComponent;

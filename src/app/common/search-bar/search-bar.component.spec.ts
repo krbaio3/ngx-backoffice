@@ -1,9 +1,9 @@
+import { RenderResult, render, screen } from '@testing-library/angular';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatFormFieldModule } from '@angular/material/form-field';
+// import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { SearchBarComponent } from './search-bar.component';
-import { render, RenderResult, screen } from '@testing-library/angular';
 
 describe('SearchBarComponent', () => {
   let component: RenderResult<SearchBarComponent>;
@@ -14,7 +14,7 @@ describe('SearchBarComponent', () => {
         open: false
       },
       imports: [
-        MatFormFieldModule,
+        // MatFormFieldModule,
         MatInputModule,
         BrowserAnimationsModule
       ]

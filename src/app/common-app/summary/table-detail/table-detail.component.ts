@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'atm-table-detail',
@@ -10,7 +10,7 @@ import { Component, Input, OnInit } from '@angular/core';
   `,
   styles: [],
 })
-export class TableDetailComponent implements OnInit {
+export class TableDetailComponent {
   @Input()
   public dataSourceTable: any[];
   @Input()
@@ -19,9 +19,5 @@ export class TableDetailComponent implements OnInit {
   constructor() {
     this.dataSourceTable = [];
     this.displayedColumns = [];
-  }
-
-  ngOnInit(): void {
-    console.log('tableDetailComponent');
   }
 }

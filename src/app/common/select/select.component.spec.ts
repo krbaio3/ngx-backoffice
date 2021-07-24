@@ -1,11 +1,12 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { FormControl, Validators } from '@angular/forms';
 
-import { SelectComponent } from './select.component';
-import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+// import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
-import { FormControl, Validators } from '@angular/forms';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { SelectComponent } from './select.component';
 
 describe('SelectComponent', () => {
   let component: SelectComponent;
@@ -15,7 +16,7 @@ describe('SelectComponent', () => {
     await TestBed.configureTestingModule({
       schemas: [NO_ERRORS_SCHEMA],
       declarations: [ SelectComponent ],
-      imports: [MatFormFieldModule, MatSelectModule, NoopAnimationsModule]
+      imports: [MatInputModule, MatSelectModule, NoopAnimationsModule]
     })
     .compileComponents();
   });

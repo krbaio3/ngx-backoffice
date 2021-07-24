@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { SummaryService } from './summary.service';
-import { MediaStylesModel } from '../../common';
-import { TOptions } from '@atmira/pattern-lib';
-import { EmitterEventCanvas } from './summary.model';
+
 import { DoughnutDataGroup } from './temporal';
+import { EmitterEventCanvas } from './summary.model';
+import { MediaStylesModel } from '../../common';
 import { Message } from '../../common/filter-menu/filter-menu.model';
+import { SummaryService } from './summary.service';
+import { TOptions } from '@atmira/pattern-lib';
 
 @Component({
   selector: 'atm-summary',
@@ -66,8 +67,6 @@ export class SummaryComponent implements OnInit {
   public displayedColumns: string[] = [];
 
   ngOnInit() {
-    console.log('SummaryComponent');
-
     this.labelChart = this.summarySrv.labelChart;
     this.dataSet = this.summarySrv.dataSet;
     this.mediaStyles = this.summarySrv.mediaStyles;
@@ -90,7 +89,6 @@ export class SummaryComponent implements OnInit {
   }
 
   handlerEmitterEventCanvas(event: EmitterEventCanvas) {
-    console.log(event);
     this.showTableDetail = true;
   }
 }

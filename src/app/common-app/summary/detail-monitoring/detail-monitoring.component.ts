@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+
 import { DoughnutDataGroup } from '../temporal';
 import { EmitterEventCanvas } from '../summary.model';
 
@@ -9,7 +10,6 @@ import { EmitterEventCanvas } from '../summary.model';
       fxLayout="column wrap"
       *ngFor="let item of dataGroupMonitoring; let i = index"
     >
-      <!--      <h3 class="text-center">{{ item.chartName }}</h3>-->
       <mat-tab-group
         animationDuration="0ms"
         class="detail_monitoring-mat-tab-border_none"

@@ -68,14 +68,14 @@
       "name": "Advanced Filters",
       "icon": "picture_as_pdf",
       "open": false,
-      "link": "advanced/filters"
+      "link": "advanced-queries/filters"
     },
     {
       "title": "Advanced Queries",
       "name": "Ad Hoc Reports",
       "icon": "picture_as_pdf",
       "open": false,
-      "link": "advanced/custom"
+      "link": "advanced-queries/reports"
     },
     {
       "title": "Benchmark",

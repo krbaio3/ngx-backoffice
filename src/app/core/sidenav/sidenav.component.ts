@@ -90,15 +90,12 @@ export class SidenavComponent implements AfterViewInit, OnInit {
 
   public toggleView() {
     if (this.media.isActive('gt-md')) {
-      console.log('gt-md');
       this.fixedTopGap = 64;
       this.iconOnly = false;
     } else if (this.media.isActive('gt-xs')) {
-      console.log('gt-xs');
       this.fixedTopGap = 64;
       this.iconOnly = false;
     } else if (this.media.isActive('lt-sm')) {
-      console.log('lt-sm');
       this.fixedTopGap = 56;
       this.iconOnly = true;
     }
