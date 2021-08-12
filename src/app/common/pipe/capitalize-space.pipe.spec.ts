@@ -22,13 +22,13 @@ describe('CapitalizeSpacePipe', () => {
   test('should return "" when try to transform a number', () => {
     const value: number = 2;
     // const args: string[] = [];
-    expect(pipe.transform(value)).toContain("");
+    expect(pipe.transform(value)).toEqual("");
   });
 
   test('should return "" when try to transform a object', () => {
     const value: Object = {};
     // const args: string[] = [];
-    expect(pipe.transform(value)).toContain("");
+    expect(pipe.transform(value)).toEqual("");
   });
 
 });

@@ -112,15 +112,17 @@ export class AdHocReportsComponent implements OnInit {
 
   email = new FormControl('', [Validators.required, Validators.email]);
 
-  getErrorMessage() {
-    if (this.email.hasError('required')) {
-      return 'You must enter a value';
-    }
+  // getErrorMessage() {
+  //   if (this.email.hasError('required')) {
+  //     return 'You must enter a value';
+  //   }
+  //
+  //   return this.email.hasError('email') ? 'Not a valid email' : '';
+  // }
 
-    return this.email.hasError('email') ? 'Not a valid email' : '';
+  public onSubmit() {
+    console.log('Submit');
   }
-
-  public onSubmit() {}
 
   ngOnInit(): void {
     // TODO: juntar estos tres servicios en uno, para optimizar.

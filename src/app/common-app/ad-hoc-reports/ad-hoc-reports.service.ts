@@ -1,34 +1,23 @@
+import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
+
 import {
-  additionalFiltersTemporal,
+  additionalFiltersOptionsTemporal,
   checkboxOptionsTemporal,
-  datesTemporal,
+  datesOptionsTemporal,
   frequencyTemporal,
   partyOptionsTemporal,
   productOptionsTemporal,
 } from './api.temporal';
 
-import { BodyOption } from 'src/app/core/body-options/body-options.model';
 import { Frequency } from './ad-hoc-reports.model';
-import { Injectable } from '@angular/core';
+import { BodyOption } from '../../core/body-options/body-options.model';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AdHocReportsService {
-  // get frequencyData(): Frequency[] {
-  //   return this._frequencyData;
-  // }
-
-  // set frequencyData(value: Frequency[]) {
-  //   this._frequencyData = value;
-  // }
-
-  // private _frequencyData: Frequency[] = [];
-
-  constructor() {
-    // this.frequencyData = frequencyTemporal;
-  }
+  constructor() {}
 
   public getFrequency(): Observable<Frequency[]> {
     return of(frequencyTemporal);
@@ -47,10 +36,10 @@ export class AdHocReportsService {
   }
 
   public getDateOptions(): Observable<string[]> {
-    return of(datesTemporal);
+    return of(datesOptionsTemporal);
   }
 
   public getAdditionalFiltersOptions(): Observable<string[]> {
-    return of(additionalFiltersTemporal);
+    return of(additionalFiltersOptionsTemporal);
   }
 }

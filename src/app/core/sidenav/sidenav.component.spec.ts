@@ -5,7 +5,6 @@ import { MatSidenav, MatSidenavModule } from '@angular/material/sidenav';
 import { RenderResult, render } from '@testing-library/angular';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { CommonExtensionModule } from '../../common/';
 import { CommonModule } from '@angular/common';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { MatButtonModule } from '@angular/material/button';
@@ -23,8 +22,6 @@ jest.mock('@angular/material/sidenav', ()=>{
     MatSidenav: jest.fn(),
   }
 });
-
-
 
 describe('SidenavComponent', () => {
   let component: SidenavComponent;
@@ -49,7 +46,6 @@ describe('SidenavComponent', () => {
         CommonModule,
         MatSidenavModule,
         MatButtonModule,
-        CommonExtensionModule,
         FlexLayoutModule,
         BrowserAnimationsModule,
         NgScrollbarModule,
@@ -69,11 +65,14 @@ describe('SidenavComponent', () => {
     component = fixture.componentInstance;
     service = TestBed.inject(SidenavService);
     mockCurrentUser = currentUserMock;
+    component.sidenav = jest.fn().mockImplementation(() => ({
+      toggle: () => {}
+    })) as any;
     component.currentUser = mockCurrentUser;
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  test('should create', () => {
     expect(component).toBeTruthy();
   });
 
@@ -81,11 +80,13 @@ describe('SidenavComponent', () => {
     expect(service).toBeTruthy();
   });
 
-  test('should set Sidenav WHEN call afterViewInit', async () => {
+  test('should set Sidenav WHEN call afterViewInit',  () => {
     // Arrange
-    const mockSidenav = MatSidenav;
+    const mockSidenav = {
+      toggle: () => ({})
+    } as any;
     const spySideNav = jest.spyOn(service, 'setSidenav');
-    component.sidenav = mockSidenav as any;
+    component.sidenav = mockSidenav;
     fixture.detectChanges();
 
     // Act
@@ -163,7 +164,6 @@ describe('Visual Component sidenav', () => {
         CommonModule,
         MatSidenavModule,
         MatButtonModule,
-        CommonExtensionModule,
         FlexLayoutModule,
         BrowserAnimationsModule,
         NgScrollbarModule,
@@ -178,6 +178,8 @@ describe('Visual Component sidenav', () => {
   });
   test('should render component', async () => {
     // Assert
+    const { fixture } = component;
+    fixture.detectChanges();
     expect(component).toBeTruthy();
   });
   // xtest('should hide the sidenav WHEN click toggle button', async () => {

@@ -49,13 +49,14 @@ export class SummaryService {
     this._doughnutData = value;
   }
 
-  get doughnutOptions(): TOptions {
-    return this._doughnutOptions;
-  }
+  // get doughnutOptions(): TOptions {
+  //   return this._doughnutOptions;
+  // }
 
-  set doughnutOptions(value: TOptions) {
-    this._doughnutOptions = value;
-  }
+  // set doughnutOptions(value: TOptions) {
+  //   this._doughnutOptions = value;
+  // }
+
   get mediaStyles(): MediaStylesModel[] {
     return this._mediaStyles;
   }
@@ -89,7 +90,7 @@ export class SummaryService {
   private _dataSet: any[] = [];
   private _chartOptions: TOptions = {};
   private _mediaStyles: MediaStylesModel[] = [];
-  private _doughnutOptions: TOptions = {};
+  // private _doughnutOptions: TOptions = {};
   private _doughnutData: any[] = [];
   private _messageValues: Message[] = [];
   private _dataTableSource: any[] = [];

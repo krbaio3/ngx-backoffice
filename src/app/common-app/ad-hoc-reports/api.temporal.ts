@@ -1,4 +1,4 @@
-import { BodyOption } from 'src/app/core/body-options/body-options.model';
+import { BodyOption } from '../../core/body-options/body-options.model';
 import { Frequency } from './ad-hoc-reports.model';
 
 export const frequencyTemporal: Frequency[] = [
@@ -50,14 +50,14 @@ export const productOptionsTemporal: BodyOption[] = [
   },
 ];
 
-export const datesTemporal: string[] = [
+export const datesOptionsTemporal: string[] = [
   'Reporting Timestamp',
   'Execution date',
   'Termination date',
   'Maturity date',
 ];
 
-export const additionalFiltersTemporal: string[] = [
+export const additionalFiltersOptionsTemporal: string[] = [
   'Venue of execution',
   'Level',
   'Action type',
