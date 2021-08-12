@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MainComponent } from './main.component';
 import { RouterModule } from '@angular/router';
 import { MatCardModule } from '@angular/material/card';
-import { CommonAppModule } from '../../common-app';
+import { MainComponent } from './main.component';
+import { SummaryModule } from './../../common-app/summary/summary.module';
 
 @NgModule({
   declarations: [MainComponent],
-  imports: [CommonModule, RouterModule, MatCardModule, CommonAppModule],
+  imports: [CommonModule, RouterModule, MatCardModule, SummaryModule],
   exports: [MainComponent],
 })
 export class MainModule {}

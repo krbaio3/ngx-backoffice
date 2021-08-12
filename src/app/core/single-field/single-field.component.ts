@@ -1,7 +1,7 @@
 import { Component, ContentChild, Input, TemplateRef } from '@angular/core';
 
-import { AdditionalFiltersComponent } from 'src/app/common-app/ad-hoc-reports/additional-filters/additional-filters.component';
-import { DatesComponent } from 'src/app/common-app/ad-hoc-reports/dates/dates.component';
+import { AdditionalFiltersComponent } from '../../common-app/ad-hoc-reports/additional-filters/additional-filters.component';
+import { DatesComponent } from '../../common-app/ad-hoc-reports/dates/dates.component';
 
 @Component({
   selector: 'atm-single-field',
