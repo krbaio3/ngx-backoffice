@@ -62,7 +62,6 @@ export class UserInformationComponent implements OnInit {
   }
 
   public validateValue(value: any) {
-    // console.log(value);
     return value.toString();
   }
 

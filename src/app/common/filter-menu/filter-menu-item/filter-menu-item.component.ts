@@ -1,15 +1,16 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   // eslint-disable-next-line @angular-eslint/component-selector
   selector: 'cdk-filter-menu-item',
   template: `
-    <span>{{ title }}</span>
+    <span fxFlex="30">{{ title }}</span>
     <div fxLayout="column" fxFlex="40">
       <ng-content></ng-content>
     </div>
-    <button mat-flat-button (click)="toggle()">Aceptar</button>
+    <div fxFlex="30" fxLayout="row" fxLayoutAlign="center center">
+      <button mat-flat-button (click)="toggle()">Aceptar</button>
+    </div>
   `,
 })
 export class FilterMenuItemComponent {

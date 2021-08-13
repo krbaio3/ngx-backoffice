@@ -1,4 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 import { SummaryComponent } from './summary.component';
 import { FilterMenuComponent } from '../../common/filter-menu/filter-menu.component';
@@ -7,8 +9,7 @@ import { MediaMenuComponent } from './media-menu/media-menu.component';
 import { DetailMonitoringComponent } from './detail-monitoring/detail-monitoring.component';
 import { TableDetailComponent } from './table-detail/table-detail.component';
 import { SummaryService } from './summary.service';
-import { NO_ERRORS_SCHEMA } from '@angular/core';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { EmitterEventCanvas } from './summary.model';
 
 describe('SummaryComponent', () => {
   let component: SummaryComponent;
@@ -37,7 +38,26 @@ describe('SummaryComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  test('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  describe('Chart Summary specs', () => {
+    test('should be true showTableDetail variable WHEN call to handlerEmitterEventCanvas', async () => {
+      // Arrange
+      const spy = jest.spyOn(component, 'handlerEmitterEventCanvas');
+      const valueInit = component.showTableDetail;
+      const argument = jest.fn() as any as EmitterEventCanvas
+
+      // Act
+      component.handlerEmitterEventCanvas(argument)
+      fixture.detectChanges(true);
+      const valueFinish = component.showTableDetail;
+
+      // Assert
+      expect(spy).toHaveBeenCalledWith(argument);
+      expect(valueInit).toBeFalsy();
+      expect(valueFinish).toBeTruthy();
+    });
   });
 });

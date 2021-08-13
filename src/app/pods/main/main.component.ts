@@ -1,7 +1,8 @@
+import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
+
 import { filter } from 'rxjs/operators';
-import { nameConstant } from './name.constant';
+import { mainRoutesNames } from './main-routes-names';
 
 @Component({
   selector: 'atm-main',
@@ -23,6 +24,7 @@ export class MainComponent implements OnInit {
   public group: string;
 
   constructor(private router: Router, private activatedRoute: ActivatedRoute) {
+    //TODO sacar a funciones
     const name =
       this.router.url.split('/')[this.router.url.split('/').length - 1];
 
@@ -31,7 +33,7 @@ export class MainComponent implements OnInit {
       this.extractGroup(this.router.url);
 
     const found: [string, string] | undefined = Object.entries(
-      nameConstant,
+      mainRoutesNames,
     ).find((pair) => pair[0] === name);
 
     this.currentRoute = !!found
@@ -40,12 +42,12 @@ export class MainComponent implements OnInit {
   }
 
   ngOnInit() {
+    // TODO: sacar a funciones
     this.router.events
       .pipe(filter((event): boolean => event instanceof NavigationEnd))
       .subscribe((data) => {
         // console.log('====>', this.activatedRoute.root.url);
         // this.activatedRoute.root.url.subscribe((data) => console.log(data));
-        console.log((data as NavigationEnd).url);
         this.group = this.extractGroup((data as NavigationEnd).url);
       });
   }

@@ -1,22 +1,23 @@
-import { SideMenuItemComponent } from './side-menu-item.component';
-import { FlexLayoutModule } from '@angular/flex-layout';
-import { MatIconModule } from '@angular/material/icon';
+import { RenderResult, fireEvent, getByTestId, render } from '@testing-library/angular';
+
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CommonModule } from '@angular/common';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { MatButtonModule } from '@angular/material/button';
-import { MatRippleModule } from '@angular/material/core';
-import { MatListModule } from '@angular/material/list';
-import { ScrollingModule } from '@angular/cdk/scrolling';
-import { NgScrollbarModule } from 'ngx-scrollbar';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatExpansionModule } from '@angular/material/expansion';
+import { MatIconModule } from '@angular/material/icon';
+// import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatListModule } from '@angular/material/list';
+import { MatRippleModule } from '@angular/material/core';
+import { NgScrollbarModule } from 'ngx-scrollbar';
 import { RouterTestingModule } from '@angular/router/testing';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ScrollingModule } from '@angular/cdk/scrolling';
 import { SideMenuAccordionItemComponent } from './side-menu-accordion-item.component';
+import { SideMenuItemComponent } from './side-menu-item.component';
 import { SideMenuOnlyItemComponent } from './side-menu-only-item.component';
-import { fireEvent, getByTestId, render, RenderResult } from '@testing-library/angular';
 import { menuMock } from '../side-menu/test/sidenav.mock';
 
 describe('SideMenuItemComponent Simple', () => {
@@ -32,7 +33,7 @@ describe('SideMenuItemComponent Simple', () => {
         FlexLayoutModule,
         MatIconModule,
         CommonModule,
-        MatFormFieldModule,
+        // MatFormFieldModule,
         MatInputModule,
         FlexLayoutModule,
         MatButtonModule,
@@ -134,7 +135,7 @@ describe('SideMenuItemComponent Accordion', () => {
         FlexLayoutModule,
         MatIconModule,
         CommonModule,
-        MatFormFieldModule,
+        // MatFormFieldModule,
         MatInputModule,
         FlexLayoutModule,
         MatButtonModule,

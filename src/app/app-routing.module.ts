@@ -26,6 +26,13 @@ const routes: Routes = [
         (m) => m.AccountRoutingModule,
       ),
   },
+  {
+    path: 'advanced-queries',
+    loadChildren: () =>
+      import('./pods/advanced-queries/advanced-queries.module').then(
+        (m) => m.AdvancedQueriesModule,
+      ),
+  },
 ];
 
 @NgModule({

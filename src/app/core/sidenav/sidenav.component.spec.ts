@@ -1,7 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { CurrentUser, currentUserMock } from '../../common/user-avatar/user-avatar.model';
+import { FlexLayoutModule, MediaObserver } from '@angular/flex-layout';
+import { MatSidenav, MatSidenavModule } from '@angular/material/sidenav';
+import { RenderResult, render } from '@testing-library/angular';
 
-import { SidenavComponent } from './sidenav.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CommonModule } from '@angular/common';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { MatButtonModule } from '@angular/material/button';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
+import { NgScrollbarModule } from 'ngx-scrollbar';
+import { RouterTestingModule } from '@angular/router/testing';
+import { SidenavComponent } from './sidenav.component';
+import { SidenavService } from './sidenav.service';
+import { menuMock } from '../../common/side-menu/test/sidenav.mock';
+
 jest.mock('@angular/material/sidenav', ()=>{
   const original = jest.requireActual('@angular/material/sidenav');
   return {
@@ -9,22 +22,6 @@ jest.mock('@angular/material/sidenav', ()=>{
     MatSidenav: jest.fn(),
   }
 });
-import { MatSidenav, MatSidenavModule } from '@angular/material/sidenav';
-import { MatButtonModule } from '@angular/material/button';
-import { CommonExtensionModule } from '../../common/';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FlexLayoutModule, MediaObserver } from '@angular/flex-layout';
-import { NgScrollbarModule } from 'ngx-scrollbar';
-import { RouterTestingModule } from '@angular/router/testing';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { SidenavService } from './sidenav.service';
-import { CurrentUser, currentUserMock } from '../../common/user-avatar/user-avatar.model';
-import { NO_ERRORS_SCHEMA } from '@angular/core';
-import { fireEvent, render, RenderResult } from '@testing-library/angular';
-import { SideMenuItemComponent } from '../../common/side-menu-item/side-menu-item.component';
-import { menuMock } from '../../common/side-menu/test/sidenav.mock';
-
-
 
 describe('SidenavComponent', () => {
   let component: SidenavComponent;
@@ -49,12 +46,11 @@ describe('SidenavComponent', () => {
         CommonModule,
         MatSidenavModule,
         MatButtonModule,
-        CommonExtensionModule,
         FlexLayoutModule,
         BrowserAnimationsModule,
         NgScrollbarModule,
         RouterTestingModule,
-        HttpClientTestingModule
+        HttpClientTestingModule,
       ],
       providers: [
         { provide: SidenavService, useFactory: sidenavServiceStub },
@@ -69,11 +65,14 @@ describe('SidenavComponent', () => {
     component = fixture.componentInstance;
     service = TestBed.inject(SidenavService);
     mockCurrentUser = currentUserMock;
+    component.sidenav = jest.fn().mockImplementation(() => ({
+      toggle: () => {}
+    })) as any;
     component.currentUser = mockCurrentUser;
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  test('should create', () => {
     expect(component).toBeTruthy();
   });
 
@@ -81,11 +80,13 @@ describe('SidenavComponent', () => {
     expect(service).toBeTruthy();
   });
 
-  test('should set Sidenav WHEN call afterViewInit', async () => {
+  test('should set Sidenav WHEN call afterViewInit',  () => {
     // Arrange
-    const mockSidenav = MatSidenav;
+    const mockSidenav = {
+      toggle: () => ({})
+    } as any;
     const spySideNav = jest.spyOn(service, 'setSidenav');
-    component.sidenav = mockSidenav as any;
+    component.sidenav = mockSidenav;
     fixture.detectChanges();
 
     // Act
@@ -163,7 +164,6 @@ describe('Visual Component sidenav', () => {
         CommonModule,
         MatSidenavModule,
         MatButtonModule,
-        CommonExtensionModule,
         FlexLayoutModule,
         BrowserAnimationsModule,
         NgScrollbarModule,
@@ -178,6 +178,8 @@ describe('Visual Component sidenav', () => {
   });
   test('should render component', async () => {
     // Assert
+    const { fixture } = component;
+    fixture.detectChanges();
     expect(component).toBeTruthy();
   });
   // xtest('should hide the sidenav WHEN click toggle button', async () => {

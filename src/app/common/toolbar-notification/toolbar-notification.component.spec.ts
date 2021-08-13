@@ -1,24 +1,25 @@
-import { ToolbarNotificationComponent } from './toolbar-notification.component';
-import { MatIconModule } from '@angular/material/icon';
-import { MatButtonModule } from '@angular/material/button';
+import { RenderResult, fireEvent, render } from '@testing-library/angular';
+
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
 import { NgScrollbarModule } from 'ngx-scrollbar';
-import { fireEvent, render, RenderResult } from '@testing-library/angular';
-import { SideMenuItemComponent } from '../side-menu-item/side-menu-item.component';
-import { menuMock } from '../side-menu/test/sidenav.mock';
-import { CommonModule } from '@angular/common';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
-import { MatRippleModule } from '@angular/material/core';
-import { MatListModule } from '@angular/material/list';
-import { ScrollingModule } from '@angular/cdk/scrolling';
-import { MatChipsModule } from '@angular/material/chips';
-import { MatExpansionModule } from '@angular/material/expansion';
-import { RouterTestingModule } from '@angular/router/testing';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { SideMenuAccordionItemComponent } from '../side-menu-item/side-menu-accordion-item.component';
-import { SideMenuOnlyItemComponent } from '../side-menu-item/side-menu-only-item.component';
+import { ToolbarNotificationComponent } from './toolbar-notification.component';
+// import { SideMenuItemComponent } from '../side-menu-item/side-menu-item.component';
+// import { menuMock } from '../side-menu/test/sidenav.mock';
+// import { CommonModule } from '@angular/common';
+// import { MatFormFieldModule } from '@angular/material/form-field';
+// import { MatInputModule } from '@angular/material/input';
+// import { MatRippleModule } from '@angular/material/core';
+// import { MatListModule } from '@angular/material/list';
+// import { ScrollingModule } from '@angular/cdk/scrolling';
+// import { MatChipsModule } from '@angular/material/chips';
+// import { MatExpansionModule } from '@angular/material/expansion';
+// import { RouterTestingModule } from '@angular/router/testing';
+// import { HttpClientTestingModule } from '@angular/common/http/testing';
+// import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+// import { SideMenuAccordionItemComponent } from '../side-menu-item/side-menu-accordion-item.component';
+// import { SideMenuOnlyItemComponent } from '../side-menu-item/side-menu-only-item.component';
 
 describe('ToolbarNotificationComponent', () => {
   let component: RenderResult<ToolbarNotificationComponent>;

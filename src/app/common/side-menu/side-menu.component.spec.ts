@@ -1,28 +1,28 @@
-import { waitForAsync, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
-import { SideMenuComponent } from './side-menu.component';
-import { of } from 'rxjs';
-import { menuMock } from './test/sidenav.mock';
-import { SideMenuItemComponent } from '../side-menu-item/side-menu-item.component';
-import { FlexLayoutModule } from '@angular/flex-layout';
-import { MatIconModule } from '@angular/material/icon';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CommonModule } from '@angular/common';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
+import { DebugElement } from '@angular/core';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { MatButtonModule } from '@angular/material/button';
-import { MatRippleModule } from '@angular/material/core';
-import { MatListModule } from '@angular/material/list';
-import { ScrollingModule } from '@angular/cdk/scrolling';
-import { NgScrollbarModule } from 'ngx-scrollbar';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatExpansionModule } from '@angular/material/expansion';
-import { SideMenuOnlyItemComponent } from '../side-menu-item/side-menu-only-item.component';
-import { SideMenuAccordionItemComponent } from '../side-menu-item/side-menu-accordion-item.component';
+import { MatIconModule } from '@angular/material/icon';
+// import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatListModule } from '@angular/material/list';
+import { MatRippleModule } from '@angular/material/core';
+import { NgScrollbarModule } from 'ngx-scrollbar';
 import { RouterTestingModule } from '@angular/router/testing';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { DebugElement } from '@angular/core';
+import { ScrollingModule } from '@angular/cdk/scrolling';
+import { SideMenuAccordionItemComponent } from '../side-menu-item/side-menu-accordion-item.component';
+import { SideMenuComponent } from './side-menu.component';
+import { SideMenuItemComponent } from '../side-menu-item/side-menu-item.component';
+import { SideMenuOnlyItemComponent } from '../side-menu-item/side-menu-only-item.component';
 import { SidenavModel } from './sidenav.model';
+import { menuMock } from './test/sidenav.mock';
+import { of } from 'rxjs';
 
 describe('SideMenuComponent', () => {
   let component: SideMenuComponent;
@@ -43,7 +43,7 @@ describe('SideMenuComponent', () => {
         FlexLayoutModule,
         MatIconModule,
         CommonModule,
-        MatFormFieldModule,
+        // MatFormFieldModule,
         MatInputModule,
         FlexLayoutModule,
         MatIconModule,

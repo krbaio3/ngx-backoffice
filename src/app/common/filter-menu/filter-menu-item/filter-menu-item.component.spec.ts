@@ -19,7 +19,20 @@ describe('FilterMenuItemComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  test('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  test('should emmit a boolean WHEN call toggle method', () => {
+    // Arrange
+    const spyEmit = jest.spyOn(component.emitTogglePanel, 'emit' );
+    const spyToggle = jest.spyOn(component, 'toggle' );
+
+    // Act
+    component.toggle();
+
+    // Assert
+    expect(spyToggle).toHaveBeenCalled();
+    expect(spyEmit).toHaveBeenCalledWith(true);
   });
 });

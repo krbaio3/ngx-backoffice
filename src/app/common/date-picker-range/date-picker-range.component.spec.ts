@@ -1,14 +1,14 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { MatDatepickerInputEvent, MatDatepickerModule } from '@angular/material/datepicker';
 
 import { DatePickerRangeComponent } from './date-picker-range.component';
-import { MatDatepickerInputEvent, MatDatepickerModule } from '@angular/material/datepicker';
-import { ReactiveFormsModule } from '@angular/forms';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
+// import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
-import { NO_ERRORS_SCHEMA } from '@angular/core';
+import { MatInputModule } from '@angular/material/input';
 import { MatNativeDateModule } from '@angular/material/core';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { ReactiveFormsModule } from '@angular/forms';
 
 describe('DatePickerRangeComponent', () => {
   let component: DatePickerRangeComponent;
@@ -22,7 +22,7 @@ describe('DatePickerRangeComponent', () => {
         MatDatepickerModule,
         ReactiveFormsModule,
         MatIconModule,
-        MatFormFieldModule,
+        // MatFormFieldModule,
         MatInputModule,
         MatNativeDateModule,
         NoopAnimationsModule,
@@ -43,7 +43,7 @@ describe('DatePickerRangeComponent', () => {
 
   describe('onInnerInputEventStart and onInnerInputEventEnd', () => {
 
-    test('should emmit a event WHEN select to start day', async () => {
+    test('should emitter a event WHEN select to start day', async () => {
       // Arrange
       const spyOnInnerStart = jest.spyOn(component.dateInputEventStart, 'emit');
       const value= { value: new Date() };
@@ -53,7 +53,7 @@ describe('DatePickerRangeComponent', () => {
       expect(spyOnInnerStart).toHaveBeenCalled();
     });
 
-    test('should emmit a event WHEN select to end day', async () => {
+    test('should emitter a event WHEN select to end day', async () => {
       // Arrange
       const spyOnInnerEnd = jest.spyOn(component.dateInputEventEnd, 'emit');
       const value= { value: new Date() };
@@ -67,7 +67,7 @@ describe('DatePickerRangeComponent', () => {
 
   describe('onInnerChangeEventStart and onInnerChangeEventEnd', () => {
 
-    test('should emmit a event WHEN change to start day', async () => {
+    test('should emit a event WHEN change to start day', async () => {
       // Arrange
       const spyOnChangeStart = jest.spyOn(component.dateChangeEventStart, 'emit');
       const value= { value: new Date() };
@@ -77,7 +77,7 @@ describe('DatePickerRangeComponent', () => {
       expect(spyOnChangeStart).toHaveBeenCalled();
     });
 
-    test('should emmit a event WHEN select to end day', async () => {
+    test('should emit a event WHEN select to end day', async () => {
       // Arrange
       const spyOnChangeEnd = jest.spyOn(component.dateChangeEventEnd, 'emit');
       const value= { value: new Date() };

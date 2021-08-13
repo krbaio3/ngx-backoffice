@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { UserAccount, createEmptyUserAccount } from './user-account.model';
+
 import { AccountService } from './account.service';
-import { createEmptyUserAccount, UserAccount } from './user-account.model';
 
 @Component({
   selector: 'atm-account',
@@ -16,7 +17,6 @@ export class AccountComponent implements OnInit {
   constructor(private accountSrv: AccountService) {}
   ngOnInit() {
     this.accountSrv.getUserAccount().subscribe((data) => {
-      console.log(data);
       this.userInfo = data;
     });
   }

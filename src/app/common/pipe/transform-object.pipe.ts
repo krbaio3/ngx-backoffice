@@ -8,7 +8,6 @@ export class TransformObjectPipe implements PipeTransform {
     if (!value) return;
     if (typeof value !== 'object') return;
     const keys = Object.keys(value);
-    console.log(keys);
     return keys;
   }
 }

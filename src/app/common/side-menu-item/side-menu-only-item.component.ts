@@ -1,5 +1,6 @@
 /* eslint-disable @angular-eslint/component-selector */
 import { Component, Input, ViewEncapsulation } from '@angular/core';
+
 import { SidenavModel } from '../side-menu/sidenav.model';
 @Component({
   encapsulation: ViewEncapsulation.None,
@@ -12,12 +13,6 @@ import { SidenavModel } from '../side-menu/sidenav.model';
         role="link"
         [routerLink]="menu.link.toString()"
       >
-        <!--      <a-->
-        <!--        mat-list-item-->
-        <!--        fxLayoutAlign.xs="center"-->
-        <!--        role="link"-->
-        <!--        [routerLink]="'/docs/{{menu.name.trim().toLowerCase()}}'"-->
-        <!--      >-->
         <mat-icon mat-list-icon [attr.aria-label]="menu.name">{{
           menu.icon
         }}</mat-icon>

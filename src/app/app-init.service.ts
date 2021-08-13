@@ -33,7 +33,6 @@ export class AppInitService {
   constructor(private $http: HttpClient) {}
 
   sidenavMenuLoad(): Promise<SidenavModel[]> {
-    console.log('AppInitService.sidenavMenu() called');
     return new Promise<SidenavModel[]>((resolve, reject) => {
       return this.$http
         .get('assets/json/sidenav.json')
@@ -50,7 +49,6 @@ export class AppInitService {
   }
 
   userAvatarLoad(): Promise<CurrentUser> {
-    console.log('AppInitService.userAvatarLoad() called');
     return new Promise<CurrentUser>((resolve, reject) => {
       return this.$http
         .get('assets/json/user-avatar.json')

@@ -75,7 +75,7 @@ export class UserMenuComponent {
   public currentUser: CurrentUser = currentUserInit;
 
   @HostListener('document:click', ['$event', '$event.target'])
-  onClick(event: MouseEvent, targetElement: HTMLElement) {
+  onClick(event: MouseEvent, targetElement: HTMLElement): void | undefined {
     if (!targetElement) {
       return;
     }

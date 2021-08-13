@@ -78,6 +78,7 @@ describe('ToolbarComponent', () => {
       jest.spyOn(component, 'toggleView');
       jest.spyOn(component, 'callToGetNotifications');
       jest.spyOn(mediaObserverStub, 'asObservable');
+      // TODO: this test throw a error during cleanup of component
       component.ngOnInit();
       expect(component.toggleView).toHaveBeenCalled();
       expect(component.callToGetNotifications).toHaveBeenCalled();

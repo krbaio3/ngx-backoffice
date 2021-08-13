@@ -1,18 +1,17 @@
+import { CommonModule } from '@angular/common';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { MatButtonModule } from '@angular/material/button';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatSidenavModule } from '@angular/material/sidenav';
 /* Angular Module/Components */
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { MatSidenavModule } from '@angular/material/sidenav';
-import { MatButtonModule } from '@angular/material/button';
-import { FlexLayoutModule } from '@angular/flex-layout';
-import { MatExpansionModule } from '@angular/material/expansion';
-
 /* Three Party*/
 import { NgScrollbarModule } from 'ngx-scrollbar';
-
+import { RouterModule } from '@angular/router';
+import { SideMenuModule } from '../../common/side-menu/side-menu.module';
 /* Custom Modules/Components */
 import { SidenavComponent } from './sidenav.component';
-import { CommonExtensionModule } from '../../common';
-import { RouterModule } from '@angular/router';
+import { UserAvatarModule } from '../../common/user-avatar/user-avatar.module';
 
 @NgModule({
   declarations: [SidenavComponent],
@@ -20,11 +19,12 @@ import { RouterModule } from '@angular/router';
     CommonModule,
     MatSidenavModule,
     MatButtonModule,
-    CommonExtensionModule,
     FlexLayoutModule,
     MatExpansionModule,
     NgScrollbarModule,
     RouterModule,
+    UserAvatarModule,
+    SideMenuModule,
   ],
   exports: [SidenavComponent],
 })

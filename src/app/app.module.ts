@@ -11,6 +11,7 @@ import { CurrentUser } from './common/user-avatar/user-avatar.model';
 import { DocumentationModule } from './pods/documentation/documentation.module';
 import { MainModule } from './pods/main/main.module';
 import { SidenavModel } from './common/side-menu/sidenav.model';
+import { AdvancedQueriesModule } from './pods/advanced-queries/advanced-queries.module';
 
 export function initializeSideNav(appInitService: AppInitService) {
   return (): Promise<SidenavModel[]> => {
@@ -32,6 +33,7 @@ export function initializeUserAvatar(appInitService: AppInitService) {
     BrowserAnimationsModule,
     DocumentationModule,
     MainModule,
+    AdvancedQueriesModule,
     AccountModule,
     CoreModule,
   ],
