@@ -38,7 +38,7 @@ import { EmitterEventCanvas } from '../summary.model';
   `,
   styles: [''],
 })
-export class DetailMonitoringComponent {
+export class DoughnutDetailComponent {
   @Input()
   public dataGroupMonitoring: DoughnutDataGroup[] = [];
 

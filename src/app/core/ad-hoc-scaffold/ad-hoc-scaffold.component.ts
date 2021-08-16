@@ -3,7 +3,6 @@ import { Component, Input } from '@angular/core';
 import { NgStyle } from '@angular/common';
 import { adHocReports } from '../../utils/variable-styles.global';
 
-///TODO: Promocionar a CORE si se usa en más sitios
 @Component({
   selector: 'atm-ad-hoc-scaffold',
   template: `

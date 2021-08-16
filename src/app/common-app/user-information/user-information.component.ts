@@ -1,9 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import {
-  UserAccount,
-  UserAddress,
-  UserContact,
-} from '../../pods/account/user-account.model';
+import { UserAccount } from '../../pods/account/user-account.model';
 
 @Component({
   selector: 'atm-user-information',

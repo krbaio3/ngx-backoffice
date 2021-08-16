@@ -1,3 +1,4 @@
+import { NgStyle } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
@@ -48,6 +49,7 @@ import { Message } from './filter-menu.model';
             <cdk-select-type
               fxLayout="row"
               fxLayoutAlign="space-around center"
+              [customStyle]="{ width: '100%' }"
               [messageControl]="messageControl"
               [messages]="messages"
               label="Message Type"

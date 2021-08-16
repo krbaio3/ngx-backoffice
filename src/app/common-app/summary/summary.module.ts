@@ -1,22 +1,29 @@
-import { MatTabsModule } from '@angular/material/tabs';
-import { MediaItemModule } from './../../common/media-item/media-item.module';
-import { FlexLayoutModule } from '@angular/flex-layout';
-import { TableDetailComponent } from './table-detail/table-detail.component';
-import { DetailMonitoringComponent } from './detail-monitoring/detail-monitoring.component';
-import { MediaMenuComponent } from './media-menu/media-menu.component';
-import { ChartDetailModule } from './../../core/chart-detail/chart-detail.module';
-import { FilterMenuModule } from './../../common/filter-menu/filter-menu.module';
-import { SummaryComponent } from './summary.component';
+/* Angular Modules */
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { MatTabsModule } from '@angular/material/tabs';
+import { FlexLayoutModule } from '@angular/flex-layout';
+
+/* 3rd Modules */
 import { TableModule } from '@atmira/pattern-lib';
 
-//TODO: cambiar nombre a DetailMonitoringComponent => Doughnut-detail
+/* Custom Modules*/
+import { SummaryRoutingModule } from './summary-routing.module';
+import { MediaItemModule } from './../../common/media-item/media-item.module';
+import { ChartDetailModule } from './../../core/chart-detail/chart-detail.module';
+import { FilterMenuModule } from './../../common/filter-menu/filter-menu.module';
+
+/* Custom Components */
+import { TableDetailComponent } from './table-detail/table-detail.component';
+import { DoughnutDetailComponent } from './doughnut-detail/doughnut-detail.component';
+import { MediaMenuComponent } from './media-menu/media-menu.component';
+import { SummaryComponent } from './summary.component';
+
 @NgModule({
   declarations: [
     SummaryComponent,
     MediaMenuComponent,
-    DetailMonitoringComponent,
+    DoughnutDetailComponent,
     TableDetailComponent,
   ],
   imports: [
@@ -27,6 +34,7 @@ import { TableModule } from '@atmira/pattern-lib';
     TableModule,
     MediaItemModule,
     MatTabsModule,
+    SummaryRoutingModule,
   ],
   exports: [SummaryComponent],
 })

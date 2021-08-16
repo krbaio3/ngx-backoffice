@@ -2,19 +2,45 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { MainComponent } from './main.component';
 
-//TODO: Refactorizar para lazyLoading
 const routes: Routes = [
   {
     path: 'reporting',
-    children: [{ path: 'summary', component: MainComponent }],
+    component: MainComponent,
+    children: [
+      {
+        path: 'summary',
+        loadChildren: () =>
+          import('../../common-app/summary/summary.module').then(
+            (m) => m.SummaryModule,
+          ),
+      },
+    ],
   },
   {
     path: 'output',
-    children: [{ path: 'response', component: MainComponent }],
+    component: MainComponent,
+    children: [
+      {
+        path: 'response',
+        loadChildren: () =>
+          import('../../common-app/summary/summary.module').then(
+            (m) => m.SummaryModule,
+          ),
+      },
+    ],
   },
   {
     path: 'input',
-    children: [{ path: 'upload', component: MainComponent }],
+    component: MainComponent,
+    children: [
+      {
+        path: 'upload',
+        loadChildren: () =>
+          import('../../common-app/summary/summary.module').then(
+            (m) => m.SummaryModule,
+          ),
+      },
+    ],
   },
 ];
 

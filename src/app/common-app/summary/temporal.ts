@@ -18,13 +18,13 @@ const NUMBER_CFG = { count: DATA_COUNT, min: 0, max: 100 };
 
 export const dataSetTemporary = [
   {
-    label: 'Aceptados',
+    label: 'Accept',
     data: numbers(NUMBER_CFG),
     backgroundColor: CHART_COLORS.red,
     stack: 'Stack 0',
   },
   {
-    label: 'Rechazados',
+    label: 'Reject',
     data: numbers(NUMBER_CFG),
     backgroundColor: CHART_COLORS.blue,
     stack: 'Stack 0',
@@ -58,7 +58,7 @@ export const mediaStylesTemporary: MediaStylesModel[] = [
     data: {
       colorDark: '#001AB8',
       number: '2500',
-      title: 'Aceptados',
+      title: 'Accept',
       fontSize: '40px',
       color: 'white',
     },
@@ -69,7 +69,7 @@ export const mediaStylesTemporary: MediaStylesModel[] = [
     data: {
       colorDark: '#001AB8',
       number: '2500',
-      title: 'Rechazados',
+      title: 'Reject',
       fontSize: '40px',
       color: 'white',
     },
@@ -80,7 +80,7 @@ export const mediaStylesTemporary: MediaStylesModel[] = [
     data: {
       colorDark: '#001AB8',
       number: '2500',
-      title: 'Pendientes',
+      title: 'Pending',
       fontSize: '40px',
       color: 'white',
     },
@@ -134,10 +134,10 @@ interface Dataset {
 export const doughnutLabelGroupTemporary: DoughnutDataGroup[] = [
   {
     chartName: 'Archivos',
-    chartLabel: ['Aceptados', 'Rechazados', 'InProgress'],
+    chartLabel: ['Accept', 'Reject', 'InProgress'],
     dataset: [
       {
-        chartLabelDataset: ['Aceptados', 'Rechazados', 'InProgress'],
+        chartLabelDataset: ['Accept', 'Reject', 'InProgress'],
         label: 'Archivos',
         data: numbers({ count: 3, min: 0, max: 100 }),
         backgroundColor: Object.values(CHART_COLORS),
@@ -158,10 +158,10 @@ export const doughnutLabelGroupTemporary: DoughnutDataGroup[] = [
   },
   {
     chartName: 'Proc x Mensaje',
-    chartLabel: ['Aceptados', 'Rechazados', 'InProgress'],
+    chartLabel: ['Accept', 'Reject', 'InProgress'],
     dataset: [
       {
-        chartLabelDataset: ['Aceptados', 'Rechazados', 'InProgress'],
+        chartLabelDataset: ['Accept', 'Reject', 'InProgress'],
         label: 'Activity Type',
         data: numbers({ count: 3, min: 0, max: 100 }),
         backgroundColor: Object.values(CHART_COLORS),
