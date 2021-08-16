@@ -1,3 +1,4 @@
+import { NgStyle } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { Message } from '../filter-menu/filter-menu.model';
@@ -5,7 +6,7 @@ import { Message } from '../filter-menu/filter-menu.model';
 @Component({
   // eslint-disable-next-line @angular-eslint/component-selector
   selector: 'cdk-select-type',
-  template: `<mat-form-field appearance="fill" fxFill>
+  template: `<mat-form-field appearance="fill" fxFill [ngStyle]="customStyle">
     <mat-label>{{ label }}</mat-label>
     <mat-select [formControl]="messageControl" required>
       <mat-option>--</mat-option>
@@ -23,13 +24,20 @@ export class SelectComponent {
   @Input()
   public label: string;
 
-  @Input() messageControl!: FormControl;
+  @Input()
+  public customStyle: NgStyle['ngStyle'];
 
-  @Input() messages!: Message[];
+  @Input()
+  public messageControl!: FormControl;
 
-  @Input() togglePanel!: () => void;
+  @Input()
+  public messages!: Message[];
+
+  @Input()
+  public togglePanel!: () => void;
 
   constructor() {
     this.label = '';
+    this.customStyle = {};
   }
 }

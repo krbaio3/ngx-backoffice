@@ -13,7 +13,10 @@
       "icon": "multiline_chart",
       "link": false,
       "open": false,
-      "chip": { "value": 1, "color": "accent" },
+      "chip": {
+        "value": 1,
+        "color": "accent"
+      },
       "sub": [
         {
           "name": "Reporting Summary",
@@ -86,7 +89,7 @@
     },
     {
       "title": "Benchmark",
-      "name": "Rechazos",
+      "name": "Fails",
       "icon": "picture_as_pdf",
       "open": false,
       "link": "benchmark/fails"

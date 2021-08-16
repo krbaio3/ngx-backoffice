@@ -1,7 +1,7 @@
 {
   "data": [
     {
-      "chartLabel": ["Aceptados", "Rechazados", "InProgress"],
+      "chartLabel": ["Accept", "Reject", "InProgress"],
       "dataset": {
         "label": "Dataset 1",
         "data": 111,
@@ -21,7 +21,7 @@
       }
     },
     {
-      "chartLabel": ["Aceptados", "Rechazados", "InProgress"],
+      "chartLabel": ["Accept", "Reject", "InProgress"],
       "dataset": {
         "label": "Dataset 1",
         "data": 222,
@@ -41,7 +41,7 @@
       }
     },
     {
-      "chartLabel": ["Aceptados", "Rechazados", "InProgress"],
+      "chartLabel": ["Accept", "Reject", "InProgress"],
       "dataset": {
         "label": "Dataset 1",
         "data": 6666,

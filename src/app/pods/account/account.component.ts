@@ -4,7 +4,6 @@ import { UserAccount, createEmptyUserAccount } from './user-account.model';
 import { AccountService } from './account.service';
 
 @Component({
-  selector: 'atm-account',
   template: ` <mat-card>
     <h1>User Information</h1>
     <atm-user-information [userInfo]="userInfo"></atm-user-information>

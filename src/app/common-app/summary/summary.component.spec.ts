@@ -6,7 +6,7 @@ import { SummaryComponent } from './summary.component';
 import { FilterMenuComponent } from '../../common/filter-menu/filter-menu.component';
 import { ChartDetailComponent } from '../../core/chart-detail/chart-detail.component';
 import { MediaMenuComponent } from './media-menu/media-menu.component';
-import { DetailMonitoringComponent } from './detail-monitoring/detail-monitoring.component';
+import { DoughnutDetailComponent } from './doughnut-detail/doughnut-detail.component';
 import { TableDetailComponent } from './table-detail/table-detail.component';
 import { SummaryService } from './summary.service';
 import { EmitterEventCanvas } from './summary.model';
@@ -23,7 +23,7 @@ describe('SummaryComponent', () => {
         FilterMenuComponent,
         ChartDetailComponent,
         MediaMenuComponent,
-        DetailMonitoringComponent,
+        DoughnutDetailComponent,
         TableDetailComponent
       ],
       providers: [SummaryService],

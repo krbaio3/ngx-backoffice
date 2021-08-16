@@ -125,7 +125,7 @@ export class AdHocReportsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // TODO: juntar estos tres servicios en uno, para optimizar.
+    // TODO: juntar estos servicios en uno, para optimizar.
     this.adHocReportSrv
       .getFrequency()
       .subscribe(
