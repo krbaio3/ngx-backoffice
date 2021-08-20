@@ -10,7 +10,7 @@ import { TOptions } from '@atmira/pattern-lib';
 @Component({
   selector: 'atm-summary',
   template: `
-    <cdk-filter-menu [messages]="messageOptions"></cdk-filter-menu>
+    <cdk-filter-menu [messages]="messageOptions" class="mb-3"></cdk-filter-menu>
     <atm-chart-detail
       [height]="'500'"
       [labelChart]="labelChart"

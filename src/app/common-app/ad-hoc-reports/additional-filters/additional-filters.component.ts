@@ -3,7 +3,7 @@ import { Component, Input } from '@angular/core';
 @Component({
   selector: 'atm-additional-filters',
   template: `
-    <mat-form-field appearance="fill" fxFill>
+    <mat-form-field appearance="outline" fxFill>
       <mat-label>{{ additionalFilter }}</mat-label>
       <input
         matInput

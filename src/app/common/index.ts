@@ -1,4 +1,3 @@
-// start:ng42.barrel
 export * from './date-picker-range';
 export * from './filter-menu';
 export * from './fullscreen';
@@ -13,4 +12,4 @@ export * from './title-radio-group';
 export * from './toolbar-notification';
 export * from './user-avatar';
 export * from './user-menu';
-// end:ng42.barrel
+export * from './input-file';

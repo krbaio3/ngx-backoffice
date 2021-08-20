@@ -7,23 +7,23 @@ import { Frequency } from '../ad-hoc-reports.model';
   template: `
     <div fxLayout="column wrap" fxLayoutAlign="space-between center">
       <div fxLayout="row wrap" fxLayoutAlign="space-evenly center" fxFill>
-        <mat-form-field appearance="fill" fxFlex="30" fxFlex.lt-sm="100">
+        <mat-form-field appearance="outline" fxFlex="30" fxFlex.lt-sm="100">
           <mat-label>QueryID</mat-label>
           <input matInput type="text" placeholder="QueryID" />
         </mat-form-field>
-        <mat-form-field appearance="fill" fxFlex="60" fxFlex.lt-sm="100">
+        <mat-form-field appearance="outline" fxFlex="60" fxFlex.lt-sm="100">
           <mat-label>QueryParams</mat-label>
           <input matInput type="text" placeholder="QueryParams" />
         </mat-form-field>
       </div>
 
       <div fxLayout="row wrap" fxLayoutAlign="space-evenly center" fxFill>
-        <mat-form-field appearance="fill" fxFlex="29" fxFlex.lt-sm="100">
+        <mat-form-field appearance="outline" fxFlex="29" fxFlex.lt-sm="100">
           <mat-label>Author</mat-label>
           <input matInput type="text" placeholder="Author" />
         </mat-form-field>
 
-        <mat-form-field appearance="fill" fxFlex="29" fxFlex.lt-sm="100">
+        <mat-form-field appearance="outline" fxFlex="29" fxFlex.lt-sm="100">
           <mat-label>Generation Date</mat-label>
           <input matInput [matDatepicker]="picker" />
           <mat-datepicker-toggle
@@ -32,7 +32,7 @@ import { Frequency } from '../ad-hoc-reports.model';
           ></mat-datepicker-toggle>
           <mat-datepicker #picker></mat-datepicker>
         </mat-form-field>
-        <mat-form-field appearance="fill" fxFlex="29" fxFlex.lt-sm="100">
+        <mat-form-field appearance="outline" fxFlex="29" fxFlex.lt-sm="100">
           <mat-label>Select Frequency</mat-label>
           <mat-select [(ngModel)]="selectedValue" name="frequency">
             <mat-option>None</mat-option>

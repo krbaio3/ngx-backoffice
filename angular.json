@@ -34,6 +34,7 @@
             "assets": ["src/favicon.ico", "src/assets"],
             "styles": [
               "./node_modules/@angular/material/prebuilt-themes/pink-bluegrey.css",
+              "./node_modules/animate.css/animate.css",
               "src/styles.scss"
             ],
             "scripts": ["./node_modules/chart.js/dist/chart.esm.js"],

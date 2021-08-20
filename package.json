@@ -50,6 +50,7 @@
     "@angular/platform-browser-dynamic": "11.2.14",
     "@angular/router": "11.2.14",
     "@atmira/pattern-lib": "0.3.1",
+    "animate.css": "^4.1.1",
     "lodash.merge": "^4.6.2",
     "ngx-scrollbar": "^7.5.6",
     "rxjs": "6.6.7",

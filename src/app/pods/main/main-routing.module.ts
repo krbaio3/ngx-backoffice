@@ -36,8 +36,8 @@ const routes: Routes = [
       {
         path: 'upload',
         loadChildren: () =>
-          import('../../common-app/summary/summary.module').then(
-            (m) => m.SummaryModule,
+          import('../../common-app/upload/upload.module').then(
+            (m) => m.UploadModule,
           ),
       },
     ],

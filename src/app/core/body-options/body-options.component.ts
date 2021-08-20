@@ -11,7 +11,7 @@ import { BodyOption } from './body-options.model';
       fxFill
       fxLayoutAlign.gt-xs="space-evenly center"
     >
-      <mat-form-field appearance="fill" fxFlex.gt-xs="45" fxFill>
+      <mat-form-field appearance="outline" fxFlex.gt-xs="45" fxFill>
         <mat-label>{{ bodyOption.input }}</mat-label>
         <input
           matInput
@@ -30,7 +30,7 @@ import { BodyOption } from './body-options.model';
           <mat-icon>close</mat-icon>
         </button>
       </mat-form-field>
-      <mat-form-field appearance="fill" fxFlex.gt-xs="45" fxFill>
+      <mat-form-field appearance="outline" fxFlex.gt-xs="45" fxFill>
         <mat-label>{{ bodyOption.select }}</mat-label>
         <mat-select [(value)]="selected">
           <mat-option>None</mat-option>
