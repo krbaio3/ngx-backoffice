@@ -14,7 +14,7 @@ describe('CapitalizeSpacePipe', () => {
   });
 
   test('transforms userAddress to User Address', () => {
-    const value: any = 'userAddress';
+    const value: string = 'userAddress';
     // const args: string[] = [];
     expect(pipe.transform(value)).toEqual('User Address');
   });

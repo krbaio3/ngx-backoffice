@@ -29,7 +29,7 @@ import { BodyOption } from '../../../core/body-options/body-options.model';
         />
       </mat-form-field>
 
-      <mat-form-field appearance="fill" fxFill fxFlex.gt-xs="45">
+      <mat-form-field appearance="outline" fxFill fxFlex.gt-xs="45">
         <mat-label>Asset Class</mat-label>
         <mat-select fxFill [(ngModel)]="selectedValue" name="item">
           <mat-option>None</mat-option>

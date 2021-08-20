@@ -21,6 +21,7 @@ export class AdHocScaffoldComponent {
   @Input()
   public title: string;
 
+  @Input()
   public style: NgStyle['ngStyle'];
 
   constructor() {
