@@ -32,8 +32,8 @@
     "release": "standard-version",
     "serve": "ng serve",
     "start": "ng serve -o",
-    "test": "ng test -i",
-    "test:coverage": "ng test -i --detect-open-handles --coverage",
+    "test": "ng test --detect-open-handles",
+    "test:coverage": "ng test --coverage",
     "test:watch": "ng test -i --detect-open-handles --watch",
     "prepare": "husky install"
   },

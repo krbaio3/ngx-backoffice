@@ -7,7 +7,7 @@ import { FilterMenuComponent } from '../../common/filter-menu/filter-menu.compon
 import { ChartDetailComponent } from '../../core/chart-detail/chart-detail.component';
 import { MediaMenuComponent } from './media-menu/media-menu.component';
 import { DoughnutDetailComponent } from './doughnut-detail/doughnut-detail.component';
-import { TableDetailComponent } from './table-detail/table-detail.component';
+import { TableDetailComponent } from '../../core/table-detail/table-detail.component';
 import { SummaryService } from './summary.service';
 import { EmitterEventCanvas } from './summary.model';
 

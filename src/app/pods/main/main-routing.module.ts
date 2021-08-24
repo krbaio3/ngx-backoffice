@@ -23,8 +23,8 @@ const routes: Routes = [
       {
         path: 'response',
         loadChildren: () =>
-          import('../../common-app/summary/summary.module').then(
-            (m) => m.SummaryModule,
+          import('../../common-app/response-files/response-files.module').then(
+            (m) => m.ResponseFilesModule,
           ),
       },
     ],

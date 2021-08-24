@@ -65,10 +65,10 @@ export class UserInformationComponent implements OnInit {
 
   ngOnInit(): void {
     const keys = Object.keys(this.userInfo);
-    console.log(keys);
-    console.log(keys[0]);
-    console.log(this.userInfo);
+    // console.log(keys);
+    // console.log(keys[0]);
+    // console.log(this.userInfo);
     // this.details = this.userInfo[keys[0]];
-    console.log(this.details);
+    // console.log(this.details);
   }
 }

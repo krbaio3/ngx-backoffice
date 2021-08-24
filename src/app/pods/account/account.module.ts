@@ -5,7 +5,7 @@ import { CommonModule } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { UserInformationModule } from '../../common-app/user-information/user-information.module';
+import { UserInformationModule } from '../../common-app';
 
 @NgModule({
   declarations: [AccountComponent],

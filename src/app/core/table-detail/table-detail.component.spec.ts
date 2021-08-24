@@ -2,7 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { TableDetailComponent } from './table-detail.component';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
-import { dataTableSourceMock, displayedTableColumnsMock } from '../../../utils/test/mock-data';
+import { dataTableSourceMock, displayedTableColumnsMock } from '../../utils/test/mock-data';
 
 describe('TableDetailComponent', () => {
   let component: TableDetailComponent;
