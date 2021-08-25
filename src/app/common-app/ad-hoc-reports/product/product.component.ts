@@ -21,7 +21,8 @@ import { BodyOption } from '../../../core/body-options/body-options.model';
       fxLayout.gt-xs="row wrap"
       fxLayoutAlign.gt-xs="space-evenly baseline"
     >
-      <mat-form-field fxFill fxFlex.gt-xs="45">
+      <mat-form-field fxFill fxFlex.gt-xs="45" appearance="outline">
+        <mat-label>Product Classification</mat-label>
         <input
           matInput
           placeholder="Product Classification"
