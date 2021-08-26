@@ -13,3 +13,4 @@ export * from './toolbar-notification';
 export * from './user-avatar';
 export * from './user-menu';
 export * from './input-file';
+export * from './table-filter';
