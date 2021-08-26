@@ -1,11 +1,10 @@
 import { DocumentationComponent } from './documentation.component';
-import { GuidesComponent } from './../../common-app/guides/guides.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'docs',
     component: DocumentationComponent,
     children: [
       {

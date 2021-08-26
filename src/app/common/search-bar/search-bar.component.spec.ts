@@ -1,7 +1,6 @@
 import { RenderResult, render, screen } from '@testing-library/angular';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-// import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { SearchBarComponent } from './search-bar.component';
 
@@ -14,7 +13,6 @@ describe('SearchBarComponent', () => {
         open: false
       },
       imports: [
-        // MatFormFieldModule,
         MatInputModule,
         BrowserAnimationsModule
       ]

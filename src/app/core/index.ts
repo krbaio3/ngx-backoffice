@@ -5,4 +5,5 @@ export * from './sidenav/sidenav.module';
 export * from './single-field/single-field.module';
 export * from './table-detail/table-detail.module';
 export * from './toolbar/toolbar.module';
+export * from './input-select/input-select.module';
 export * from './core.module';

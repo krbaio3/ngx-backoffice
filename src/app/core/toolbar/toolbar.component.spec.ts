@@ -5,7 +5,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 import { MatIconRegistry } from '@angular/material/icon';
 import { SidenavService } from '../sidenav/sidenav.service';
 import { ToolbarService } from './toolbar.service';
-import { currentUserInit } from '../../common/user-avatar/user-avatar.model';
+import { currentUserInit } from '../../common';
 import { ToolbarComponent } from './toolbar.component';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 
