@@ -57,7 +57,6 @@ export class GuidesComponent implements OnInit {
       this.showTable = false;
       return;
     }
-    console.log(name);
     this.showTable = true;
   }
 }
