@@ -16,6 +16,7 @@ import { ResponseFilesService } from './response-files.service';
     </atm-ad-hoc-scaffold>
 
     <atm-ad-hoc-scaffold title="Response files" *ngIf="showResponseFiles">
+      <!--      TODO: refactoring esta tabla con el componente de common table-filter-->
       <atm-table-files
         [dataSource]="dataSource"
         [displayedColumns]="displayedColumns"
