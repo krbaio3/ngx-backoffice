@@ -21,7 +21,27 @@ describe('GuidesComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  test('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  test('should change the property showTable to true WHEN call handlerEmitterSelect method', async () => {
+    // Arrange
+    //compruebo que la propiedad showTable está inicializada a false
+    expect(component.showTable).toBeFalsy();
+    // Act
+    component.handlerEmitterSelect('paco');
+    // Assert
+    expect(component.showTable).toBeTruthy();
+  });
+
+  test('should change the property showTable to false WHEN call handlerEmitterSelect method with ""', async () => {
+    // Arrange
+    //compruebo que la propiedad showTable está inicializada a false
+    expect(component.showTable).toBeFalsy();
+    // Act
+    component.handlerEmitterSelect('');
+    // Assert
+    expect(component.showTable).toBeFalsy();
   });
 });
