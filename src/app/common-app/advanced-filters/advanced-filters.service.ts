@@ -1,8 +1,5 @@
 import { Injectable } from '@angular/core';
-import {
-  createEmptyQueryNames,
-  QueryNames,
-} from '../../core/query-details/query-details.model';
+import { createEmptyQueryNames, QueryNames } from '../../core';
 
 @Injectable({
   providedIn: 'root',
@@ -19,4 +16,6 @@ export class AdvancedFiltersService {
   private _queryNames: QueryNames = createEmptyQueryNames();
 
   constructor() {}
+
+  public getQueryNames() {}
 }

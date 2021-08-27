@@ -1,6 +1,6 @@
 import { QueryNames } from './query-details.model';
 
-export const queryNamesTemporal: QueryNames = () => ({
+export const queryNamesTemporal = (): QueryNames => ({
   datePicker: {
     label: '',
     placeholder: '',

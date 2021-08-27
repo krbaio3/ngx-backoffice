@@ -1,17 +1,21 @@
-import { APP_INITIALIZER, NgModule } from '@angular/core';
+/* Angular Modules*/
 
-import { AccountModule } from './pods/account/account.module';
-import { AppComponent } from './app.component';
-import { AppInitService } from './app-init.service';
-import { AppRoutingModule } from './app-routing.module';
+import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
+
+/* Custom Modules */
 import { CoreModule } from './core';
-import { CurrentUser } from './common/user-avatar/user-avatar.model';
+import { AppRoutingModule } from './app-routing.module';
+import { AccountModule } from './pods/account/account.module';
 import { DocumentationModule } from './pods/documentation/documentation.module';
 import { MainModule } from './pods/main/main.module';
-import { SidenavModel } from './common/side-menu/sidenav.model';
 import { AdvancedQueriesModule } from './pods/advanced-queries/advanced-queries.module';
+
+/* Custom Components/Services/Models */
+import { CurrentUser, SidenavModel } from './common';
+import { AppComponent } from './app.component';
+import { AppInitService } from './app-init.service';
 
 export function initializeSideNav(appInitService: AppInitService) {
   return (): Promise<SidenavModel[]> => {

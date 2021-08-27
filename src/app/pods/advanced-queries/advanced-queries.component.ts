@@ -1,13 +1,8 @@
-import {
-  routerGroup,
-  extractGroup,
-  returnCurrentRoute,
-} from './../../utils/router.helper';
-import { Component, OnInit } from '@angular/core';
-import { NavigationEnd, Router } from '@angular/router';
+import { returnCurrentRoute } from '../../utils/router.helper';
+import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { advancedQueriesRoutesNames } from './advanced-queries-routes-names';
-import { filter } from 'rxjs/operators';
 
 @Component({
   template: `
