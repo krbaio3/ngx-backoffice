@@ -9,7 +9,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
       <ng-content></ng-content>
     </div>
     <div fxFlex="30" fxLayout="row" fxLayoutAlign="center center">
-      <button mat-flat-button (click)="toggle()">Aceptar</button>
+      <button mat-flat-button (click)="toggle()">Agree</button>
     </div>
   `,
 })

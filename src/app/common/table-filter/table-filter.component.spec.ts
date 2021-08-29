@@ -7,6 +7,7 @@ import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { MatIconModule } from '@angular/material/icon';
+import { MatSelectModule } from '@angular/material/select';
 
 describe('TableFilterComponent', () => {
   let component: TableFilterComponent;
@@ -21,7 +22,8 @@ describe('TableFilterComponent', () => {
         MatTableModule,
         MatPaginatorModule,
         NoopAnimationsModule,
-        MatIconModule
+        MatIconModule,
+        MatSelectModule,
       ]
     })
     .compileComponents();

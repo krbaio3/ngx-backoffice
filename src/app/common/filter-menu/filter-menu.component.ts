@@ -31,7 +31,7 @@ import { Message } from './filter-menu.model';
             class="mt-4"
             fxLayout="row"
             fxLayoutAlign="space-around baseline"
-            title="Por rango de fechas:"
+            title="By date range:"
             (emitTogglePanel)="togglePanel()"
           >
             <cdk-date-picker-range
