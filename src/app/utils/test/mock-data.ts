@@ -1,5 +1,5 @@
 import { CHART_COLORS, numbers } from '../chart-styles.global';
-import { DoughnutDataGroup } from '../../common-app/summary/temporal';
+import { DoughnutDataGroup } from '../../common-app/summary/api.temporal';
 
 export const dataTableSourceMock = [
   { position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H' },

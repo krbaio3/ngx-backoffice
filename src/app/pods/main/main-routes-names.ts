@@ -7,5 +7,3 @@ export const mainRoutesNames: MainRoutesNames = {
 export interface MainRoutesNames {
   [key: string]: string;
 }
-
-// export const groupConstant =

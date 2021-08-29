@@ -67,6 +67,24 @@ import { NgStyle } from '@angular/common';
                 element[columnName]
               }}</a>
               <!-- End If the column is an Anchor tag-->
+              <!-- If the column is an Select-->
+              <mat-form-field
+                appearance="outline"
+                fxFill
+                *ngSwitchCase="hasSelect.key"
+                class="mat-form-field-ajuste"
+              >
+                <mat-label>State</mat-label>
+                <mat-select>
+                  <mat-option>-- None --</mat-option>
+                  <mat-option
+                    *ngFor="let option of hasSelect.options"
+                    [value]="option"
+                    >{{ option.value }}</mat-option
+                  >
+                </mat-select>
+              </mat-form-field>
+              <!-- End If the column is an Select-->
               <span *ngSwitchDefault>{{ element[columnName] }}</span>
             </div>
           </td>
@@ -102,6 +120,11 @@ import { NgStyle } from '@angular/common';
       .text-center-th {
         text-align: center !important;
       }
+
+      :host ::ng-deep .mat-form-field-ajuste .mat-form-field-wrapper {
+        margin: 0.5em 0;
+        padding-bottom: 0;
+      }
     `,
   ],
 })
@@ -119,9 +142,13 @@ export class TableFilterComponent implements AfterViewInit, OnInit, OnChanges {
   @Input()
   public hasIcon: string;
   @Input()
+  public hasSelect: { key: string; options: { key: string; value: string }[] };
+  @Input()
   public columnStyle: [string, NgStyle['ngStyle']];
   @Input()
   public hasAnchor: string;
+  @Input()
+  public options: { key: string; value: string }[];
 
   @ViewChild(MatPaginator) set matPaginator(mp: MatPaginator) {
     this.paginator = mp;
@@ -171,6 +198,8 @@ export class TableFilterComponent implements AfterViewInit, OnInit, OnChanges {
     this.hasIcon = '';
     this.hasAnchor = '';
     this.columnStyle = ['', {}];
+    this.hasSelect = { key: '', options: [] };
+    this.options = [];
   }
 
   public applyFilter(event: KeyboardEvent) {

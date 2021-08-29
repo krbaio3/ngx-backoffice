@@ -133,7 +133,7 @@ module.exports = {
     '<rootDir>/dist/',
     '<rootDir>/cypress/',
     '<rootDir>/src/app/utils/',
-    '<rootDir>/src/app/*/api.temporal.ts',
+    '<rootDir>/src/app/*/api.api.temporal.ts',
   ],
 
   // The regexp pattern or array of patterns that Jest uses to detect test files

@@ -9,6 +9,7 @@ import { Frequency } from './ad-hoc-reports.model';
   template: `
     <form (ngSubmit)="onSubmit()" #form="ngForm">
       <atm-ad-hoc-scaffold [title]="'Query Details'">
+        <!-- TODO: refactoring with query-details from CORE -->
         <atm-query-details
           fxLayout="column wrap"
           [frequencies]="frequencies"

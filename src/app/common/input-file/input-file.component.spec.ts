@@ -113,5 +113,33 @@ describe('InputFileComponent', () => {
       // Assert
       expect(component.files).toEqual(files);
     });
+
+    test('should call prepareFilesList WHEN call fileBrowseHandler', async () => {
+      // Arrange
+      let files = [{
+        progress: 100
+      }, {
+        progress: 0
+      }];
+
+      let event = {
+        target: {
+          files,
+        },
+      } as unknown as Event;
+
+      const spy = jest.spyOn(component, 'prepareFilesList');
+      // Act
+      component.fileBrowseHandler(event);
+      // Assert
+      expect(spy).toHaveBeenLastCalledWith(files);
+    });
+
+    test('should return "0 bytes" WHEN call formatBytes with 0', () => {
+      // Arrange
+      // Act
+      // Assert
+      expect(component.formatBytes(0)).toEqual('0 Bytes');
+    });
   });
 });
