@@ -55,7 +55,7 @@ import {
         <mat-form-field appearance="outline" fxFlex="29" fxFlex.lt-sm="100">
           <mat-label>{{ queryNames.select.label }}</mat-label>
           <mat-select [(ngModel)]="selectedValue" name="frequency">
-            <mat-option>None</mat-option>
+            <mat-option>-- None --</mat-option>
             <mat-option
               *ngFor="let frequency of queryNames.select.options"
               [value]="frequency.key"
@@ -64,6 +64,9 @@ import {
             </mat-option>
           </mat-select>
         </mat-form-field>
+      </div>
+      <div fxLayout="row wrap" fxLayoutAlign="end space-evenly" fxFill>
+        <ng-content></ng-content>
       </div>
     </div>
   `,

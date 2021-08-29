@@ -32,7 +32,26 @@ describe('InputSelectComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  test('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  test('should clear the emitter WHEN call emitterClearValue', async () => {
+    // Arrange
+    const spy = jest.spyOn(component.emitterSelect, 'emit');
+    // Act
+    component.emitterClearValue();
+    // Assert
+    expect(component.optionsCtrl.value).toEqual('');
+    expect(spy).toHaveBeenCalledWith('');
+  });
+
+  test('should emit a value WHEN call emitterSelectOption method', async () => {
+    // Arrange
+    const spy = jest.spyOn(component.emitterSelect, 'emit');
+    // Act
+    component.emitterSelectOption('blablabla');
+    // Assert
+    expect(spy).toHaveBeenCalledWith('blablabla');
   });
 });

@@ -11,8 +11,8 @@ export interface QueryNames {
 }
 
 export interface IInput {
-  label: '';
-  placeholder: '';
+  label: string;
+  placeholder: string;
 }
 
 export interface ISelect extends IInput {

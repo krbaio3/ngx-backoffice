@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 
-import { DoughnutDataGroup } from '../temporal';
+import { DoughnutDataGroup } from '../api.temporal';
 import { EmitterEventCanvas } from '../summary.model';
 
 @Component({

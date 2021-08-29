@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { DoughnutDataGroup } from './temporal';
+import { DoughnutDataGroup } from './api.temporal';
 import { EmitterEventCanvas } from './summary.model';
 import { MediaStylesModel } from '../../common';
 import { Message } from '../../common/filter-menu/filter-menu.model';

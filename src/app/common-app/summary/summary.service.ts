@@ -10,7 +10,7 @@ import {
   labelChartTemporary,
   mediaStylesTemporary,
   messagesTemporary,
-} from './temporal';
+} from './api.temporal';
 import { of } from 'rxjs';
 import { TOptions } from '@atmira/pattern-lib';
 import { MediaStylesModel, Message } from '../../common';

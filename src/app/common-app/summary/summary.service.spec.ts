@@ -2,8 +2,7 @@ import { TestBed } from '@angular/core/testing';
 
 import { SummaryService } from './summary.service';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { MediaStylesModel } from '../../common';
-import { mediaStylesTemporary } from './temporal';
+import { mediaStylesTemporary } from './api.temporal';
 
 describe('SummaryService', () => {
   let service: SummaryService;

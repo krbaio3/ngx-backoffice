@@ -1,7 +1,6 @@
 import { CHART_COLORS, numbers } from '../../utils/chart-styles.global';
 import { TOptions } from '@atmira/pattern-lib';
-import { MediaStylesModel } from '../../common';
-import { Message } from '../../common/filter-menu/filter-menu.model';
+import { MediaStylesModel, Message } from '../../common';
 
 export const labelChartTemporary: string[] = [
   'January',
@@ -138,7 +137,7 @@ export const doughnutLabelGroupTemporary: DoughnutDataGroup[] = [
     dataset: [
       {
         chartLabelDataset: ['Accept', 'Reject', 'InProgress'],
-        label: 'Archivos',
+        label: 'Files',
         data: numbers({ count: 3, min: 0, max: 100 }),
         backgroundColor: Object.values(CHART_COLORS),
       },
