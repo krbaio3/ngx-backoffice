@@ -33,7 +33,7 @@
     "serve": "ng serve",
     "start": "ng serve -o",
     "test": "ng test --detect-open-handles",
-    "test:coverage": "ng test --coverage",
+    "test:coverage": "ng test -i --coverage",
     "test:watch": "ng test -i --detect-open-handles --watch",
     "prepare": "husky install"
   },
