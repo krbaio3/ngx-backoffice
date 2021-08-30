@@ -4,8 +4,17 @@ import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
-    path: 'fails',
+    path: '',
     component: BenchmarkComponent,
+    children: [
+      {
+        path: 'fails',
+        loadChildren: () =>
+          import('../../common-app/fails/fails.module').then(
+            (m) => m.FailsModule,
+          ),
+      },
+    ],
   },
 ];
 

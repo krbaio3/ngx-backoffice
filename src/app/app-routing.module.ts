@@ -6,9 +6,9 @@ import { environment } from '../environments/environment';
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: '/' },
   {
-    path: 'main',
+    path: 'account',
     loadChildren: () =>
-      import('./pods/main/main.module').then((m) => m.MainModule),
+      import('./pods/account/account.module').then((m) => m.AccountModule),
   },
   {
     path: 'advanced-queries',
@@ -32,21 +32,16 @@ const routes: Routes = [
       ),
   },
   {
-    path: 'account',
+    path: 'main',
     loadChildren: () =>
-      import('./pods/account/account.module').then((m) => m.AccountModule),
-  },
-  {
-    path: 'account',
-    loadChildren: () =>
-      import('./pods/account/account.module').then((m) => m.AccountModule),
+      import('./pods/main/main.module').then((m) => m.MainModule),
   },
 ];
 
 @NgModule({
   imports: [
-    // RouterModule.forRoot(routes, { enableTracing: !environment.production }),
-    RouterModule.forRoot(routes, { enableTracing: false }),
+    RouterModule.forRoot(routes, { enableTracing: !environment.production }),
+    // RouterModule.forRoot(routes, { enableTracing: false }),
   ],
   exports: [RouterModule],
 })

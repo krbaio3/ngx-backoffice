@@ -16,6 +16,7 @@ import { AdvancedQueriesModule } from './pods/advanced-queries/advanced-queries.
 import { CurrentUser, SidenavModel } from './common';
 import { AppComponent } from './app.component';
 import { AppInitService } from './app-init.service';
+import { BenchmarkModule } from './pods/benchmark/benchmark.module';
 
 export function initializeSideNav(appInitService: AppInitService) {
   return (): Promise<SidenavModel[]> => {
@@ -35,10 +36,6 @@ export function initializeUserAvatar(appInitService: AppInitService) {
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    DocumentationModule,
-    MainModule,
-    AdvancedQueriesModule,
-    AccountModule,
     CoreModule,
   ],
   providers: [

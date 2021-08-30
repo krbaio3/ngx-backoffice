@@ -4,22 +4,22 @@ import { CommonModule } from '@angular/common';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
 /* Custom Modules */
-import { GuidesRoutingModule } from './guides-routing.module';
+import { FailsRoutingModule } from './fails-routing.module';
 import { AdHocScaffoldModule, InputSelectModule } from '../../core';
 import { TableFilterModule } from '../../common';
 
 /* Custom Components */
-import { GuidesComponent } from './guides.component';
+import { FailsComponent } from './fails.component';
 
 @NgModule({
-  declarations: [GuidesComponent],
+  declarations: [FailsComponent],
   imports: [
     CommonModule,
-    GuidesRoutingModule,
+    FailsRoutingModule,
     AdHocScaffoldModule,
     FlexLayoutModule,
     InputSelectModule,
     TableFilterModule,
   ],
 })
-export class GuidesModule {}
+export class FailsModule {}
