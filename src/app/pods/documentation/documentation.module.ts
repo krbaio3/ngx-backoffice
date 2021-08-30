@@ -5,10 +5,10 @@ import { RouterModule } from '@angular/router';
 
 /* Custom Modules */
 import { DocumentationRoutingModule } from './documentation-routing.module';
+import { MatCardModule } from '@angular/material/card';
 
 /* Custom Components */
 import { DocumentationComponent } from './documentation.component';
-import { MatCardModule } from '@angular/material/card';
 
 @NgModule({
   declarations: [DocumentationComponent],

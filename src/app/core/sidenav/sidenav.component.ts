@@ -42,10 +42,6 @@ import { SidenavService } from './sidenav.service';
       </mat-sidenav>
 
       <mat-sidenav-content [ngStyle]="{ padding: '5px' }" role="main">
-        <!--        <p>Works!</p>-->
-        <!--        <p>-->
-        <!--          <button mat-button (click)="handleClickToggle()">Toggle</button>-->
-        <!--        </p>-->
         <router-outlet></router-outlet>
       </mat-sidenav-content>
     </mat-sidenav-container>

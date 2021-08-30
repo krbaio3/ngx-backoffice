@@ -4,7 +4,7 @@ import { AdvancedQueriesComponent } from './advanced-queries.component';
 
 const routes: Routes = [
   {
-    path: 'advanced-queries',
+    path: '',
     component: AdvancedQueriesComponent,
     children: [
       {
