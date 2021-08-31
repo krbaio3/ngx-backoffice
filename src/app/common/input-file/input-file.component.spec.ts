@@ -141,5 +141,40 @@ describe('InputFileComponent', () => {
       // Assert
       expect(component.formatBytes(0)).toEqual('0 Bytes');
     });
+
+    test('should simulate upload file WHEN uploadFilesSimulator', () => {
+      // Arrange
+      jest.useFakeTimers();
+      let files = [{
+        progress: 95
+      }, {
+        progress: 0
+      }];
+
+      const spySetTime = jest.spyOn(window, 'setTimeout');
+      const spySetInterval = jest.spyOn(window, 'setInterval');
+      const spyClearInterval = jest.spyOn(window, 'clearInterval');
+
+      // Act
+      component.files = files;
+      component.uploadFilesSimulator(0);
+
+      jest.runOnlyPendingTimers();
+
+      // Assert
+      expect(spySetTime).toHaveBeenCalledTimes(1);
+      expect(spySetTime).toHaveBeenLastCalledWith(expect.any(Function), 1000);
+
+      jest.runOnlyPendingTimers();
+
+      // Assert
+      expect(spySetInterval).toHaveBeenCalledTimes(1);
+      expect(spySetInterval).toHaveBeenLastCalledWith(expect.any(Function), 200);
+      expect(component.files[0].progress).toEqual(100);
+
+      jest.runOnlyPendingTimers();
+
+      expect(spyClearInterval).toHaveBeenCalledTimes(1);
+    });
   });
 });
