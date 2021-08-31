@@ -132,3 +132,23 @@ const NAMED_COLORS: string[] = [
 export function namedColor(index: number) {
   return NAMED_COLORS[index % NAMED_COLORS.length];
 }
+export type Key =
+  | 'red'
+  | 'orange'
+  | 'yellow'
+  | 'green'
+  | 'blue'
+  | 'purple'
+  | 'grey';
+
+export function transparentize(value: Key, opacity: number) {
+  const alpha = opacity === undefined ? 0.5 : 1 - opacity;
+
+  const rgbColor = CHART_COLORS[value]
+    .slice(
+      CHART_COLORS[value].indexOf('(') + 1,
+      CHART_COLORS[value].indexOf(')'),
+    )
+    .split(',');
+  return `rgba(${rgbColor[0]}, ${rgbColor[1]}, ${rgbColor[2]}, ${alpha})`;
+}
