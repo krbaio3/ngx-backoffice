@@ -19,6 +19,7 @@ import { NgStyle } from '@angular/common';
       <mat-form-field
         fxFill
         ngStyle.gt-sm="width: 80%; min-width: 80%; margin-bottom: 10px"
+        [hidden]="isFilter"
       >
         <mat-label>{{ filterName }}</mat-label>
         <input
@@ -34,7 +35,10 @@ import { NgStyle } from '@angular/common';
         [dataSource]="dataSourceTable"
         fxFill
         matSort
-        ngStyle.gt-sm="width: 80%; min-width: 80%"
+        [ngStyle.gt-sm]="{
+          width: isFullWidth ? '100%' : '80%',
+          'min-width': isFullWidth ? '100%' : '80%'
+        }"
       >
         <!-- Dynamic Column -->
         <ng-container
@@ -149,6 +153,10 @@ export class TableFilterComponent implements AfterViewInit, OnInit, OnChanges {
   public hasAnchor: string;
   @Input()
   public options: { key: string; value: string }[];
+  @Input()
+  public isFilter: boolean;
+  @Input()
+  public isFullWidth: boolean;
 
   @ViewChild(MatPaginator) set matPaginator(mp: MatPaginator) {
     this.paginator = mp;
@@ -200,6 +208,8 @@ export class TableFilterComponent implements AfterViewInit, OnInit, OnChanges {
     this.columnStyle = ['', {}];
     this.hasSelect = { key: '', options: [] };
     this.options = [];
+    this.isFilter = true;
+    this.isFullWidth = false;
   }
 
   public applyFilter(event: KeyboardEvent) {

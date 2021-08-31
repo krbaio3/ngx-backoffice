@@ -17,6 +17,7 @@ import { CurrentUser, SidenavModel } from './common';
 import { AppComponent } from './app.component';
 import { AppInitService } from './app-init.service';
 import { BenchmarkModule } from './pods/benchmark/benchmark.module';
+import { DatePipe } from '@angular/common';
 
 export function initializeSideNav(appInitService: AppInitService) {
   return (): Promise<SidenavModel[]> => {
@@ -52,6 +53,7 @@ export function initializeUserAvatar(appInitService: AppInitService) {
       deps: [AppInitService],
       multi: true,
     },
+    DatePipe,
   ],
   bootstrap: [AppComponent],
 })
