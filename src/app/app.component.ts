@@ -1,11 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { MediaObserver } from '@angular/flex-layout';
 import { AppInitService } from './app-init.service';
-import { SidenavModel } from './common/side-menu/sidenav.model';
 import {
   currentUserInit,
   CurrentUser,
-} from './common/user-avatar/user-avatar.model';
+  SidenavModel,
+  CommonService,
+} from './common';
+import { AuthAppService } from './auth/auth.service';
+import { take } from 'rxjs/operators';
 
 @Component({
   selector: 'atm-root',
@@ -29,15 +32,9 @@ export class AppComponent implements OnInit {
   constructor(
     private media: MediaObserver,
     private appInitSrv: AppInitService,
+    private commonSrv: CommonService,
+    private authAppService: AuthAppService,
   ) {}
-
-  ngOnInit() {
-    this.media.asObservable().subscribe(() => {
-      this.toggleView();
-    });
-    this.menuItems = this.appInitSrv.sidenavMenu;
-    this.currentUser = this.appInitSrv.userAvatarData;
-  }
 
   toggleView() {
     if (this.media.isActive('gt-md')) {
@@ -47,5 +44,19 @@ export class AppComponent implements OnInit {
     } else if (this.media.isActive('lt-sm')) {
       this.matDrawerShow = false;
     }
+  }
+
+  ngOnInit() {
+    this.media.asObservable().subscribe(() => {
+      this.toggleView();
+    });
+    this.menuItems = this.appInitSrv.sidenavMenu;
+    this.currentUser = this.appInitSrv.userAvatarData;
+    this.commonSrv
+      .userMenuLogoutEventListener()
+      // .pipe(take(2))
+      .subscribe((event) => {
+        event && this.authAppService.logoutKeycloak();
+      });
   }
 }

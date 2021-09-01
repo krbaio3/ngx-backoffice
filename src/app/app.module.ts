@@ -7,17 +7,21 @@ import { BrowserModule } from '@angular/platform-browser';
 /* Custom Modules */
 import { CoreModule } from './core';
 import { AppRoutingModule } from './app-routing.module';
-import { AccountModule } from './pods/account/account.module';
-import { DocumentationModule } from './pods/documentation/documentation.module';
-import { MainModule } from './pods/main/main.module';
-import { AdvancedQueriesModule } from './pods/advanced-queries/advanced-queries.module';
 
 /* Custom Components/Services/Models */
 import { CurrentUser, SidenavModel } from './common';
 import { AppComponent } from './app.component';
 import { AppInitService } from './app-init.service';
-import { BenchmarkModule } from './pods/benchmark/benchmark.module';
 import { DatePipe } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
+import {
+  AuthModule,
+  AuthOAuth2Token,
+  OAuth2AuthStrategy,
+  OAuth2GrantType,
+  OAuth2ResponseType,
+} from '@atmira/authentication';
+import { AuthAppModule } from './auth/auth.module';
 
 export function initializeSideNav(appInitService: AppInitService) {
   return (): Promise<SidenavModel[]> => {
@@ -38,6 +42,36 @@ export function initializeUserAvatar(appInitService: AppInitService) {
     AppRoutingModule,
     BrowserAnimationsModule,
     CoreModule,
+    HttpClientModule,
+    AuthAppModule,
+    AuthModule.forRoot({
+      strategies: [
+        OAuth2AuthStrategy.setup({
+          name: 'keycloak',
+          clientId: 'frontend',
+          baseEndpoint:
+            'http://keycloak.f39dfd9526b64ddcb1c4.westeurope.aksapp.io/auth/realms/master/protocol/openid-connect',
+          clientSecret: '46fc7df4-0454-4a54-91ba-723ad1cf16b3',
+          redirect: {
+            success: '/',
+            failure: undefined,
+          },
+          authorize: {
+            endpoint: '/auth',
+            responseType: OAuth2ResponseType.CODE,
+            scope: 'openid email roles',
+            redirectUri: 'http://localhost:5555/callback',
+          },
+          token: {
+            endpoint: '/token',
+            grantType: OAuth2GrantType.AUTHORIZATION_CODE,
+            redirectUri: 'http://localhost:5555/callback',
+            scope: 'openid email',
+            class: AuthOAuth2Token,
+          },
+        }),
+      ],
+    }),
   ],
   providers: [
     AppInitService,

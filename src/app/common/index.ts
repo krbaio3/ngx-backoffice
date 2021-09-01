@@ -14,3 +14,4 @@ export * from './user-avatar';
 export * from './user-menu';
 export * from './input-file';
 export * from './table-filter';
+export * from './service';

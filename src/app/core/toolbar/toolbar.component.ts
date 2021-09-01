@@ -1,4 +1,11 @@
-import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  OnDestroy,
+  OnInit,
+  Output,
+} from '@angular/core';
 import {
   CurrentUser,
   currentUserInit,
@@ -77,6 +84,7 @@ import { ToolbarService } from './toolbar.service';
 export class ToolbarComponent implements OnInit, OnDestroy {
   @Input()
   matDrawerShow: boolean = false;
+
   @Input()
   currentUser: CurrentUser = currentUserInit;
 

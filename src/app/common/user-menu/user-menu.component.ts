@@ -1,8 +1,16 @@
-/* eslint-disable @angular-eslint/component-selector */
-import { Component, Input, HostListener, ElementRef } from '@angular/core';
+import {
+  Component,
+  Input,
+  HostListener,
+  ElementRef,
+  Output,
+  EventEmitter,
+} from '@angular/core';
 import { CurrentUser, currentUserInit } from '../user-avatar/user-avatar.model';
+import { CommonService } from '../service/common.service';
 
 @Component({
+  /* eslint-disable @angular-eslint/component-selector */
   selector: 'cdk-user-menu',
   template: ` <div class="toolbar-user-container">
     <button
@@ -54,8 +62,8 @@ import { CurrentUser, currentUserInit } from '../user-avatar/user-avatar.model';
           <mat-divider></mat-divider>
 
           <mat-list-item>
-            <a matLine>Logout</a>
-            <button mat-icon-button>
+            <a matLine>LogOut</a>
+            <button mat-icon-button (click)="handlerClick()">
               <mat-icon>exit_to_app</mat-icon>
             </button>
           </mat-list-item>
@@ -86,5 +94,12 @@ export class UserMenuComponent {
     }
   }
 
-  constructor(private elementReference: ElementRef) {}
+  constructor(
+    private elementReference: ElementRef,
+    private commonSrv: CommonService,
+  ) {}
+
+  handlerClick() {
+    this.commonSrv.emitUserMenuLogoutEvent(true);
+  }
 }

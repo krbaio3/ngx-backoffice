@@ -5,7 +5,6 @@ import { DatePipe } from '@angular/common';
 import { FailsComponent } from './fails.component';
 import { FailsService } from './fails.service';
 import { rankingListTemporal, tableLogsTemporal } from './api.temporal';
-import exp from 'constants';
 
 describe('FailsComponent', () => {
   let component: FailsComponent;

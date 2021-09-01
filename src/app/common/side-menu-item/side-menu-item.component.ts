@@ -40,9 +40,4 @@ export class SideMenuItemComponent {
   @Input() iconOnly: boolean = false;
 
   constructor() {}
-
-  // openLink() {
-  //   console.log(this.menu.open);
-  //   this.menu.open = !this.menu.open;
-  // }
 }
