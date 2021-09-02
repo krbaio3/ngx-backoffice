@@ -4,7 +4,7 @@
 
 <!-- TOC -->
 
-- [registr-poc](#-name-)
+- [registr-poc](#registr-poc)
   - [Indice](#indice)
   - [Introducción](#introducción)
   - [Requisitos](#requisitos)
@@ -29,8 +29,8 @@
       - [Configuración](#configuración)
       - [Agregar a ng-cli](#agregar-a-ng-cli)
       - [Solución de problemas](#solución-de-problemas)
+      - [Testing Library](#testing-library)
     - [End2End: ProtractorJS](#end2end-protractorjs)
-    - [Acceptation Test: CucumberJS](#acceptation-test-cucumberjs)
   - [Versionado package.json](#versionado-packagejson)
   - [Angular.json](#angularjson)
   - [Pruebas DoD](#pruebas-dod)
@@ -50,7 +50,7 @@ Código base generado con el acelerador de proyectos @atmira/front
 
 ## Requisitos
 
-Los requisitos mínimos y obligatorios para ejecutar correctamente el generador son:
+Los requisitos mínimos y obligatorios para ejecutar correctamente el proyecto son:
 
 - NodeJS
 
@@ -85,73 +85,454 @@ Los pasos a seguir para usar este código base son los siguientes:
 
 ### Desarrollo
 
-
-
 ## Estructura del proyecto
 
 La estructura del proyecto base es la siguiente:
 
 ```
+./
+├── .DS_Store
+├── .browserslistrc
+├── .commitlintrc.json
+├── .czrc
+├── .editorconfig
+├── .eslintignore
+├── .eslintrc.js
+├── .git
+├── .lintstagedrc
+├── .npmignore
+├── .npmrc
+├── .nvmrc
+├── .prettierignore
+├── .prettierrc
+├── .stylelintrc.json
+├── .vscode
+│   └── launch.json
+├── Jenkinsfile
 ├── README.md
 ├── angular.json
-├── commitlint.config.js
 ├── config
-│   ├── compodoc
-│   │   └── tsconfig.compodoc.json
-│   ├── e2e
-│   │   ├── protractor-ci.conf.js
-│   │   ├── protractor.conf.js
-│   │   └── tsconfig.e2e.json
-│   ├── eslint
-│   │   └── tsconfig.eslint.json
-│   ├── helpers
-│   │   └── helper.js
-│   └── test
-│       ├── config.js
-│       ├── jest.config.js
-│       ├── setup-jest.ts
-│       └── tsconfig.spec.json
-├── documentation
+│   ├── .DS_Store
+│   ├── compodoc
+│   │    ├── .compodocrc.json
+│   │    └── tsconfig.compodoc.json
+│   ├── e2e
+│   │    ├── .gitkeep
+│   │    ├── protractor-ci.conf.js
+│   │    ├── protractor.conf.js
+│   │    └── tsconfig.e2e.json
+│   ├── eslint
+│   │    ├── .gitkeep
+│   │    └── tsconfig.eslint.json
+│   ├── helpers
+│   │    └── helper.js
+│   └── test
+│       ├── config.js
+│       ├── jest.config.js
+│       ├── setup-jest.ts
+│       ├── test-config.helper.ts
+│       └── tsconfig.spec.json
+├── coverage
+├── dist
+├── docs
+│   ├── error_chromedriver.png
+│   ├── jest.png
+│   ├── jest_coverage.png
+│   └── protractor.config.png
 ├── e2e
-│   └── src
-│       ├── app.e2e-spec.ts
-│       └── app.po.ts
+│   └── src
+│       ├── app.e2e-spec.ts
+│       └── app.po.ts
 ├── package-lock.json
 ├── package.json
+├── sonar-project.properties
 ├── src
-│   ├── app
-│   │   ├── app-routing.module.ts
-│   │   ├── app.component.html
-│   │   ├── app.component.scss
-│   │   ├── app.component.spec.ts
-│   │   ├── app.component.ts
-│   │   └── app.module.ts
-│   ├── assets
-│   │   └── logo-atmira.png
-│   ├── environments
-│   │   ├── environment.production.ts
-│   │   └── environment.ts
-│   ├── favicon.ico
-│   ├── index.html
-│   ├── main.ts
-│   ├── polyfills.ts
-│   └── styles.scss
+│   ├── .DS_Store
+│   ├── app
+│   │    ├── .DS_Store
+│   │    ├── app-init.service.spec.ts
+│   │    ├── app-init.service.ts
+│   │    ├── app-routing.module.ts
+│   │    ├── app.component.scss
+│   │    ├── app.component.spec.ts
+│   │    ├── app.component.ts
+│   │    ├── app.module.ts
+│   │    ├── auth
+│   │    │    ├── auth.guard.ts
+│   │    │    ├── auth.model.ts
+│   │    │    ├── auth.module.ts
+│   │    │    ├── auth.service.ts
+│   │    │    ├── oauth2-callback.component.ts
+│   │    │    └── oauth2-login.component.ts
+│   │    ├── common
+│   │    │    ├── .DS_Store
+│   │    │    ├── date-picker-range
+│   │    │    │    ├── date-picker-range.component.spec.ts
+│   │    │    │    ├── date-picker-range.component.ts
+│   │    │    │    ├── date-picker-range.module.ts
+│   │    │    │    └── index.ts
+│   │    │    ├── filter-menu
+│   │    │    │    ├── filter-menu-item
+│   │    │    │    │    ├── filter-menu-item.component.spec.ts
+│   │    │    │    │    └── filter-menu-item.component.ts
+│   │    │    │    ├── filter-menu.component.spec.ts
+│   │    │    │    ├── filter-menu.component.ts
+│   │    │    │    ├── filter-menu.model.ts
+│   │    │    │    ├── filter-menu.module.ts
+│   │    │    │    └── index.ts
+│   │    │    ├── fullscreen
+│   │    │    │    ├── fullscreen.component.spec.ts
+│   │    │    │    ├── fullscreen.component.ts
+│   │    │    │    ├── fullscreen.module.ts
+│   │    │    │    ├── fullscreen2.component.spec.ts
+│   │    │    │    └── index.ts
+│   │    │    ├── index.ts
+│   │    │    ├── input-file
+│   │    │    │    ├── .DS_Store
+│   │    │    │    ├── dnd
+│   │    │    │    │    ├── dnd.directive.spec.ts
+│   │    │    │    │    └── dnd.directive.ts
+│   │    │    │    ├── index.ts
+│   │    │    │    ├── input-file.component.scss
+│   │    │    │    ├── input-file.component.spec.ts
+│   │    │    │    ├── input-file.component.ts
+│   │    │    │    ├── input-file.model.ts
+│   │    │    │    ├── input-file.module.ts
+│   │    │    │    └── progress
+│   │    │    │        ├── progress.component.spec.ts
+│   │    │    │        └── progress.component.ts
+│   │    │    ├── media-item
+│   │    │    │    ├── index.ts
+│   │    │    │    ├── media-item.component.spec.ts
+│   │    │    │    ├── media-item.component.ts
+│   │    │    │    ├── media-item.module.ts
+│   │    │    │    └── media.model.ts
+│   │    │    ├── pipe
+│   │    │    │    ├── capitalize-space.pipe.spec.ts
+│   │    │    │    ├── capitalize-space.pipe.ts
+│   │    │    │    ├── custom-pipes.module.ts
+│   │    │    │    ├── index.ts
+│   │    │    │    ├── transform-object.pipe.spec.ts
+│   │    │    │    └── transform-object.pipe.ts
+│   │    │    ├── search-bar
+│   │    │    │    ├── index.ts
+│   │    │    │    ├── search-bar.component.scss
+│   │    │    │    ├── search-bar.component.spec.ts
+│   │    │    │    ├── search-bar.component.ts
+│   │    │    │    └── search-bar.module.ts
+│   │    │    ├── select
+│   │    │    │    ├── index.ts
+│   │    │    │    ├── select.component.gen.spec.ts
+│   │    │    │    ├── select.component.spec.ts
+│   │    │    │    ├── select.component.ts
+│   │    │    │    └── select.module.ts
+│   │    │    ├── service
+│   │    │    │    ├── common.service.spec.ts
+│   │    │    │    ├── common.service.ts
+│   │    │    │    └── index.ts
+│   │    │    ├── side-menu
+│   │    │    │    ├── index.ts
+│   │    │    │    ├── side-menu.component.scss
+│   │    │    │    ├── side-menu.component.spec.ts
+│   │    │    │    ├── side-menu.component.ts
+│   │    │    │    ├── side-menu.module.ts
+│   │    │    │    ├── sidenav.model.ts
+│   │    │    │    └── test
+│   │    │    │        └── sidenav.mock.ts
+│   │    │    ├── side-menu-item
+│   │    │    │    ├── index.ts
+│   │    │    │    ├── side-menu-accordion-item.component.ts
+│   │    │    │    ├── side-menu-item.component.scss
+│   │    │    │    ├── side-menu-item.component.spec.ts
+│   │    │    │    ├── side-menu-item.component.ts
+│   │    │    │    ├── side-menu-item.module.ts
+│   │    │    │    └── side-menu-only-item.component.ts
+│   │    │    ├── static-field
+│   │    │    │    ├── index.ts
+│   │    │    │    ├── static-field.component.spec.ts
+│   │    │    │    ├── static-field.component.ts
+│   │    │    │    └── static-field.module.ts
+│   │    │    ├── table-filter
+│   │    │    │    ├── index.ts
+│   │    │    │    ├── table-filter.component.spec.ts
+│   │    │    │    ├── table-filter.component.ts
+│   │    │    │    └── table-filter.module.ts
+│   │    │    ├── title-radio-group
+│   │    │    │    ├── index.ts
+│   │    │    │    ├── title-radio-group.component.spec.ts
+│   │    │    │    ├── title-radio-group.component.ts
+│   │    │    │    └── title-radio-group.module.ts
+│   │    │    ├── toolbar-notification
+│   │    │    │    ├── index.ts
+│   │    │    │    ├── toolbar-notification.component.scss
+│   │    │    │    ├── toolbar-notification.component.spec.ts
+│   │    │    │    ├── toolbar-notification.component.ts
+│   │    │    │    ├── toolbar-notification.model.ts
+│   │    │    │    └── toolbar-notification.module.ts
+│   │    │    ├── user-avatar
+│   │    │    │    ├── index.ts
+│   │    │    │    ├── user-avatar.component.scss
+│   │    │    │    ├── user-avatar.component.spec.ts
+│   │    │    │    ├── user-avatar.component.ts
+│   │    │    │    ├── user-avatar.model.ts
+│   │    │    │    └── user-avatar.module.ts
+│   │    │    └── user-menu
+│   │    │        ├── index.ts
+│   │    │        ├── user-menu.component.scss
+│   │    │        ├── user-menu.component.spec.ts
+│   │    │        ├── user-menu.component.ts
+│   │    │        └── user-menu.module.ts
+│   │    ├── common-app
+│   │    │    ├── ad-hoc-reports
+│   │    │    │    ├── ad-hoc-reports-routing.module.ts
+│   │    │    │    ├── ad-hoc-reports.component.spec.ts
+│   │    │    │    ├── ad-hoc-reports.component.ts
+│   │    │    │    ├── ad-hoc-reports.model.ts
+│   │    │    │    ├── ad-hoc-reports.module.ts
+│   │    │    │    ├── ad-hoc-reports.service.spec.ts
+│   │    │    │    ├── ad-hoc-reports.service.ts
+│   │    │    │    ├── additional-filters
+│   │    │    │    │    ├── additional-filters.component.spec.ts
+│   │    │    │    │    └── additional-filters.component.ts
+│   │    │    │    ├── api.temporal.ts
+│   │    │    │    ├── dates
+│   │    │    │    │    ├── dates.component.spec.ts
+│   │    │    │    │    └── dates.component.ts
+│   │    │    │    ├── parties
+│   │    │    │    │    ├── parties.component.spec.ts
+│   │    │    │    │    └── parties.component.ts
+│   │    │    │    ├── product
+│   │    │    │    │    ├── product.component.spec.ts
+│   │    │    │    │    └── product.component.ts
+│   │    │    │    ├── query-details
+│   │    │    │    │    ├── query-details.component.spec.ts
+│   │    │    │    │    └── query-details.component.ts
+│   │    │    │    └── report-type
+│   │    │    │        ├── report-type.component.spec.ts
+│   │    │    │        └── report-type.component.ts
+│   │    │    ├── advanced-filters
+│   │    │    │    ├── advanced-filters-routing.module.ts
+│   │    │    │    ├── advanced-filters.component.spec.ts
+│   │    │    │    ├── advanced-filters.component.ts
+│   │    │    │    ├── advanced-filters.model.ts
+│   │    │    │    ├── advanced-filters.module.ts
+│   │    │    │    ├── advanced-filters.service.spec.ts
+│   │    │    │    ├── advanced-filters.service.ts
+│   │    │    │    └── api.temporal.ts
+│   │    │    ├── fails
+│   │    │    │    ├── api.temporal.ts
+│   │    │    │    ├── fails-routing.module.ts
+│   │    │    │    ├── fails.component.spec.ts
+│   │    │    │    ├── fails.component.ts
+│   │    │    │    ├── fails.model.ts
+│   │    │    │    ├── fails.module.ts
+│   │    │    │    ├── fails.service.ts
+│   │    │    │    ├── fais.service.spec.ts
+│   │    │    │    ├── ranking-list
+│   │    │    │    │    ├── ranking-list.component.spec.ts
+│   │    │    │    │    └── ranking-list.component.ts
+│   │    │    │    ├── table-logs
+│   │    │    │    │    ├── table-logs.component.spec.ts
+│   │    │    │    │    ├── table-logs.component.ts
+│   │    │    │    │    └── wrapper-table.component.ts
+│   │    │    │    └── toolbar
+│   │    │    │        ├── toolbar.component.spec.ts
+│   │    │    │        └── toolbar.component.ts
+│   │    │    ├── guides
+│   │    │    │    ├── api.temporal.ts
+│   │    │    │    ├── guides-routing.module.ts
+│   │    │    │    ├── guides.component.spec.ts
+│   │    │    │    ├── guides.component.ts
+│   │    │    │    ├── guides.model.ts
+│   │    │    │    ├── guides.module.ts
+│   │    │    │    ├── guides.service.spec.ts
+│   │    │    │    └── guides.service.ts
+│   │    │    ├── index.ts
+│   │    │    ├── response-files
+│   │    │    │    ├── api.temporal.ts
+│   │    │    │    ├── response-files-routing.module.ts
+│   │    │    │    ├── response-files.component.spec.ts
+│   │    │    │    ├── response-files.component.ts
+│   │    │    │    ├── response-files.module.ts
+│   │    │    │    ├── response-files.service.spec.ts
+│   │    │    │    ├── response-files.service.ts
+│   │    │    │    ├── search-files
+│   │    │    │    │    ├── search-files.component.spec.ts
+│   │    │    │    │    └── search-files.component.ts
+│   │    │    │    └── table-files
+│   │    │    │        ├── table-files.component.spec.ts
+│   │    │    │        └── table-files.component.ts
+│   │    │    ├── summary
+│   │    │    │    ├── api.temporal.ts
+│   │    │    │    ├── doughnut-detail
+│   │    │    │    │    ├── doughnut-detail.component.spec.ts
+│   │    │    │    │    └── doughnut-detail.component.ts
+│   │    │    │    ├── media-menu
+│   │    │    │    │    ├── media-menu.component.spec.ts
+│   │    │    │    │    └── media-menu.component.ts
+│   │    │    │    ├── summary-routing.module.ts
+│   │    │    │    ├── summary.component.scss
+│   │    │    │    ├── summary.component.spec.ts
+│   │    │    │    ├── summary.component.ts
+│   │    │    │    ├── summary.model.ts
+│   │    │    │    ├── summary.module.ts
+│   │    │    │    ├── summary.service.spec.ts
+│   │    │    │    └── summary.service.ts
+│   │    │    ├── upload
+│   │    │    │    ├── upload-routing.module.ts
+│   │    │    │    ├── upload.component.scss
+│   │    │    │    ├── upload.component.spec.ts
+│   │    │    │    ├── upload.component.ts
+│   │    │    │    └── upload.module.ts
+│   │    │    └── user-information
+│   │    │        ├── user-information.component.gen.spec.ts
+│   │    │        ├── user-information.component.scss
+│   │    │        ├── user-information.component.spec.ts
+│   │    │        ├── user-information.component.ts
+│   │    │        └── user-information.module.ts
+│   │    ├── core
+│   │    │    ├── ad-hoc-scaffold
+│   │    │    │    ├── ad-hoc-scaffold.component.spec.ts
+│   │    │    │    ├── ad-hoc-scaffold.component.ts
+│   │    │    │    └── ad-hoc-scaffold.module.ts
+│   │    │    ├── body-options
+│   │    │    │    ├── body-options.component.spec.ts
+│   │    │    │    ├── body-options.component.ts
+│   │    │    │    ├── body-options.model.ts
+│   │    │    │    └── body-options.module.ts
+│   │    │    ├── chart-detail
+│   │    │    │    ├── chart-detail.component.spec.ts
+│   │    │    │    ├── chart-detail.component.ts
+│   │    │    │    └── chart-detail.module.ts
+│   │    │    ├── core.module.ts
+│   │    │    ├── index.ts
+│   │    │    ├── input-select
+│   │    │    │    ├── input-select.component.spec.ts
+│   │    │    │    ├── input-select.component.ts
+│   │    │    │    ├── input-select.model.ts
+│   │    │    │    └── input-select.module.ts
+│   │    │    ├── query-details
+│   │    │    │    ├── query-details.component.spec.ts
+│   │    │    │    ├── query-details.component.ts
+│   │    │    │    ├── query-details.model.ts
+│   │    │    │    └── query-details.module.ts
+│   │    │    ├── sidenav
+│   │    │    │    ├── sidenav.component.scss
+│   │    │    │    ├── sidenav.component.spec.ts
+│   │    │    │    ├── sidenav.component.ts
+│   │    │    │    ├── sidenav.module.ts
+│   │    │    │    ├── sidenav.service.spec.ts
+│   │    │    │    └── sidenav.service.ts
+│   │    │    ├── single-field
+│   │    │    │    ├── single-field.component.spec.ts
+│   │    │    │    ├── single-field.component.ts
+│   │    │    │    └── single-field.module.ts
+│   │    │    ├── table-detail
+│   │    │    │    ├── table-detail.component.spec.ts
+│   │    │    │    ├── table-detail.component.ts
+│   │    │    │    └── table-detail.module.ts
+│   │    │    └── toolbar
+│   │    │        ├── toolbar.component.spec.ts
+│   │    │        ├── toolbar.component.ts
+│   │    │        ├── toolbar.helpers.ts
+│   │    │        ├── toolbar.module.ts
+│   │    │        ├── toolbar.service.spec.ts
+│   │    │        └── toolbar.service.ts
+│   │    ├── pods
+│   │    │    ├── account
+│   │    │    │    ├── account-routing.module.ts
+│   │    │    │    ├── account.component.gen.spec.ts
+│   │    │    │    ├── account.component.spec.ts
+│   │    │    │    ├── account.component.ts
+│   │    │    │    ├── account.module.ts
+│   │    │    │    ├── account.service.spec.ts
+│   │    │    │    ├── account.service.ts
+│   │    │    │    ├── api-to-vm.spec.ts
+│   │    │    │    ├── api-to-vm.ts
+│   │    │    │    ├── user-account.api.model.ts
+│   │    │    │    └── user-account.model.ts
+│   │    │    ├── advanced-queries
+│   │    │    │    ├── advanced-queries-routes-names.ts
+│   │    │    │    ├── advanced-queries-routing.module.ts
+│   │    │    │    ├── advanced-queries.component.scss
+│   │    │    │    ├── advanced-queries.component.spec.ts
+│   │    │    │    ├── advanced-queries.component.ts
+│   │    │    │    └── advanced-queries.module.ts
+│   │    │    ├── benchmark
+│   │    │    │    ├── benchmark-routes-names.ts
+│   │    │    │    ├── benchmark-routing.module.ts
+│   │    │    │    ├── benchmark.component.spec.ts
+│   │    │    │    ├── benchmark.component.ts
+│   │    │    │    └── benchmark.module.ts
+│   │    │    ├── documentation
+│   │    │    │    ├── documentation-routes-names.ts
+│   │    │    │    ├── documentation-routing.module.ts
+│   │    │    │    ├── documentation.component.spec.ts
+│   │    │    │    ├── documentation.component.ts
+│   │    │    │    └── documentation.module.ts
+│   │    │    └── main
+│   │    │        ├── main-routes-names.ts
+│   │    │        ├── main-routing.module.ts
+│   │    │        ├── main.component.scss
+│   │    │        ├── main.component.spec.ts
+│   │    │        ├── main.component.ts
+│   │    │        └── main.module.ts
+│   │    └── utils
+│   │        ├── chart-styles.global.ts
+│   │        ├── fake.ts
+│   │        ├── router.helper.ts
+│   │        ├── test
+│   │        │    ├── account.json
+│   │        │    ├── account.mocks.ts
+│   │        │    ├── mock-data.ts
+│   │        │    ├── sidenav.mock.ts
+│   │        │    └── user-avatar.mock.ts
+│   │        └── variable-styles.global.ts
+│   ├── assets
+│   │    ├── .DS_Store
+│   │    ├── dummy.pdf
+│   │    ├── images
+│   │    │    ├── .DS_Store
+│   │    │    ├── avatars
+│   │    │    │    ├── avatar.png
+│   │    │    │    └── noavatar.png
+│   │    │    └── companies
+│   │    │        ├── acciona.png
+│   │    │        ├── bbva.png
+│   │    │        ├── inditex.png
+│   │    │        ├── mapfre.png
+│   │    │        ├── regis-tr.png
+│   │    │        ├── repsol.png
+│   │    │        └── santander.png
+│   │    ├── json
+│   │    │    ├── doughnut-data.json
+│   │    │    ├── sidenav.json
+│   │    │    ├── user-account.json
+│   │    │    └── user-avatar.json
+│   │    ├── logo-atmira.png
+│   │    ├── logo-atmira.svg
+│   │    └── my_example.csv
+│   ├── environments
+│   │    ├── environment.production.ts
+│   │    └── environment.ts
+│   ├── favicon.ico
+│   ├── index.html
+│   ├── main.ts
+│   ├── polyfills.ts
+│   └── styles.scss
 ├── tsconfig.app.json
 └── tsconfig.json
-
-16 directories, 42 files
 
 ```
 
 ## Ficheros más destacables
 
-Como ficheros a destacar dentro del proyecto base tenemos los siguientes:
+Como ficheros a destacar dentro del proyecto tenemos los siguientes:
 
 | Ficheros/Carpeta   | Descripción                                                                                                                         |
 |--------------------|-------------------------------------------------------------------------------------------------------------------------------------|
 | .husky/            | Fichero de configuración de husky.                                                                                                  |
 | config/            | Fichero de configuración de testing, linter,...                                                                                     |
-| cucumber/          | Carpeta donde se encuentran test. ATDD.                                                                                             |
 | e2e/               | Carpeta donde se encuentran test. e2e.                                                                                              |
 | src/               | Carpeta donde se encuentran nuestros. sources.                                                                                      |
 | /environments      | Carpeta donde se encuentran nuestros ficheros de propiedades por entornos.                                                          |
@@ -192,11 +573,8 @@ La definición del fichero que existe en nuestro proyecto base es el siguiente:
     "bundleAnalyzed": "run-s build:stats analyzed",
     "ci:pack": "npm pack",
     "ci:e2e": "ng e2e --protractor-config=./e2e/protractor-ci.conf.js --webdriver-update false",
-    "ci:cucumber": "protractor config/atdd/cucumber-ci.conf.js --webdriver-update false",
     "ci:test": "ng test",
     "ci:compodoc": "npm run compodoc -- --coverageTest",
-    "precucumber": "rimraf ./cucumber_report && webdriver-manager update",
-    "cucumber": "protractor config/atdd/cucumber.conf.js",
     "precommit": "run-s format:fix lint",
     "commit": "npx cz",
     "precompodoc": "npm run test:coverage",
@@ -210,31 +588,33 @@ La definición del fichero que existe en nuestro proyecto base es el siguiente:
     "prepublishOnly": "npm run build:prod",
     "prettier": "npx prettier --write ./src",
     "release": "standard-version",
-    "serve": "ng serve",
+    "serve": "ng serve --port 5555",
     "start": "ng serve -o",
-    "test": "ng test",
-    "test:coverage": "ng test --coverage",
-    "test:watch": "ng test --watch",
+    "test": "ng test --detect-open-handles",
+    "test:coverage": "ng test -i --coverage",
+    "test:watch": "ng test -i --detect-open-handles --watch",
     "prepare": "husky install"
   },
-  "resolutions": {
-    "webpack": "^5.0.0"
-  },
   "dependencies": {
-    "@angular/animations": "^11.2.10",
-    "@angular/cdk": "^11.2.9",
-    "@angular/common": "^11.2.10",
-    "@angular/compiler": "^11.2.10",
-    "@angular/compiler-cli": "^11.2.10",
-    "@angular/core": "^11.2.10",
-    "@angular/forms": "^11.2.10",
-    "@angular/material": "^11.2.9",
-    "@angular/platform-browser": "^11.2.10",
-    "@angular/platform-browser-dynamic": "^11.2.10",
-    "@angular/router": "^11.2.10",
-    "rxjs": "^6.6.7",
-    "tslib": "^2.2.0",
-    "zone.js": "~0.11.4"
+    "@angular/animations": "11.2.14",
+    "@angular/cdk": "11.2.13",
+    "@angular/common": "11.2.14",
+    "@angular/compiler": "11.2.14",
+    "@angular/core": "11.2.14",
+    "@angular/flex-layout": "^11.0.0-beta.33",
+    "@angular/forms": "11.2.14",
+    "@angular/material": "11.2.13",
+    "@angular/platform-browser": "11.2.14",
+    "@angular/platform-browser-dynamic": "11.2.14",
+    "@angular/router": "11.2.14",
+    "@atmira/authentication": "0.1.0",
+    "@atmira/pattern-lib": "0.3.1",
+    "animate.css": "^4.1.1",
+    "lodash.merge": "^4.6.2",
+    "ngx-scrollbar": "^7.5.6",
+    "rxjs": "6.6.7",
+    "tslib": "2.3.0",
+    "zone.js": "0.11.4"
   },
   "devDependencies": {
     "@angular-builders/jest": "^11.1.1",
@@ -486,7 +866,6 @@ Se han agregado los siguientes `scripts` en el `package.json` del proyecto:
 - `test:coverage`: Ejecuta los Unit Test, muestra reporte y genera reporte de cobertura.
 - `test:watch`: Ejecuta los Unit Test en modo watch y genera reporte.
 - `prepare`: Comando para husky.
-- `cucumber`: Ejecuta los test ATDD,
 - `postinstall`: Ejecuta la el comando `npm audit fix --force` sobre las dependencias
 
 ## Testing
@@ -566,7 +945,10 @@ Actualizamos el `tsconfig.spec.json`, que se encuentra en la carpeta `config/tes
     "outDir": "../../out-tsc/spec",
     // is necessary to avoid the following warning: If you have issues related to imports, you should consider setting `esModuleInterop` to `true` in your TypeScript configuration file (usually `tsconfig.json`).
     "esModuleInterop": true,
-    "types": ["jest", "node"]
+    "types": ["jest", "node"],
+    "module": "commonjs",
+    "allowJs": true,
+    "resolveJsonModule": true
   },
   "files": ["src/polyfills.ts"],
   "include": ["src/**/*.spec.ts", "src/**/*.d.ts"]
@@ -596,7 +978,7 @@ Aunque se ejecuten las pruebas unitarias con `Jest`, `Protractor` (test e2e) tod
     "importHelpers": true,
     "target": "es2015",
     "lib": ["es2018", "dom"],
-    "types": ["jest"]
+    "types": ["jest"],
   },
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,
@@ -674,6 +1056,12 @@ Si hacemos  una ejecución de test en modo coverage con el script `test:coverage
 #### Solución de problemas
 
 Los problemas más comunes de trabajar con `Jest` en Angular, están descritos [aquí](https://github.com/just-jeb/angular-builders/tree/master/packages/jest#troubleshooting)
+
+#### Testing Library
+
+Para escribir test mantenibles que nos den confianza en que nuestros componentes están funcionando para sus usuarios, se ha configurado la librería de `@testing/library`. Como parte de este objetivo, estas suites de pruebas no incluyen detalles de implementación para que las refactorizaciones de los componentes (cambios en la implementación pero no en la funcionalidad) no rompan los test y no retrasen al equipo.
+
+La librería, DOM Testing Library, es una solución ligera para probar páginas web consultando e interactuando con nodos DOM (ya sea simulado con JSDOM/Jest o en el navegador). Las principales utilidades que proporciona implican la consulta del DOM para los nodos de una manera que es similar a cómo el usuario encuentra los elementos en la página. De este modo, la librería ayuda a garantizar que tus pruebas te den la seguridad de que tu aplicación funcionará cuando un usuario real la utilice.
 
 ### End2End: ProtractorJS
 
@@ -863,15 +1251,14 @@ Se ha modificado el `angular.json` de la aplicación, de tal manera que queda de
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
             "aot": true,
-            "assets": [
-              "src/favicon.ico",
-              "src/assets"
-            ],
+            "assets": ["src/favicon.ico", "src/assets"],
             "styles": [
               "./node_modules/@angular/material/prebuilt-themes/pink-bluegrey.css",
+              "./node_modules/animate.css/animate.css",
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": ["./node_modules/chart.js/dist/chart.esm.js"],
+            "allowedCommonJsDependencies": ["chart.js"]
           },
           "configurations": {
             "production": {
@@ -927,14 +1314,19 @@ Se ha modificado el `angular.json` de la aplicación, de tal manera que queda de
           "options": {
             "configPath": "./config/test/jest.config.js",
             "tsConfig": "./config/test/tsconfig.spec.json",
+            "polyfills": "src/polyfills.ts",
             "no-cache": true,
             "verbose": true,
             "watch": false,
-            "assets": [
-              "src/favicon.ico",
-              "src/assets"
+            "globalMocks": [
+              "getComputedStyle",
+              "doctype",
+              "styleTransform",
+              "matchMedia"
             ],
+            "assets": ["src/favicon.ico", "src/assets"],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.scss"
             ],
             "scripts": []
@@ -943,10 +1335,7 @@ Se ha modificado el `angular.json` de la aplicación, de tal manera que queda de
         "lint": {
           "builder": "@angular-eslint/builder:lint",
           "options": {
-            "lintFilePatterns": [
-              "src/**/*.ts",
-              "src/**/*.html"
-            ],
+            "lintFilePatterns": ["src/**/*.ts", "src/**/*.html"],
             "eslintConfig": ".eslintrc.js",
             "fix": true
           }
@@ -991,17 +1380,14 @@ El proyecto ha pasado unas pruebas DoD, la siguiente tabla las resume:
 | npm run lint           | Pasa los linters y hace un fix                                     | OK   |
 | npm run compodoc       | Crea documentacion con compodoc                                    | OK   |
 | npm run prettier       | Pasa el lintado de prettier                                        | OK   |
-| npm run release        | Crea release                                                       |      |
+| npm run release        | Crea release                                                       | NP   |
 | npm run bundleAnalyzed | Genera y muestra un análisis del bundle                            | OK   |
-| npm run e2e            | Lanza pruebas e2e con protractor                                   | OK   |
-| npm run e2e            | Crea reporte con protractor                                        | OK   |
-| npm run e2e            | Cuando hay un error, genera un reporte con screenshot              | OK   |
-| npm run cucumber       | Lanza pruebas de aceptación con cucumber                           | OK   |
-| npm run cucumber       | Crea un reporte en formato html y json                             | OK   |
-| npm run ci:e2e         | Lanza pruebas e2e para un entorno CI                               | OK   |
-| npm run ci:cucumber    | Lanza pruebas de aceptación para un entorno CI                     | OK   |
-| npm run ci:test        | Lanza test unitarios para un entorno CI                            | OK   |
-| npm run ci:compodoc    | Lanza generación de documentación con cobertura para un entorno CI | OK   |
+| npm run e2e            | Lanza pruebas e2e con protractor                                   | NP   |
+| npm run e2e            | Crea reporte con protractor                                        | NP   |
+| npm run e2e            | Cuando hay un error, genera un reporte con screenshot              | NP   |
+| npm run ci:e2e         | Lanza pruebas e2e para un entorno CI                               | NP   |
+| npm run ci:test        | Lanza test unitarios para un entorno CI                            | NP   |
+| npm run ci:compodoc    | Lanza generación de documentación con cobertura para un entorno CI | NP   |
 
 ------
 

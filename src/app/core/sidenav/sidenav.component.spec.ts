@@ -8,7 +8,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CommonModule } from '@angular/common';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { MatButtonModule } from '@angular/material/button';
-import { NO_ERRORS_SCHEMA } from '@angular/core';
+import { NO_ERRORS_SCHEMA, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { NgScrollbarModule } from 'ngx-scrollbar';
 import { RouterTestingModule } from '@angular/router/testing';
 import { SidenavComponent } from './sidenav.component';
@@ -40,7 +40,7 @@ describe('SidenavComponent', () => {
     });
 
     await TestBed.configureTestingModule({
-      schemas: [NO_ERRORS_SCHEMA],
+      schemas: [NO_ERRORS_SCHEMA, CUSTOM_ELEMENTS_SCHEMA],
       declarations: [ SidenavComponent ],
       imports: [
         CommonModule,
@@ -71,6 +71,11 @@ describe('SidenavComponent', () => {
     component.currentUser = mockCurrentUser;
     fixture.detectChanges();
   });
+
+  beforeEach(() => {
+    jest.spyOn(console, 'error').mockImplementation(() => ({}));
+  });
+
 
   test('should create', () => {
     expect(component).toBeTruthy();

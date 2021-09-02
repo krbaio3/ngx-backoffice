@@ -15,23 +15,23 @@ export class AuthAppService {
   set token(value: AuthToken | undefined) {
     this._token = value;
   }
-  private AUTH_APP_TOKEN = 'auth_app_token';
+  // private AUTH_APP_TOKEN = 'auth_app_token';
   private destroy$ = new Subject<void>();
   private _token!: AuthToken | undefined;
 
   constructor(private authService: AuthService, private router: Router) {}
 
-  getToken(): string {
-    return <string>localStorage.getItem(this.AUTH_APP_TOKEN);
-  }
-
-  saveToken(token: string): void {
-    localStorage.setItem(this.AUTH_APP_TOKEN, token);
-  }
-
-  removeToken(): void {
-    localStorage.removeItem(this.AUTH_APP_TOKEN);
-  }
+  // getToken(): string {
+  //   return <string>localStorage.getItem(this.AUTH_APP_TOKEN);
+  // }
+  //
+  // saveToken(token: string): void {
+  //   localStorage.setItem(this.AUTH_APP_TOKEN, token);
+  // }
+  //
+  // removeToken(): void {
+  //   localStorage.removeItem(this.AUTH_APP_TOKEN);
+  // }
 
   loginKeycloak() {
     this.authService

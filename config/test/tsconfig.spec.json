@@ -3,7 +3,7 @@
   "compilerOptions": {
     // is needed for reflection over metadata in Jest runtime
     "emitDecoratorMetadata": true,
-    "outDir": "../../out-tsc/spec",
+    "outDir": "../../dist/out-tsc/spec",
     // is necessary to avoid the following warning: If you have issues related to imports, you should consider setting `esModuleInterop` to `true` in your TypeScript configuration file (usually `tsconfig.json`).
     "esModuleInterop": true,
     "types": ["jest", "node"],

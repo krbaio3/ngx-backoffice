@@ -1,11 +1,4 @@
-import {
-  Component,
-  EventEmitter,
-  Input,
-  OnDestroy,
-  OnInit,
-  Output,
-} from '@angular/core';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import {
   CurrentUser,
   currentUserInit,
@@ -46,7 +39,6 @@ import { ToolbarService } from './toolbar.service';
       </button>
 
       <span class="spacer"></span>
-
       <!--      <button-->
       <!--        mat-icon-button-->
       <!--        (click)="searchOpen = !searchOpen"-->
@@ -64,10 +56,6 @@ import { ToolbarService } from './toolbar.service';
       ></cdk-toolbar-notification>
 
       <cdk-user-menu [currentUser]="currentUser"></cdk-user-menu>
-
-      <!--      <button mat-icon-button (click)="sidebar.toggle()">-->
-      <!--        <i class="material-icons app-toolbar-menu">menu </i>-->
-      <!--      </button>-->
     </mat-toolbar>
   `,
   styles: [
@@ -124,7 +112,6 @@ export class ToolbarComponent implements OnInit, OnDestroy {
       .subscribe(async () => {
         await this.toggleView();
       });
-    // this.callToGetUser();
     this.callToGetNotifications(this.currentUser.id);
   }
 
