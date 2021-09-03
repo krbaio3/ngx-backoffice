@@ -8,7 +8,7 @@ const {
 module.exports = {
   name: displayName,
   // Automatically clear mock calls and instances between every test
-  clearMocks: true,
+  clearMocks: false,
 
   // Indicates whether the coverage information should be collected while executing the test
   collectCoverage: false,
@@ -17,7 +17,7 @@ module.exports = {
   coverageDirectory: 'coverage',
 
   // An array of regexp pattern strings used to skip coverage collection
-  coveragePathIgnorePatterns: ['/node_modules/'],
+  coveragePathIgnorePatterns: ['/node_modules/', '<rootDir>/src/app/utils/'],
 
   // Indicates which provider should be used to instrument code for coverage
   coverageProvider: 'v8',
@@ -28,7 +28,7 @@ module.exports = {
   // An object that configures minimum threshold enforcement for coverage results
   coverageThreshold,
 
-  displayName,
+  // displayName,
 
   // A path to a custom dependency extractor
   // dependencyExtractor: undefined,
@@ -46,7 +46,7 @@ module.exports = {
   // globalTeardown: undefined,
 
   // A set of global variables that need to be available in all test environments
-  // globals,
+  globals,
 
   // The maximum amount of workers used to run your tests. Can be specified as % or a number. E.g. maxWorkers: 10% will use 10% of your CPU amount + 1 as the maximum worker number. maxWorkers: 2 will use a maximum of 2 workers.
   // maxWorkers: "50%",
@@ -60,7 +60,9 @@ module.exports = {
   modulePaths: ['<rootDir>/src'],
 
   // A map from regular expressions to module names or to arrays of module names that allow to stub out resources with a single module
-  // moduleNameMapper: {},
+  moduleNameMapper: {
+    '@core/(.*)': '<rootDir>/src/app/core/$1',
+  },
 
   // An array of regexp pattern strings, matched against all module paths before considered 'visible' to the module loader
   modulePathIgnorePatterns: ['<rootDir>/dist/'],
@@ -78,7 +80,7 @@ module.exports = {
   // projects: undefined,
 
   // Use this configuration option to add custom reporters to Jest
-  reporters,
+  // reporters,
 
   // Automatically reset mock state between every test
   resetMocks: false,
@@ -130,6 +132,8 @@ module.exports = {
     '<rootDir>/node_modules/',
     '<rootDir>/dist/',
     '<rootDir>/cypress/',
+    '<rootDir>/src/app/utils/',
+    '<rootDir>/src/app/*/api.api.temporal.ts',
   ],
 
   // The regexp pattern or array of patterns that Jest uses to detect test files
@@ -153,10 +157,7 @@ module.exports = {
   // },
 
   // An array of regexp pattern strings that are matched against all source file paths, matched files will skip transformation
-  // transformIgnorePatterns: [
-  //   "/node_modules/",
-  //   "\\.pnp\\.[^\\/]+$"
-  // ],
+  transformIgnorePatterns: ['node_modules/(?!(jest-test|@ngrx))'],
 
   // An array of regexp pattern strings that are matched against all modules before the module loader will automatically return a mock for them
   // unmockedModulePathPatterns: undefined,

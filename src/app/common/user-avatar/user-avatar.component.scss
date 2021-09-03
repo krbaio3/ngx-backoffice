@@ -1,0 +1,17 @@
+:host {
+  height: 100%;
+}
+
+.user_avatar__container {
+  position: relative;
+  margin: 15px 5px;
+
+  .avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+  }
+  .name {
+    margin: 0 8px 0 10px;
+  }
+}
