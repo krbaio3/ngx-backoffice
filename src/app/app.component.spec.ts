@@ -5,6 +5,7 @@ import { AppInitService } from './app-init.service';
 import { MediaObserver } from '@angular/flex-layout';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { currentUserInit } from './common/user-avatar/user-avatar.model';
+import { AuthAppService } from "./auth/auth.service";
 
 describe('AppComponent', () => {
   let component: AppComponent;
@@ -16,12 +17,14 @@ describe('AppComponent', () => {
       isActive: (f: string) => ({})
     });
     const appInitServiceStub = () => ({ sidenavMenu: {}, userAvatarData: {} });
+    const authAppServiceStub = () => ({logoutKeycloak: ()=> ({})});
     TestBed.configureTestingModule({
       schemas: [NO_ERRORS_SCHEMA],
       declarations: [AppComponent],
       providers: [
         { provide: MediaObserver, useFactory: mediaObserverStub },
-        { provide: AppInitService, useFactory: appInitServiceStub }
+        { provide: AppInitService, useFactory: appInitServiceStub },
+        { provide: AuthAppService, useFactory: authAppServiceStub }
       ]
     });
     fixture = TestBed.createComponent(AppComponent);

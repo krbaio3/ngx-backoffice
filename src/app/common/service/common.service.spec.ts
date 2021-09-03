@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 
-import { CommonService } from './common-service.service';
+import { CommonService } from './common.service';
 
 describe('CommonServiceService', () => {
   let service: CommonService;
@@ -13,4 +13,5 @@ describe('CommonServiceService', () => {
   it('should be created', () => {
     expect(service).toBeTruthy();
   });
+
 });

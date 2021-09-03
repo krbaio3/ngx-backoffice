@@ -2,7 +2,7 @@ export interface AuthObject {
   name: string;
   ownerStrategyName: string;
   createdAt: number;
-  value: Value;
+  value: Value | string;
 }
 
 export interface Value {

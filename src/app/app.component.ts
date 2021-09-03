@@ -8,7 +8,6 @@ import {
   CommonService,
 } from './common';
 import { AuthAppService } from './auth/auth.service';
-import { take } from 'rxjs/operators';
 
 @Component({
   selector: 'atm-root',

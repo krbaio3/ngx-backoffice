@@ -9,11 +9,11 @@ export class CommonService {
 
   private userMenuLogoutEvent = new BehaviorSubject<boolean>(false);
 
-  emitUserMenuLogoutEvent(value: boolean) {
+  public emitUserMenuLogoutEvent(value: boolean) {
     this.userMenuLogoutEvent.next(value);
   }
 
-  userMenuLogoutEventListener() {
+  public userMenuLogoutEventListener() {
     return this.userMenuLogoutEvent.asObservable();
   }
 }
